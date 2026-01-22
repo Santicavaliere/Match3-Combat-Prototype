@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://j4kd1bj715qk"]
+
+[ext_resource type="Script" uid="uid://dmyppy1rh7p53" path="res://Scripts/Grid/GridManager.gd" id="1_nk5f1"]
+[ext_resource type="PackedScene" uid="uid://bn28ypx8uv4ug" path="res://Scenes/Components/Piece.tscn" id="2_qgk3n"]
+
+[node name="GameLevel" type="Node2D"]
+
+[node name="GridManager" type="Node2D" parent="."]
+script = ExtResource("1_nk5f1")
+piece_scene = ExtResource("2_qgk3n")
