@@ -33,10 +33,7 @@ func setup(tx: int, ty: int, t_type: int):
 ## Input callback connected to the child Area2D node.
 ## Detects Left Mouse Button clicks OR Touch inputs on mobile.
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	var is_mouse_click = event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
-	
-	var is_touch_tap = event is InputEventScreenTouch and event.pressed
-	
-	if is_mouse_click or is_touch_tap:
+	# Solo escuchamos el evento de Mouse (que ahora incluye al dedo gracias a la emulación)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		print("Input detected on piece: ", grid_x, ",", grid_y)
-		piece_selected.emit(self) # Sintaxis moderna de Godot 4 para emitir señales
+		piece_selected.emit(self)
