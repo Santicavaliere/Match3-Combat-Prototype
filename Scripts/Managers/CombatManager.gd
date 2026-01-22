@@ -9,54 +9,58 @@ var max_health: int = 100
 var current_health: int = 100
 
 func _ready():
-	# Inicializar UI
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	
-	# --- CONECTARSE AL SIGNALBUS ---
-	# Escuchamos al tablero sin conocerlo directamente
+	# Connect to the global signal to listen for matches from the GridManager
 	SignalBus.match_found.connect(_on_match_made)
 
+## Callback triggered when a match occurs in the GridManager.
+## Calculates total damage based on the tile type (color) and the number of tiles destroyed.
+## Damage Logic:
+## - Type 0 (Red): Heavy Damage (Multiplier x10)
+## - Type 1 (Blue): Medium Damage (Multiplier x5)
+## - Type 2 (Green): Light Damage (Multiplier x2)
+## - Type 3 (Yellow): Medium Damage (Multiplier x5)
 func _on_match_made(type: int, amount: int):
-	# Aquí defines las reglas de tu RPG
-	# Por ejemplo:
-	# Tipo 0 (Rojo) = Ataque Fuerte
-	# Tipo 1 (Azul) = Ataque Mágico (o Escudo)
-	# Tipo 2 (Verde) = Poco daño
 	
 	var damage = 0
 	
 	match type:
-		0: damage = amount * 10 # Rojo pega duro
+		0: damage = amount * 10 
 		1: damage = amount * 5
 		2: damage = amount * 2
 		3: damage = amount * 5
-		_: damage = amount # Default
+		_: damage = amount 
 	
 	take_damage(damage)
 
+## Applies damage to the enemy and handles visual feedback (UI & FX).
+## 1. Updates the health value (clamped to 0).
+## 2. Animates the Health Bar using a Tween for smoothness.
+## 3. Flashes the enemy sprite white to indicate impact.
 func take_damage(amount: int):
 	current_health -= amount
 	if current_health < 0: current_health = 0
-	
-	# Animación de la barra (Tween para que baje suave)
+	# UI Animation: Smoothly decrease the health bar
 	var tween = create_tween()
 	tween.tween_property(health_bar, "value", current_health, 0.3).set_trans(Tween.TRANS_SINE)
-	
-	# Feedback visual en el enemigo (Flash blanco)
+	# Visual FX: Flash the enemy sprite (White -> Original Color)
 	var flash_tween = create_tween()
-	enemy_sprite.modulate = Color(10, 10, 10) # Blanco brillante
-	flash_tween.tween_property(enemy_sprite, "modulate", Color.RED, 0.2) # Volver a rojo
+	enemy_sprite.modulate = Color(10, 10, 10) 
+	flash_tween.tween_property(enemy_sprite, "modulate", Color.RED, 0.2) 
 	
-	print("Enemigo recibió ", amount, " de daño. Vida restante: ", current_health)
+	print("Enemy received ", amount, " damage. Remaining health: ", current_health)
 	
 	if current_health == 0:
 		die()
 
+## Handles the defeat sequence when health reaches 0.
+## Hides the enemy and reloads the scene after a short delay to restart the loop.
 func die():
-	print("¡ENEMIGO DERROTADO!")
-	# Aquí podrías mostrar un panel de "VICTORY"
+	print("¡Defeated enemy!")
+	
 	enemy_sprite.hide()
-	# Reiniciar para probar de nuevo (opcional)
+	
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene()
