@@ -1,0 +1,17 @@
+# Godot 4+ specific ignores
+.godot/
+*.translation
+export_presets.cfg
+
+# Imported translations (if any)
+*.csv.import
+
+# Mono/C# builds (if used, though you use GDScript)
+.mono/
+.vscode/
+*.sln
+*.csproj
+
+# OS specific
+.DS_Store
+Thumbs.db
