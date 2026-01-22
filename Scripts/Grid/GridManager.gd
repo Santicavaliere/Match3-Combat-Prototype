@@ -230,8 +230,22 @@ func find_matches() -> Array:
 	return matches_found
 
 func destroy_matches(matches: Array):
-	print("Destruyendo ", matches.size(), " piezas...")
+# --- NUEVO: CÁLCULO DE COMBATE ---
+	# Para simplificar, asumimos que todos los matches del array son del mismo tipo 
+	# (o agrupamos por tipo si quisieras ser más complejo, pero para prototipo basta con contar)
 	
+	if matches.size() > 0:
+		# Tomamos el tipo de la primera ficha como referencia
+		var first_coord = matches[0]
+		var type_id = grid_data[first_coord.x][first_coord.y]
+		var count = matches.size()
+		
+		# Emitimos la señal GLOBAL
+		# Nota: Asegúrate de que SignalBus esté en Autoload como hicimos en la Fase 1
+		SignalBus.match_found.emit(type_id, count)
+		print("Señal emitida: Tipo ", type_id, " - Cantidad: ", count)	
+	
+	print("Destruyendo ", matches.size(), " piezas...")
 	for coord in matches:
 		# 1. Borrar de la Matriz de Datos (Lógica)
 		# Si ya es null, saltamos (para no borrar dos veces la misma si se cruzan matches)
