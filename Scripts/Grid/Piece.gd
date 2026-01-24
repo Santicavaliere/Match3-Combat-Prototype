@@ -13,7 +13,17 @@ var type: int
 var grid_x: int
 var grid_y: int
 
+# --- VARIABLES NUEVAS PARA EL DRAG ---
+var start_touch_pos = Vector2.ZERO
+var is_dragging = false
+var drag_threshold = 30.0 # Cuántos píxeles hay que mover el dedo para que cuente
+
+# Señal nueva para avisarle al GridManager hacia dónde fuimos
+signal piece_swiped(piece_ref, direction)
+
 @onready var sprite = $Sprite2D
+
+
 
 ## Initializes the piece data and visual appearance.
 ## Called by GridManager immediately after instantiation.
@@ -30,10 +40,36 @@ func setup(tx: int, ty: int, t_type: int):
 		2: sprite.modulate = Color.GREEN
 		3: sprite.modulate = Color.YELLOW
 
-## Input callback connected to the child Area2D node.
-## Detects Left Mouse Button clicks OR Touch inputs on mobile.
+
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	# Solo escuchamos el evento de Mouse (que ahora incluye al dedo gracias a la emulación)
+	# 1. Cuando empezamos a tocar (Press)
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		print("Input detected on piece: ", grid_x, ",", grid_y)
-		piece_selected.emit(self)
+		is_dragging = true
+		start_touch_pos = get_global_mouse_position()
+		# Opcional: Seleccionar visualmente la pieza si quieres
+		piece_selected.emit(self) 
+
+	# 2. Cuando soltamos el click (Release)
+	elif event is InputEventMouseButton and not event.pressed:
+		is_dragging = false
+
+	# 3. Mientras movemos el dedo/mouse (Drag)
+	elif event is InputEventMouseMotion and is_dragging:
+		var current_pos = get_global_mouse_position()
+		var difference = current_pos - start_touch_pos
+		
+		# Si movimos el dedo más allá del umbral...
+		if difference.length() > drag_threshold:
+			# Calculamos la dirección principal (Arriba, Abajo, Izq, Der)
+			var direction = Vector2.ZERO
+			
+			if abs(difference.x) > abs(difference.y):
+				# Movimiento Horizontal
+				direction.x = sign(difference.x) # 1 (Derecha) o -1 (Izquierda)
+			else:
+				# Movimiento Vertical
+				direction.y = sign(difference.y) # 1 (Abajo) o -1 (Arriba)
+			
+			# ¡Enviamos la señal y dejamos de arrastrar!
+			piece_swiped.emit(self, direction)
+			is_dragging = false

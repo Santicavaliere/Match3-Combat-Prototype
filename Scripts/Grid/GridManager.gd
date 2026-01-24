@@ -61,6 +61,10 @@ func spawn_pieces():
 			
 			if not piece.piece_selected.is_connected(_on_piece_clicked):
 				piece.piece_selected.connect(_on_piece_clicked)
+			
+			# --- NUEVA CONEXIÓN ---
+			if not piece.piece_swiped.is_connected(_on_piece_swiped):
+				piece.piece_swiped.connect(_on_piece_swiped)
 
 ## Helper function to check if placing a specific tile type at (x,y) would cause a match.
 func _match_is_possible(x, y, type) -> bool:
@@ -82,16 +86,16 @@ func _on_piece_clicked(piece: Piece):
 	if first_selected == null:
 		first_selected = piece
 		first_selected.modulate = Color(1.2, 1.2, 1.2) 
-		print("Seleccionada 1: ", piece.grid_x, ",", piece.grid_y)
+		print("Selected 1: ", piece.grid_x, ",", piece.grid_y)
 		
 	elif first_selected == piece:
 		first_selected.modulate = Color.WHITE
 		first_selected = null
-		print("Deseleccionada")
+		print("Deselected")
 		
 	else:
 		second_selected = piece
-		print("Seleccionada 2: ", piece.grid_x, ",", piece.grid_y)
+		print("Selected 2: ", piece.grid_x, ",", piece.grid_y)
 		
 		if _is_adjacent(first_selected, second_selected):
 			first_selected.modulate = Color.WHITE
@@ -222,9 +226,9 @@ func destroy_matches(matches: Array):
 		var count = matches.size()
 		
 		SignalBus.match_found.emit(type_id, count)
-		print("Señal emitida: Tipo ", type_id, " - Cantidad: ", count)	
+		print("Signal emitted: Type", type_id, " - Amount: ", count)	
 	
-	print("Destruyendo ", matches.size(), " piezas...")
+	print("Destroying ", matches.size(), " parts...")
 	for coord in matches:
 		if grid_data[coord.x][coord.y] == null:
 			continue
@@ -258,7 +262,7 @@ func _get_piece_at(target_x: int, target_y: int) -> Piece:
 ## 2. Spawns new pieces above the screen to fill the top.
 ## 3. Checks for new matches (Chain Reactions) after everything lands.
 func refill_columns():
-	print("Rellenando tablero...")
+	print("Filling in the board...")
 	var tween = create_tween()
 	tween.set_parallel(true) 
 	
@@ -301,13 +305,29 @@ func refill_columns():
 				tween.tween_property(piece, "position", target_pos, 0.4).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	
 	await tween.finished
-	print("Caída terminada.")
+	print("Fall completed.")
 	
 	# RECURSION: Check for new matches created by the fall
 	var new_matches = find_matches()
 	if new_matches.size() > 0:
-		print("¡Reacción en cadena! Destruyendo de nuevo...")
+		print("Chain reaction! Destroying again...")
 		destroy_matches(new_matches)
 	else:
 		is_processing = false
-		print("Turno finalizado. Jugador puede mover.")
+		print("Turn ended. Player may move.")
+
+func _on_piece_swiped(source_piece: Piece, direction: Vector2):
+	if is_processing: return
+	
+	var target_x = source_piece.grid_x + int(direction.x)
+	var target_y = source_piece.grid_y + int(direction.y)
+	
+	if target_x >= 0 and target_x < width and target_y >= 0 and target_y < height:
+		
+		var target_piece = _get_piece_at(target_x, target_y)
+		
+		if target_piece != null:
+			print("Swap by Drag detected: ", source_piece.name, " with ", target_piece.name)
+			swap_pieces(source_piece, target_piece)
+	else:
+		print("Attempt to move off the board")
