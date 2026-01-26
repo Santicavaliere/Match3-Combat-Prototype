@@ -6,8 +6,8 @@ extends Node2D
 class_name GridManager
 
 # --- CONFIGURATION ---
-@export var width: int = 7
-@export var height: int = 9
+@export var width: int = 9
+@export var height: int = 7
 @export var offset: int = 70 
 @export var y_offset: int = 2 
 @export var piece_scene: PackedScene

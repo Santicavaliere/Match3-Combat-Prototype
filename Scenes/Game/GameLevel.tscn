@@ -22,18 +22,24 @@ mouse_filter = 2
 color = Color(0.12549, 0.12549, 0.188235, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(360, 640)
+position = Vector2(640, 360)
 
 [node name="GridManager" type="Node2D" parent="."]
-position = Vector2(115, 150)
+position = Vector2(338, -4)
 script = ExtResource("1_nk5f1")
 piece_scene = ExtResource("2_qgk3n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("3_3qaiq")]
-anchors_preset = 10
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.0
+offset_left = -95.0
+offset_top = 15.0
+offset_right = 212.0
+offset_bottom = 185.0
 grow_vertical = 1
 size_flags_horizontal = 4
 
