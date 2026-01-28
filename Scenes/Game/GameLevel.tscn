@@ -25,7 +25,7 @@ color = Color(0.12549, 0.12549, 0.188235, 1)
 position = Vector2(640, 360)
 
 [node name="GridManager" type="Node2D" parent="."]
-position = Vector2(338, -4)
+position = Vector2(250, 260)
 script = ExtResource("1_nk5f1")
 piece_scene = ExtResource("2_qgk3n")
 

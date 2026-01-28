@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-NewScript="*res://Scripts/Autoloads/SignalBus.gd"
 GameManager="*res://Scripts/Autoloads/GameManager.gd"
 SignalBus="*res://Scripts/Autoloads/SignalBus.gd"
 

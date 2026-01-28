@@ -6,10 +6,10 @@ extends Node2D
 class_name GridManager
 
 # --- CONFIGURATION ---
-@export var width: int = 9
+@export var width: int = 12
 @export var height: int = 7
-@export var offset: int = 70 
-@export var y_offset: int = 2 
+@export var offset: int = 64 
+@export var y_offset: int = 0 
 @export var piece_scene: PackedScene
 
 # --- DATA ---
@@ -21,13 +21,27 @@ var first_selected: Piece = null
 var second_selected: Piece = null
 var is_processing: bool = false 
 
+# --- TURN SYSTEM ---
+var max_moves: int = 3
+var current_moves: int = 0
+
 func _ready():
-	randomize() 
-	
+	randomize()
 	grid_data = make_2d_array()
 	spawn_pieces()
 	
+	# INITIALIZE TURN
+	reset_turn() ### NEW ###
+	
 	print_grid_to_console()
+
+## Resets the turn state, restoring action points and notifying the UI.
+func reset_turn():
+	current_moves = max_moves
+	# Notify the UI via the Global Bus
+	SignalBus.moves_updated.emit(current_moves)
+	is_processing = false
+	print("Turn Reset. Moves: ", current_moves)
 
 ## Initializes the empty 2D array structure to store tile data.
 func make_2d_array() -> Array:
@@ -62,7 +76,6 @@ func spawn_pieces():
 			if not piece.piece_selected.is_connected(_on_piece_clicked):
 				piece.piece_selected.connect(_on_piece_clicked)
 			
-			# --- NUEVA CONEXIÓN ---
 			if not piece.piece_swiped.is_connected(_on_piece_swiped):
 				piece.piece_swiped.connect(_on_piece_swiped)
 
@@ -82,7 +95,7 @@ func _match_is_possible(x, y, type) -> bool:
 ## Handles the First Click (Select) and Second Click (Swap) logic.
 func _on_piece_clicked(piece: Piece):
 	if is_processing: return 
-	
+	if current_moves <= 0: return ### NEW: INPUT BLOCK ###	
 	if first_selected == null:
 		first_selected = piece
 		first_selected.modulate = Color(1.2, 1.2, 1.2) 
@@ -144,6 +157,15 @@ func swap_pieces(p1: Piece, p2: Piece):
 	
 	if matches.size() > 0:
 		destroy_matches(matches)
+		# --- TURN LOGIC ---
+		current_moves -= 1
+		SignalBus.moves_updated.emit(current_moves) ### NOTIFY UI ###
+		print("Valid move! Moves left: ", current_moves)
+		
+		if current_moves <= 0:
+			print("WARNING: No more moves!")
+			# We will handle the turn switch to the enemy here later
+		# -----------------------
 	else:
 		swap_back(p1, p2)
 	
@@ -174,6 +196,7 @@ func swap_back(p1: Piece, p2: Piece):
 	
 	is_processing = false 
 
+## Prints the grid ID layout to the debug console.
 func print_grid_to_console():
 	print("--- GENERATED MAP ---")
 	
@@ -246,10 +269,11 @@ func destroy_matches(matches: Array):
 	refill_columns() 
 	
 	await get_tree().create_timer(0.3).timeout 
-	print("Destrucción terminada.")
+	print("Destruction complete.")
 	is_processing = false 
 
 
+## Returns the Piece node at specific grid coordinates.
 func _get_piece_at(target_x: int, target_y: int) -> Piece:
 	for child in get_children():
 		if child is Piece:
@@ -314,10 +338,17 @@ func refill_columns():
 		destroy_matches(new_matches)
 	else:
 		is_processing = false
-		print("Turn ended. Player may move.")
+		
+		# --- CORRECTION: REALISTIC LOG ---
+		if current_moves > 0:
+			print("Board stable. Waiting for input...")
+		else:
+			print("Board stable. No moves left -> Waiting for Turn Change...")
 
+## Handles swipe input for mobile/touch controls.
 func _on_piece_swiped(source_piece: Piece, direction: Vector2):
 	if is_processing: return
+	if current_moves <= 0: return ### NEW: INPUT BLOCK ###
 	
 	var target_x = source_piece.grid_x + int(direction.x)
 	var target_y = source_piece.grid_y + int(direction.y)

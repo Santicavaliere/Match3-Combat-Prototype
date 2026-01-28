@@ -9,11 +9,11 @@ extends Node
 ## Useful for triggering entry animations or starting the game timer.
 signal grid_generated
 
-## The core signal for the Combat Loop.
-## Emitted by GridManager when a match of 3 or more is destroyed.
-## @param type: Integer ID representing the color/element (0: Red, 1: Blue, etc.).
-## @param amount: The number of tiles destroyed in this match.
-signal match_found(gem_type: int, amount: int) 
+signal match_found(gem_type: int, amount: int)  # <--- ¡ESTA ES LA QUE DA ERROR!
+
+# --- NUEVA SEÑAL ---
+## Se emite cada vez que cambia la cantidad de movimientos restantes.
+signal moves_updated(moves_left: int)
 
 ## Emitted when the player's turn is completely over.
 ## (After all cascades, refilling, and animations have finished).
