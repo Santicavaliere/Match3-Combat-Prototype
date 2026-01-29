@@ -32,8 +32,7 @@ The system uses a Global Signal architecture to drive the combat state based on 
 * **Flow:**
     1.  **Player Turn:** Grid input is unlocked. Every valid swap consumes 1 AP.
     2.  **Turn End:** When AP reaches 0, the Grid input is strictly locked.
-    3.  **Enemy Turn:** The system simulates an enemy phase (placeholder for AI logic).
-    4.  **Reset:** Control returns to the player, and AP is refilled.
+    3.  **Enemy Phase:** The system transitions to the `EnemyTurn` state and holds. This confirms the State Machine has successfully passed control away from the player (Enemy AI logic to be implemented in the next phase).
 
 ## How to Test (Android)
 
@@ -42,6 +41,6 @@ The system uses a Global Signal architecture to drive the combat state based on 
 * **Controls:** Tap a piece to select it, then tap an adjacent piece to swap. Alternatively, swipe to swap.
 * **Verification:**
     * **Mana:** Check the debug console to see mana values updating upon matches.
-    * **Turns:** Perform 3 moves to verify that the board locks and the turn state transitions correctly.
+    * **Turn Logic:** Perform 3 moves. Verify that after the 3rd move, the board becomes unresponsive (Locked), confirming the transition to the Enemy Phase.
 
 ## Developed by Santiago
