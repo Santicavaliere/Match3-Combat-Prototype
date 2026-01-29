@@ -9,8 +9,8 @@ class_name Ability
 @export var ability_name: String = "Fireball"
 @export_multiline var description: String = "Deals damage to the enemy."
 @export var icon: Texture2D
-
 @export_group("Mana Costs")
+
 @export var cost_red: int = 0
 @export var cost_blue: int = 0
 @export var cost_green: int = 0

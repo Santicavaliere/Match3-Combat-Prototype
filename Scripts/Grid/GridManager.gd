@@ -272,7 +272,6 @@ func destroy_matches(matches: Array):
 	print("Destruction complete.")
 	is_processing = false 
 
-
 ## Returns the Piece node at specific grid coordinates.
 func _get_piece_at(target_x: int, target_y: int) -> Piece:
 	for child in get_children():
