@@ -1,10 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2h4fy1xsgboj"]
+[gd_scene load_steps=3 format=3 uid="uid://c2h4fy1xsgboj"]
 
-[ext_resource type="Texture2D" uid="uid://m2qvkjhk3rj3" path="res://icon.svg" id="1_omqfp"]
 [ext_resource type="Script" uid="uid://c28tssng0l2ie" path="res://Scripts/Managers/CombatManager.gd" id="1_qc5w2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qc5w2"]
-bg_color = Color(0.750628, 0, 0.216021, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qc5w2"]
 font_size = 40
@@ -23,32 +19,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_qc5w2")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -150.0
-offset_right = 150.0
-offset_bottom = 30.0
-grow_horizontal = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_qc5w2")
-step = 1.0
-value = 100.0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 0.105882, 0.0431373, 1)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -70.0
-offset_top = 40.0
-offset_right = 58.0
-offset_bottom = 168.0
-grow_horizontal = 2
-texture = ExtResource("1_omqfp")
 
 [node name="MovesLabel" type="Label" parent="."]
 layout_mode = 0
