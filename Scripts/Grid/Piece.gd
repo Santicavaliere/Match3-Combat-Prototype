@@ -14,11 +14,8 @@ var grid_y: int
 @onready var sprite = $Sprite2D
 
 # --- IMPROVED INPUT VARIABLES ---
-## Stores the global position where the touch/click started.
 var start_touch_pos = Vector2.ZERO
-## Flag to track if the player is currently holding this piece.
 var is_dragging = false
-## Minimum distance (in pixels) the finger must move to register a swipe.
 var drag_threshold = 20.0 
 
 func setup(tx: int, ty: int, t_type: int):
@@ -31,24 +28,40 @@ func setup(tx: int, ty: int, t_type: int):
 		2: sprite.modulate = Color.GREEN
 		3: sprite.modulate = Color.YELLOW
 
-# 1. INITIAL DETECTION (Triggered only when touching INSIDE the collision shape)
+# 1. INITIAL DETECTION (Soporta Mouse Y Touch nativo)
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	# Detectar Mouse (PC) O Touch (Celular)
+	var is_click = false
+	
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		is_click = true
+	elif event is InputEventScreenTouch and event.pressed:
+		is_click = true
+		
+	if is_click:
 		is_dragging = true
-		start_touch_pos = get_global_mouse_position()
+		start_touch_pos = get_global_mouse_position() # Funciona para ambos en Godot
 		
 		scale = Vector2(1.1, 1.1) 
 		piece_selected.emit(self)
 
-# 2. GLOBAL TRACKING (Tracks movement even if the finger leaves the piece area)
+# 2. GLOBAL TRACKING (Soporta Mouse Y Touch nativo)
 func _input(event):
 	if not is_dragging:
 		return
 	
+	# Detectar SOLTAR (Mouse o Touch)
+	var is_release = false
 	if event is InputEventMouseButton and not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		is_release = true
+	elif event is InputEventScreenTouch and not event.pressed:
+		is_release = true
+		
+	if is_release:
 		stop_dragging()
 
-	elif event is InputEventMouseMotion:
+	# Detectar ARRASTRE (Mouse o Touch)
+	elif event is InputEventMouseMotion or event is InputEventScreenDrag:
 		var current_pos = get_global_mouse_position()
 		var difference = current_pos - start_touch_pos
 		
@@ -56,7 +69,6 @@ func _input(event):
 			calculate_direction(difference)
 
 ## Determines the primary direction of the swipe (Horizontal vs Vertical).
-## Emits the swipe signal and stops the drag interaction immediately.
 func calculate_direction(difference: Vector2):
 	var direction = Vector2.ZERO
 	
@@ -72,4 +84,4 @@ func calculate_direction(difference: Vector2):
 ## Resets the dragging state and visual scaling.
 func stop_dragging():
 	is_dragging = false
-	scale = Vector2(1.0, 1.0) 
+	scale = Vector2(1.0, 1.0)

@@ -37,7 +37,7 @@ func _ready():
 	spawn_pieces()
 	
 	# CONECTAR SEÑAL PARA RECUPERAR EL TURNO
-	SignalBus.enemy_turn_finished.connect(reset_turn) # <--- AGREGAR ESTO
+	#SignalBus.enemy_turn_finished.connect(reset_turn) # <--- AGREGAR ESTO
 	SignalBus.enemy_turn_finished.connect(_on_enemy_finished) # Cambiamos a una función intermedia
 	SignalBus.turn_ended.connect(_on_player_ended) # Nueva conexión lógica
 	# SignalBus.turn_ended.connect(reset_turn) # (Asegúrate que esta esté conectada si usas la lógica del fix anterior)
@@ -338,7 +338,7 @@ func refill_columns():
 			
 			new_piece.setup(x, -1, type) 
 			new_piece.piece_selected.connect(_on_piece_clicked)
-			
+			new_piece.piece_swiped.connect(_on_piece_swiped)
 			column_pieces.push_front(new_piece)
 			
 		for y in height:
