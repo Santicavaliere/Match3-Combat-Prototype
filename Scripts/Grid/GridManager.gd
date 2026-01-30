@@ -20,15 +20,29 @@ var grid_data: Array = []
 var first_selected: Piece = null
 var second_selected: Piece = null
 var is_processing: bool = false 
+var is_game_over: bool = false # <--- AGREGAR ESTA
+var is_enemy_turn: bool = false # <--- NUEVA
 
 # --- TURN SYSTEM ---
 var max_moves: int = 3
 var current_moves: int = 0
 
+## Standard Godot lifecycle method.
+## Initializes the RNG, creates the grid data structure, spawns initial pieces,
+## connects necessary signals for the game loop (Enemy turn, Player turn, Game Over),
+## and starts the first turn.
 func _ready():
 	randomize()
 	grid_data = make_2d_array()
 	spawn_pieces()
+	
+	# CONECTAR SEÑAL PARA RECUPERAR EL TURNO
+	SignalBus.enemy_turn_finished.connect(reset_turn) # <--- AGREGAR ESTO
+	SignalBus.enemy_turn_finished.connect(_on_enemy_finished) # Cambiamos a una función intermedia
+	SignalBus.turn_ended.connect(_on_player_ended) # Nueva conexión lógica
+	# SignalBus.turn_ended.connect(reset_turn) # (Asegúrate que esta esté conectada si usas la lógica del fix anterior)
+	
+	SignalBus.game_over.connect(_on_game_over) # <--- NUEVA CONEXIÓN
 	
 	# INITIALIZE TURN
 	reset_turn() ### NEW ###
@@ -94,8 +108,10 @@ func _match_is_possible(x, y, type) -> bool:
 ## Input State Machine.
 ## Handles the First Click (Select) and Second Click (Swap) logic.
 func _on_piece_clicked(piece: Piece):
+	if is_game_over: return # <--- AGREGAR ESTO AL PRINCIPIO
+	if is_enemy_turn: return # <--- BLOQUEO TOTAL
 	if is_processing: return 
-	if current_moves <= 0: return ### NEW: INPUT BLOCK ###	
+	if current_moves <= 0: return ### NEW: INPUT BLOCK ### 
 	if first_selected == null:
 		first_selected = piece
 		first_selected.modulate = Color(1.2, 1.2, 1.2) 
@@ -240,19 +256,30 @@ func find_matches() -> Array:
 ## 1. Emits 'match_found' signal for the CombatManager.
 ## 2. Removes visual nodes and clears data.
 ## 3. Calls 'refill_columns' to start the cascade.
+## Handles the removal of matched pieces and triggers the Combat System.
 func destroy_matches(matches: Array):
+	# 1. ELIMINAR DUPLICADOS (FIX DE MATEMÁTICA)
+	# Creamos una lista nueva solo con coordenadas únicas
+	var unique_matches = []
+	for coord in matches:
+		if not unique_matches.has(coord):
+			unique_matches.append(coord)
+	
 	# --- COMBAT HOOK ---
-	if matches.size() > 0:
-		
-		var first_coord = matches[0]
+	if unique_matches.size() > 0:
+		var first_coord = unique_matches[0]
 		var type_id = grid_data[first_coord.x][first_coord.y]
-		var count = matches.size()
+		
+		# AHORA USAMOS EL TAMAÑO REAL SIN DUPLICADOS
+		var count = unique_matches.size() 
 		
 		SignalBus.match_found.emit(type_id, count)
-		print("Signal emitted: Type", type_id, " - Amount: ", count)	
+		print("Signal emitted: Type", type_id, " - Real Amount: ", count) 
 	
-	print("Destroying ", matches.size(), " parts...")
-	for coord in matches:
+	print("Destroying ", unique_matches.size(), " parts...")
+	
+	# Usamos la lista única para destruir (es más eficiente también)
+	for coord in unique_matches:
 		if grid_data[coord.x][coord.y] == null:
 			continue
 			
@@ -270,7 +297,8 @@ func destroy_matches(matches: Array):
 	
 	await get_tree().create_timer(0.3).timeout 
 	print("Destruction complete.")
-	is_processing = false 
+	# Nota: is_processing se maneja también en refill_columns, pero dejarlo aquí no daña.
+	is_processing = false
 
 ## Returns the Piece node at specific grid coordinates.
 func _get_piece_at(target_x: int, target_y: int) -> Piece:
@@ -342,10 +370,13 @@ func refill_columns():
 		if current_moves > 0:
 			print("Board stable. Waiting for input...")
 		else:
-			print("Board stable. No moves left -> Waiting for Turn Change...")
+			print("Board stable AND No moves left -> ENDING TURN NOW.")
+			# AVISAMOS QUE AHORA SÍ TERMINÓ TODO EL PROCESO VISUAL
+			SignalBus.turn_ended.emit()
 
 ## Handles swipe input for mobile/touch controls.
 func _on_piece_swiped(source_piece: Piece, direction: Vector2):
+	if is_game_over: return # <--- AGREGAR ESTO AL PRINCIPIO
 	if is_processing: return
 	if current_moves <= 0: return ### NEW: INPUT BLOCK ###
 	
@@ -361,3 +392,22 @@ func _on_piece_swiped(source_piece: Piece, direction: Vector2):
 			swap_pieces(source_piece, target_piece)
 	else:
 		print("Attempt to move off the board")
+
+## Handles the Game Over state.
+## Locks the input permanently to prevent further interaction.
+func _on_game_over(player_won: bool):
+	print("GridManager: Input Locked due to Game Over.")
+	is_game_over = true
+
+## Handles the transition from the Player Phase to the Enemy Phase.
+## Locks the grid input so the player cannot interact while the enemy acts.
+func _on_player_ended():
+	print("GridManager: Player turn ended. Locking grid.")
+	is_enemy_turn = true
+
+## Handles the transition from the Enemy Phase back to the Player Phase.
+## Unlocks the grid input and calls reset_turn() to restore action points.
+func _on_enemy_finished():
+	print("GridManager: Enemy finished. Unlocking grid.")
+	is_enemy_turn = false
+	reset_turn() # Llamamos al reset original

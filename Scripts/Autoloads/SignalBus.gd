@@ -9,15 +9,23 @@ extends Node
 ## Useful for triggering entry animations or starting the game timer.
 signal grid_generated
 
-signal match_found(gem_type: int, amount: int)  # <--- ¡ESTA ES LA QUE DA ERROR!
+## Emitted when a valid match is processed and destroyed.
+## Carries the tile type ID (gem_type) and the count of tiles matched (amount).
+signal match_found(gem_type: int, amount: int)
 
-# --- NUEVA SEÑAL ---
-## Se emite cada vez que cambia la cantidad de movimientos restantes.
+# --- NEW SIGNALS ---
+
+## Emitted whenever the number of remaining moves changes.
+## Used to update the UI counter.
 signal moves_updated(moves_left: int)
 
 ## Emitted when the player's turn is completely over.
 ## (After all cascades, refilling, and animations have finished).
 signal turn_ended
+
+## Emitted when the enemy completes their entire phase (3 actions).
+## Signals the GridManager to reset the player's moves.
+signal enemy_turn_finished 
 
 ## Signal intended for visual feedback when the enemy takes damage.
 ## Can be used to trigger screen shake or particle effects.
@@ -25,3 +33,7 @@ signal enemy_damaged(amount: int)
 
 ## Signal intended for healing mechanics (e.g. matching Green tiles).
 signal player_healed(amount: int)
+
+## Emitted when a victory or defeat condition is met.
+## 'player_won' is true if the player won (Enemy HP = 0), false if lost (Player HP = 0).
+signal game_over(player_won: bool)

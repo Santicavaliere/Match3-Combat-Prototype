@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2h4fy1xsgboj"]
+[gd_scene load_steps=6 format=3 uid="uid://c2h4fy1xsgboj"]
 
 [ext_resource type="Script" uid="uid://c28tssng0l2ie" path="res://Scripts/Managers/CombatManager.gd" id="1_qc5w2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qc5w2"]
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_omqfp"]
+font_color = Color(0.188235, 1, 0.12549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xaom8"]
+font_color = Color(1, 0.12549, 0.0666667, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4bm6u"]
+font_color = Color(1, 1, 0.0705882, 1)
 
 [node name="Hud" type="Control"]
 custom_minimum_size = Vector2(130, 170)
@@ -22,9 +31,36 @@ script = ExtResource("1_qc5w2")
 
 [node name="MovesLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 755.714
-offset_top = -8.57142
-offset_right = 924.714
-offset_bottom = 46.4286
+offset_left = 1182.86
+offset_top = -5.71428
+offset_right = 1351.86
+offset_bottom = 49.2857
 text = "Moves: 3"
 label_settings = SubResource("LabelSettings_qc5w2")
+
+[node name="DebugPanel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 156.0
+offset_bottom = 89.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugPanel"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_constants/separation = 10
+
+[node name="PlayerHPLabel" type="Label" parent="DebugPanel/VBoxContainer"]
+layout_mode = 2
+text = "PLAYER: 50"
+label_settings = SubResource("LabelSettings_omqfp")
+
+[node name="EnemyHPLabel" type="Label" parent="DebugPanel/VBoxContainer"]
+layout_mode = 2
+text = "ENEMY: 50"
+label_settings = SubResource("LabelSettings_xaom8")
+
+[node name="TurnLabel" type="Label" parent="DebugPanel/VBoxContainer"]
+layout_mode = 2
+text = "TURN: PLAYER"
+label_settings = SubResource("LabelSettings_4bm6u")

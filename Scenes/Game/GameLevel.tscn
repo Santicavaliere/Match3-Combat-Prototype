@@ -36,10 +36,10 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_left = -95.0
-offset_top = 15.0
-offset_right = 212.0
-offset_bottom = 185.0
+offset_left = -462.0
+offset_top = 24.0
+offset_right = -155.0
+offset_bottom = 194.0
 grow_vertical = 1
 size_flags_horizontal = 4
 
