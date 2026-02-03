@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Cartographer" load_steps=2 format=3 uid="uid://dk1ep18pcihud"]
+
+[ext_resource type="Script" uid="uid://cso0rhrmce3wc" path="res://Scripts/Resources/Abilities/Strategist/Ability_Cartographer.gd" id="1_ej17p"]
+
+[resource]
+script = ExtResource("1_ej17p")
+ability_name = "Cartographer's Wisdome"
+description = "Steal 5 blue scrolls from the board"
+cost_red = 8
+cost_blue = 5
+cost_green = 0
+cost_yellow = 0
+metadata/_custom_type_script = "uid://cso0rhrmce3wc"

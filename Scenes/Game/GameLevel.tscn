@@ -31,7 +31,7 @@ piece_scene = ExtResource("2_qgk3n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("3_3qaiq")]
+[node name="Hud" parent="CanvasLayer" node_paths=PackedStringArray("grid_manager") instance=ExtResource("3_3qaiq")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -42,6 +42,7 @@ offset_right = -270.0
 offset_bottom = 189.0
 grow_vertical = 1
 size_flags_horizontal = 4
+grid_manager = NodePath("../../GridManager")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3qaiq")

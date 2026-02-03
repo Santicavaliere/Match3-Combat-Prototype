@@ -1,6 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2h4fy1xsgboj"]
+[gd_scene load_steps=24 format=3 uid="uid://c2h4fy1xsgboj"]
 
 [ext_resource type="Script" uid="uid://c28tssng0l2ie" path="res://Scripts/Managers/CombatManager.gd" id="1_qc5w2"]
+[ext_resource type="Script" uid="uid://tf8n6yp6nhrk" path="res://Scenes/UI/AbilityTester.gd" id="2_qc5w2"]
+[ext_resource type="Script" uid="uid://dpdal306bjkvx" path="res://Scripts/Resources/Ability.gd" id="3_lelo4"]
+[ext_resource type="Resource" uid="uid://dcxsu4yeir6be" path="res://Scripts/Resources/Abilities/Pirate/Data_Kraken.tres" id="4_1ree7"]
+[ext_resource type="Resource" uid="uid://c2w7klfvej5kq" path="res://Scripts/Resources/Abilities/Explorer/Data_Looter.tres" id="4_b3vmo"]
+[ext_resource type="Resource" uid="uid://dswkgrlg4wyf4" path="res://Scripts/Resources/Abilities/Gunslinger/Data_Outlaw.tres" id="5_d2sja"]
+[ext_resource type="Resource" uid="uid://osw0enyx8aq1" path="res://Scripts/Resources/Abilities/Explorer/Data_Merchant.tres" id="5_dds1n"]
+[ext_resource type="Resource" uid="uid://byxcigus2mg63" path="res://Scripts/Resources/Abilities/Explorer/Data_TreasureHunter.tres" id="6_cn5rm"]
+[ext_resource type="Resource" uid="uid://c8ev6t42o8lrn" path="res://Scripts/Resources/Abilities/Guardian/Data_Wall.tres" id="6_i4i0y"]
+[ext_resource type="Resource" uid="uid://b0f8unf4fdc1e" path="res://Scripts/Resources/Abilities/Guardian/Data_Bastion.tres" id="7_ako3u"]
+[ext_resource type="Resource" uid="uid://bcce8rwfl47t8" path="res://Scripts/Resources/Abilities/Guardian/Data_Watcher.tres" id="9_khvou"]
+[ext_resource type="Resource" uid="uid://cfn04oe81478" path="res://Scripts/Resources/Abilities/Gunslinger/Data_Duelist.tres" id="10_55bpt"]
+[ext_resource type="Resource" uid="uid://cgme4bti8ass2" path="res://Scripts/Resources/Abilities/Gunslinger/Data_Gunpowder.tres" id="11_yd1yt"]
+[ext_resource type="Resource" uid="uid://dfrat0is82kpw" path="res://Scripts/Resources/Abilities/Pirate/Data_Corsair.tres" id="13_0n5r3"]
+[ext_resource type="Resource" uid="uid://74a8siiskjs4" path="res://Scripts/Resources/Abilities/Pirate/Data_Shipwreck.tres" id="15_5h4o4"]
+[ext_resource type="Resource" uid="uid://b3lxrecremjhu" path="res://Scripts/Resources/Abilities/Strategist/Data_Archivist.tres" id="16_p4bpa"]
+[ext_resource type="Resource" uid="uid://dk1ep18pcihud" path="res://Scripts/Resources/Abilities/Strategist/Data_Cartographer.tres" id="17_gcvgm"]
+[ext_resource type="Resource" uid="uid://dfcrx07td1mdb" path="res://Scripts/Resources/Abilities/Strategist/Data_Navigator.tres" id="18_k3th7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qc5w2"]
 font_size = 40
@@ -13,6 +30,10 @@ font_color = Color(1, 0.12549, 0.0666667, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4bm6u"]
 font_color = Color(1, 1, 0.0705882, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lelo4"]
+font_size = 20
+font_color = Color(0.745098, 0.611765, 0.117647, 1)
 
 [node name="Hud" type="Control"]
 custom_minimum_size = Vector2(130, 170)
@@ -75,3 +96,33 @@ label_settings = SubResource("LabelSettings_xaom8")
 layout_mode = 2
 text = "TURN: PLAYER"
 label_settings = SubResource("LabelSettings_4bm6u")
+
+[node name="AbilityTester" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 285.714
+offset_top = -65.7143
+offset_right = 685.714
+offset_bottom = 134.286
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_qc5w2")
+abilities_to_test = Array[ExtResource("3_lelo4")]([ExtResource("4_b3vmo"), ExtResource("5_dds1n"), ExtResource("6_cn5rm"), ExtResource("7_ako3u"), ExtResource("6_i4i0y"), ExtResource("9_khvou"), ExtResource("10_55bpt"), ExtResource("11_yd1yt"), ExtResource("5_d2sja"), ExtResource("13_0n5r3"), ExtResource("4_1ree7"), ExtResource("15_5h4o4"), ExtResource("16_p4bpa"), ExtResource("17_gcvgm"), ExtResource("18_k3th7")])
+
+[node name="GridContainer" type="GridContainer" parent="AbilityTester"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="ManaLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = -1.42857
+offset_right = 320.0
+offset_bottom = 21.5714
+text = "Esperando datos..."
+label_settings = SubResource("LabelSettings_lelo4")

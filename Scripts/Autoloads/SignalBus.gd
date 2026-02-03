@@ -37,3 +37,7 @@ signal player_healed(amount: int)
 ## Emitted when a victory or defeat condition is met.
 ## 'player_won' is true if the player won (Enemy HP = 0), false if lost (Player HP = 0).
 signal game_over(player_won: bool)
+
+# Eliminamos la señal anterior de 'current, max'
+# Usamos un diccionario para enviar todos los manás de una vez
+signal mana_updated(mana_dict: Dictionary)

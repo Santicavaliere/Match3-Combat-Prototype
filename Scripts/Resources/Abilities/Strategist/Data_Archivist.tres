@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Archivist" load_steps=2 format=3 uid="uid://b3lxrecremjhu"]
+
+[ext_resource type="Script" uid="uid://36c4oyb0i1qc" path="res://Scripts/Resources/Abilities/Strategist/Ability_Archivist.gd" id="1_0w71f"]
+
+[resource]
+script = ExtResource("1_0w71f")
+ability_name = "Archivist's Cannon"
+description = "Fires a cannon. Reduces the enemy's current health by 25%"
+cost_red = 0
+cost_blue = 0
+cost_green = 10
+cost_yellow = 0
+metadata/_custom_type_script = "uid://36c4oyb0i1qc"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Navigator" load_steps=2 format=3 uid="uid://dfcrx07td1mdb"]
+
+[ext_resource type="Script" uid="uid://dfmoiba0y1vbi" path="res://Scripts/Resources/Abilities/Strategist/Ability_Navigator.gd" id="1_n1fk2"]
+
+[resource]
+script = ExtResource("1_n1fk2")
+ability_name = "Navigator's Route"
+description = "Converts 4 random pieces into scrolls (Blue)"
+cost_red = 0
+cost_blue = 6
+cost_green = 0
+cost_yellow = 4
+metadata/_custom_type_script = "uid://dfmoiba0y1vbi"

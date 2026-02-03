@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Merchant" load_steps=2 format=3 uid="uid://osw0enyx8aq1"]
+
+[ext_resource type="Script" uid="uid://dax850ltetiby" path="res://Scripts/Resources/Abilities/Explorer/Ability_Merchant.gd" id="1_pbuuy"]
+
+[resource]
+script = ExtResource("1_pbuuy")
+ability_name = "Merchant's Talisman"
+description = "Steals evasion from the enemy (-30% to them, +30% to you)"
+cost_red = 0
+cost_blue = 0
+cost_green = 12
+cost_yellow = 0
+metadata/_custom_type_script = "uid://dax850ltetiby"

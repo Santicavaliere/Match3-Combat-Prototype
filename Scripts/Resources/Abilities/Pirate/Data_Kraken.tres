@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ability_Kraken" load_steps=2 format=3 uid="uid://dcxsu4yeir6be"]
+
+[ext_resource type="Script" uid="uid://by6b7ayckt75w" path="res://Scripts/Resources/Abilities/Pirate/Ability_Kraken.gd" id="1_t72uo"]
+
+[resource]
+script = ExtResource("1_t72uo")
+ability_name = "Kraken Talisman"
+description = "Summons 4 spectral tentacles, each with 5 health.
+Each time you match an enemy, one tentacle automatically attacks, dealing 2% of the enemy's current health.
+The tentacles can be destroyed by bullets"
+cost_red = 18
+cost_blue = 14
+cost_green = 6
+cost_yellow = 0
+metadata/_custom_type_script = "uid://by6b7ayckt75w"

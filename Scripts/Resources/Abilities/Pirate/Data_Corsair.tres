@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Corsair" load_steps=2 format=3 uid="uid://dfrat0is82kpw"]
+
+[ext_resource type="Script" uid="uid://dgxvh6l3u0m8f" path="res://Scripts/Resources/Abilities/Pirate/Ability_Corsair.gd" id="1_h0pkk"]
+
+[resource]
+script = ExtResource("1_h0pkk")
+ability_name = "Talisman of the Corsair"
+description = "Equalizes both players' life totals to the average"
+cost_red = 6
+cost_blue = 12
+cost_green = 0
+cost_yellow = 0
+metadata/_custom_type_script = "uid://dgxvh6l3u0m8f"

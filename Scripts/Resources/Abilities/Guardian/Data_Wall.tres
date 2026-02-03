@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Wall" load_steps=2 format=3 uid="uid://c8ev6t42o8lrn"]
+
+[ext_resource type="Script" uid="uid://b13t10hoj282o" path="res://Scripts/Resources/Abilities/Guardian/Ability_Wall.gd" id="1_c8xtd"]
+
+[resource]
+script = ExtResource("1_c8xtd")
+ability_name = "Talisman of the Wall"
+description = "Reduces the damage of the next enemy attack to 0"
+cost_red = 10
+cost_blue = 5
+cost_green = 0
+cost_yellow = 0
+metadata/_custom_type_script = "uid://b13t10hoj282o"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Watcher" load_steps=2 format=3 uid="uid://bcce8rwfl47t8"]
+
+[ext_resource type="Script" uid="uid://1s13n8eupimy" path="res://Scripts/Resources/Abilities/Guardian/Ability_Watcher.gd" id="1_rtf32"]
+
+[resource]
+script = ExtResource("1_rtf32")
+ability_name = "Talisman of the Watcher"
+description = "Prevents the enemy from using magic on their next turn"
+cost_red = 0
+cost_blue = 8
+cost_green = 6
+cost_yellow = 0
+metadata/_custom_type_script = "uid://1s13n8eupimy"

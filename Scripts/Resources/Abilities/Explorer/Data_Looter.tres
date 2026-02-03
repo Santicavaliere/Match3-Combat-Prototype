@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Looter" load_steps=2 format=3 uid="uid://c2w7klfvej5kq"]
+
+[ext_resource type="Script" uid="uid://h6obvjiqmst3" path="res://Scripts/Resources/Abilities/Explorer/Ability_Looter.gd" id="1_is4kr"]
+
+[resource]
+script = ExtResource("1_is4kr")
+ability_name = "Looter's Talisman"
+description = "Steal 30% of the enemy's total gold. Maximum 5 uses per game"
+cost_red = 0
+cost_blue = 3
+cost_green = 7
+cost_yellow = 0
+metadata/_custom_type_script = "uid://h6obvjiqmst3"

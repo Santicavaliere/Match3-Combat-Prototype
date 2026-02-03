@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ability_Shipwreck" load_steps=2 format=3 uid="uid://74a8siiskjs4"]
+
+[ext_resource type="Script" uid="uid://dmqa68a34stls" path="res://Scripts/Resources/Abilities/Pirate/Ability_Shipwreck.gd" id="1_endhi"]
+
+[resource]
+script = ExtResource("1_endhi")
+ability_name = "Shipwreck Talisman"
+description = "A lightning bolt strikes from the sky, dealing 35% damage to the enemy"
+cost_red = 12
+cost_blue = 4
+cost_green = 0
+cost_yellow = 0
+metadata/_custom_type_script = "uid://dmqa68a34stls"

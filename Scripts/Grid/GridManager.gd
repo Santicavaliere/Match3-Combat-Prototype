@@ -1,7 +1,8 @@
 extends Node2D
 
 ## Core system that manages the Match-3 grid logic.
-## Handles procedural generation, input state machine, swapping mechanics, 
+##
+## Handles procedural generation, the input state machine, swapping mechanics,
 ## match detection algorithms, and the refill cascade (gravity).
 class_name GridManager
 
@@ -13,15 +14,15 @@ class_name GridManager
 @export var piece_scene: PackedScene
 
 # --- DATA ---
-# 2D Array storing the logical state of the grid (Integers representing IDs).
+## 2D Array storing the logical state of the grid (Integers representing IDs).
 var grid_data: Array = [] 
 
 # --- STATE MANAGEMENT ---
 var first_selected: Piece = null
 var second_selected: Piece = null
 var is_processing: bool = false 
-var is_game_over: bool = false # <--- AGREGAR ESTA
-var is_enemy_turn: bool = false # <--- NUEVA
+var is_game_over: bool = false # <--- ADDED
+var is_enemy_turn: bool = false # <--- NEW
 
 # --- TURN SYSTEM ---
 var max_moves: int = 3
@@ -36,13 +37,13 @@ func _ready():
 	grid_data = make_2d_array()
 	spawn_pieces()
 	
-	# CONECTAR SEÑAL PARA RECUPERAR EL TURNO
-	#SignalBus.enemy_turn_finished.connect(reset_turn) # <--- AGREGAR ESTO
-	SignalBus.enemy_turn_finished.connect(_on_enemy_finished) # Cambiamos a una función intermedia
-	SignalBus.turn_ended.connect(_on_player_ended) # Nueva conexión lógica
-	# SignalBus.turn_ended.connect(reset_turn) # (Asegúrate que esta esté conectada si usas la lógica del fix anterior)
+	# CONNECT SIGNALS FOR TURN MANAGEMENT
+	#SignalBus.enemy_turn_finished.connect(reset_turn) 
+	SignalBus.enemy_turn_finished.connect(_on_enemy_finished) # Changed to intermediate function
+	SignalBus.turn_ended.connect(_on_player_ended) # Logic connection
+	# SignalBus.turn_ended.connect(reset_turn) 
 	
-	SignalBus.game_over.connect(_on_game_over) # <--- NUEVA CONEXIÓN
+	SignalBus.game_over.connect(_on_game_over) # <--- NEW CONNECTION
 	
 	# INITIALIZE TURN
 	reset_turn() ### NEW ###
@@ -107,11 +108,19 @@ func _match_is_possible(x, y, type) -> bool:
 
 ## Input State Machine.
 ## Handles the First Click (Select) and Second Click (Swap) logic.
+## Validates locks (Outlaw ability), Game Over state, and Turn state.
 func _on_piece_clicked(piece: Piece):
-	if is_game_over: return # <--- AGREGAR ESTO AL PRINCIPIO
-	if is_enemy_turn: return # <--- BLOQUEO TOTAL
+	if is_game_over: return # <--- ADDED AT START
+	if is_enemy_turn: return # <--- TOTAL BLOCK
 	if is_processing: return 
 	if current_moves <= 0: return ### NEW: INPUT BLOCK ### 
+	
+	# --- NEW LOCK CHECK ---
+	if piece.is_locked:
+		print("GridManager: This piece is locked/chained.")
+		return # Ignore click
+	# ---------------------
+	
 	if first_selected == null:
 		first_selected = piece
 		first_selected.modulate = Color(1.2, 1.2, 1.2) 
@@ -256,10 +265,9 @@ func find_matches() -> Array:
 ## 1. Emits 'match_found' signal for the CombatManager.
 ## 2. Removes visual nodes and clears data.
 ## 3. Calls 'refill_columns' to start the cascade.
-## Handles the removal of matched pieces and triggers the Combat System.
 func destroy_matches(matches: Array):
-	# 1. ELIMINAR DUPLICADOS (FIX DE MATEMÁTICA)
-	# Creamos una lista nueva solo con coordenadas únicas
+	# 1. REMOVE DUPLICATES (MATH FIX)
+	# Create a new list with unique coordinates only
 	var unique_matches = []
 	for coord in matches:
 		if not unique_matches.has(coord):
@@ -270,7 +278,7 @@ func destroy_matches(matches: Array):
 		var first_coord = unique_matches[0]
 		var type_id = grid_data[first_coord.x][first_coord.y]
 		
-		# AHORA USAMOS EL TAMAÑO REAL SIN DUPLICADOS
+		# NOW WE USE THE REAL SIZE WITHOUT DUPLICATES
 		var count = unique_matches.size() 
 		
 		SignalBus.match_found.emit(type_id, count)
@@ -278,7 +286,7 @@ func destroy_matches(matches: Array):
 	
 	print("Destroying ", unique_matches.size(), " parts...")
 	
-	# Usamos la lista única para destruir (es más eficiente también)
+	# Use the unique list for destruction
 	for coord in unique_matches:
 		if grid_data[coord.x][coord.y] == null:
 			continue
@@ -297,7 +305,7 @@ func destroy_matches(matches: Array):
 	
 	await get_tree().create_timer(0.3).timeout 
 	print("Destruction complete.")
-	# Nota: is_processing se maneja también en refill_columns, pero dejarlo aquí no daña.
+	# Note: is_processing is also handled in refill_columns
 	is_processing = false
 
 ## Returns the Piece node at specific grid coordinates.
@@ -371,14 +379,21 @@ func refill_columns():
 			print("Board stable. Waiting for input...")
 		else:
 			print("Board stable AND No moves left -> ENDING TURN NOW.")
-			# AVISAMOS QUE AHORA SÍ TERMINÓ TODO EL PROCESO VISUAL
+			# NOTIFY THAT VISUAL PROCESSING IS COMPLETE
 			SignalBus.turn_ended.emit()
 
 ## Handles swipe input for mobile/touch controls.
+## Includes security check for the Outlaw Ability (Locked Pieces).
 func _on_piece_swiped(source_piece: Piece, direction: Vector2):
-	if is_game_over: return # <--- AGREGAR ESTO AL PRINCIPIO
+	if is_game_over: return 
 	if is_processing: return
 	if current_moves <= 0: return ### NEW: INPUT BLOCK ###
+	
+	# --- SECURITY FIX (OUTLAW) ---
+	if source_piece.is_locked:
+		print("GridManager: Attempted to drag locked piece.")
+		return
+	# ---------------------------------
 	
 	var target_x = source_piece.grid_x + int(direction.x)
 	var target_y = source_piece.grid_y + int(direction.y)
@@ -410,4 +425,76 @@ func _on_player_ended():
 func _on_enemy_finished():
 	print("GridManager: Enemy finished. Unlocking grid.")
 	is_enemy_turn = false
-	reset_turn() # Llamamos al reset original
+	reset_turn() # Call original reset
+
+# --- SPECIAL ABILITY FUNCTIONS (PHASE 2) ---
+
+## Collects (destroys) pieces of a specific type and returns count.
+## Used by "Cartographer" ability (Steals Scrolls).
+func collect_random_pieces(type_id: int, count: int) -> int:
+	var candidates = []
+	
+	# 1. Find all pieces of that type
+	for x in width:
+		for y in height:
+			# Ensure we don't pick nulls or locked pieces (future phase 4)
+			if grid_data[x][y] == type_id:
+				candidates.append(Vector2(x, y))
+	
+	# 2. Shuffle for randomness
+	candidates.shuffle()
+	
+	# 3. Select up to 'count'
+	var to_destroy = []
+	var collected = 0
+	
+	for i in range(min(count, candidates.size())):
+		to_destroy.append(candidates[i])
+		collected += 1
+		
+	# 4. Destroy using existing system
+	if to_destroy.size() > 0:
+		destroy_matches(to_destroy)
+		
+	return collected
+
+## Converts random pieces (not of target type) into the target type.
+## Used by "Navigator" ability (Converts to Scrolls).
+func convert_random_pieces_to(target_type_id: int, count: int):
+	var candidates = []
+	
+	for x in width:
+		for y in height:
+			var current_type = grid_data[x][y]
+			# Only convert pieces that exist and are NOT already the desired type
+			if current_type != null and current_type != target_type_id:
+				candidates.append(Vector2(x, y))
+				
+	candidates.shuffle()
+	
+	for i in range(min(count, candidates.size())):
+		var coord = candidates[i]
+		var x = int(coord.x)
+		var y = int(coord.y)
+		
+		# 1. Change Logic
+		grid_data[x][y] = target_type_id
+		
+		# 2. Change Visuals
+		var piece_node = _get_piece_at(x, y)
+		if piece_node:
+			# Use setup function to refresh sprite/color
+			piece_node.setup(x, y, target_type_id)
+			
+			# Visual feedback (optional: small jump)
+			var tween = create_tween()
+			tween.tween_property(piece_node, "scale", Vector2(1.2, 1.2), 0.2)
+			tween.tween_property(piece_node, "scale", Vector2(1.0, 1.0), 0.2)
+	
+	print("GridManager: ", min(count, candidates.size()), " pieces converted to type ", target_type_id)
+	
+	# 3. Important: Check if new matches formed due to conversion
+	# (Optional: Uncomment if you want them to explode automatically)
+	# var new_matches = find_matches()
+	# if new_matches.size() > 0:
+	# 	destroy_matches(new_matches)
