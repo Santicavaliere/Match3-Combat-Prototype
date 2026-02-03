@@ -101,10 +101,11 @@ func _create_ability_buttons():
 		# Set Button Text: Name on top, Cost below
 		btn.text = "%s\n(%s)" % [ability.ability_name, cost_text]
 		
-		# --- STYLING ---
-		btn.tooltip_text = ability.description
-		btn.focus_mode = Control.FOCUS_NONE
-		btn.mouse_filter = Control.MOUSE_FILTER_STOP
+		# --- FIX FOR SCROLLING ---
+		# Changed from MOUSE_FILTER_STOP to MOUSE_FILTER_PASS.
+		# This allows the 'drag' event to pass through the button to the ScrollContainer,
+		# enabling swipe-to-scroll on mobile devices.
+		btn.mouse_filter = Control.MOUSE_FILTER_PASS
 		
 		# Force minimum size to prevent layout squashing
 		btn.custom_minimum_size = Vector2(100, 40)
