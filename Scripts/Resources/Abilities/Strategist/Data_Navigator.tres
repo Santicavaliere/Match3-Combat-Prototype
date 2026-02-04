@@ -9,5 +9,4 @@ description = "Converts 4 random pieces into scrolls (Blue)"
 cost_red = 0
 cost_blue = 6
 cost_green = 0
-cost_yellow = 4
 metadata/_custom_type_script = "uid://dfmoiba0y1vbi"

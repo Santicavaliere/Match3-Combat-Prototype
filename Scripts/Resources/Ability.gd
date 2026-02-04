@@ -17,7 +17,7 @@ class_name Ability
 @export var cost_red: int = 0
 @export var cost_blue: int = 0
 @export var cost_green: int = 0
-@export var cost_yellow: int = 0
+# @export var cost_yellow: int = 0
 
 
 

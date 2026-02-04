@@ -9,5 +9,4 @@ description = "Explodes 4 red pieces on the board"
 cost_red = 7
 cost_blue = 12
 cost_green = 0
-cost_yellow = 0
 metadata/_custom_type_script = "uid://jgqfsswu8gko"

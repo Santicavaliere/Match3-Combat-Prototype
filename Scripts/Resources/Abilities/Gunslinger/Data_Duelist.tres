@@ -9,5 +9,4 @@ description = "Fire a high-speed, straight bullet that zooms in slightly on the 
 cost_red = 12
 cost_blue = 4
 cost_green = 0
-cost_yellow = 0
 metadata/_custom_type_script = "uid://dq6toi6ghw1r8"

@@ -55,7 +55,7 @@ func _ready():
 func _update_mana_display(pool: Dictionary):
 	if mana_label:
 		# Format: 🔴 10 | 🔵 5 | 🟢 8 | 🟡 2
-		mana_label.text = "🔴 %d | 🔵 %d | 🟢 %d | 🟡 %d" % [pool["red"], pool["blue"], pool["green"], pool["yellow"]]
+		mana_label.text = "🔴 %d | 🔵 %d | 🟢 %d" % [pool["red"], pool["blue"], pool["green"]]
 
 ## Creates a debug 'Cheat' button to instantly refill resources.
 ## Useful for testing high-cost abilities without grinding matches.
@@ -67,7 +67,7 @@ func _create_cheat_button():
 	
 	# On press: Fill all mana pools to 50 and update UI
 	btn.pressed.connect(func():
-		combat_manager.mana_pool = {"red": 50, "blue": 50, "green": 50, "yellow": 50}
+		combat_manager.mana_pool = {"red": 50, "blue": 50, "green": 50}
 		combat_manager._update_mana_ui()
 		print("TEST: Infinite Mana Activated!")
 	)
@@ -94,7 +94,6 @@ func _create_ability_buttons():
 		if ability.cost_red > 0: cost_text += "R:%d " % ability.cost_red
 		if ability.cost_blue > 0: cost_text += "B:%d " % ability.cost_blue
 		if ability.cost_green > 0: cost_text += "G:%d " % ability.cost_green
-		if ability.cost_yellow > 0: cost_text += "Y:%d " % ability.cost_yellow
 		
 		if cost_text == "": cost_text = "FREE"
 		

@@ -9,5 +9,4 @@ description = "Steal 1 turn and gain 2 extra turns (Move Recharge)"
 cost_red = 5
 cost_blue = 0
 cost_green = 5
-cost_yellow = 0
 metadata/_custom_type_script = "uid://d4ntaepe2kkjo"

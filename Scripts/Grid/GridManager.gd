@@ -72,9 +72,9 @@ func make_2d_array() -> Array:
 func spawn_pieces():
 	for x in width:
 		for y in height:
-			var possible_type = randi() % 4
+			var possible_type = randi() % 7
 			while _match_is_possible(x, y, possible_type):
-				possible_type = randi() % 4
+				possible_type = randi() % 7
 			
 			grid_data[x][y] = possible_type
 			
@@ -336,7 +336,7 @@ func refill_columns():
 		var pieces_needed = height - column_pieces.size()
 		
 		for i in pieces_needed:
-			var type = randi() % 4
+			var type = randi() % 7
 			var new_piece = piece_scene.instantiate()
 			add_child(new_piece)
 			

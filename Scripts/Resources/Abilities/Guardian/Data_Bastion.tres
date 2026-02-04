@@ -9,5 +9,4 @@ description = "Explode 3 red pieces and heal 3% of your health for each one"
 cost_red = 4
 cost_blue = 8
 cost_green = 7
-cost_yellow = 0
 metadata/_custom_type_script = "uid://dymuara4y3dud"

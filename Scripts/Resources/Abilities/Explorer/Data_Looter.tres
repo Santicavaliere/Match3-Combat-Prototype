@@ -9,5 +9,4 @@ description = "Steal 30% of the enemy's total gold. Maximum 5 uses per game"
 cost_red = 0
 cost_blue = 3
 cost_green = 7
-cost_yellow = 0
 metadata/_custom_type_script = "uid://h6obvjiqmst3"

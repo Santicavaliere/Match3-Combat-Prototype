@@ -9,5 +9,4 @@ description = "Equalizes both players' life totals to the average"
 cost_red = 6
 cost_blue = 12
 cost_green = 0
-cost_yellow = 0
 metadata/_custom_type_script = "uid://dgxvh6l3u0m8f"

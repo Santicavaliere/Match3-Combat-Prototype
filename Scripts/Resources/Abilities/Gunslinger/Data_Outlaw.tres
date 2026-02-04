@@ -10,5 +10,4 @@ Chained bombs cannot move or fall"
 cost_red = 8
 cost_blue = 6
 cost_green = 0
-cost_yellow = 0
 metadata/_custom_type_script = "uid://bwqujurl80ofi"

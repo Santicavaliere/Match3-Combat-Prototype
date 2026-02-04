@@ -9,5 +9,4 @@ description = "Steals evasion from the enemy (-30% to them, +30% to you)"
 cost_red = 0
 cost_blue = 0
 cost_green = 12
-cost_yellow = 0
 metadata/_custom_type_script = "uid://dax850ltetiby"

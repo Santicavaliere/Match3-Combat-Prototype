@@ -9,5 +9,4 @@ description = "Reduces the damage of the next enemy attack to 0"
 cost_red = 10
 cost_blue = 5
 cost_green = 0
-cost_yellow = 0
 metadata/_custom_type_script = "uid://b13t10hoj282o"

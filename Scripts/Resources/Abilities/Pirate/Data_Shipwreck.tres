@@ -9,5 +9,4 @@ description = "A lightning bolt strikes from the sky, dealing 35% damage to the 
 cost_red = 12
 cost_blue = 4
 cost_green = 0
-cost_yellow = 0
 metadata/_custom_type_script = "uid://dmqa68a34stls"
