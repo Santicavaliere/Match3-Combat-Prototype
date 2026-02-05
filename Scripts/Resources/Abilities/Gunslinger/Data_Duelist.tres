@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Duelist" load_steps=2 format=3 uid="uid://cfn04oe81478"]
+[gd_resource type="Resource" script_class="Ability_Duelist" load_steps=4 format=3 uid="uid://cfn04oe81478"]
 
+[ext_resource type="Texture2D" uid="uid://bbd8q4cfkdckn" path="res://Assets/Icons/Magic/magia_duelista.png" id="1_3fh1y"]
 [ext_resource type="Script" uid="uid://dq6toi6ghw1r8" path="res://Scripts/Resources/Abilities/Gunslinger/Ability_Duelist.gd" id="1_q0og0"]
+[ext_resource type="Texture2D" uid="uid://bl7acditxdgmu" path="res://Assets/Icons/Talismans/TALISMAN_DEL_DUELISTA.png" id="2_pg5fy"]
 
 [resource]
 script = ExtResource("1_q0og0")
 ability_name = "Duelist's Talisman"
 description = "Fire a high-speed, straight bullet that zooms in slightly on the ship to emphasize the impact"
+icon_talisman = ExtResource("2_pg5fy")
+icon_magic = ExtResource("1_3fh1y")
 cost_red = 12
 cost_blue = 4
 cost_green = 0

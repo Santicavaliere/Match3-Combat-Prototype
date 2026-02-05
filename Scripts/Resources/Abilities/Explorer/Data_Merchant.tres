@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Merchant" load_steps=2 format=3 uid="uid://osw0enyx8aq1"]
+[gd_resource type="Resource" script_class="Ability_Merchant" load_steps=4 format=3 uid="uid://osw0enyx8aq1"]
 
+[ext_resource type="Texture2D" uid="uid://c8ipbm6qoo3uj" path="res://Assets/Icons/Magic/magia_del_mercader.png" id="1_4xp4q"]
 [ext_resource type="Script" uid="uid://dax850ltetiby" path="res://Scripts/Resources/Abilities/Explorer/Ability_Merchant.gd" id="1_pbuuy"]
+[ext_resource type="Texture2D" uid="uid://c3cgxxkipnwsq" path="res://Assets/Icons/Talismans/TALISMAN_DEL_MERCADER.png" id="2_ufvis"]
 
 [resource]
 script = ExtResource("1_pbuuy")
 ability_name = "Merchant's Talisman"
 description = "Steals evasion from the enemy (-30% to them, +30% to you)"
+icon_talisman = ExtResource("2_ufvis")
+icon_magic = ExtResource("1_4xp4q")
 cost_red = 0
 cost_blue = 0
 cost_green = 12

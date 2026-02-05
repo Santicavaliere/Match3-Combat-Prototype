@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Wall" load_steps=2 format=3 uid="uid://c8ev6t42o8lrn"]
+[gd_resource type="Resource" script_class="Ability_Wall" load_steps=4 format=3 uid="uid://c8ev6t42o8lrn"]
 
+[ext_resource type="Texture2D" uid="uid://b4p2g5oeue31m" path="res://Assets/Icons/Magic/MAGIA_DE_LA_MURALLA.png" id="1_268rm"]
 [ext_resource type="Script" uid="uid://b13t10hoj282o" path="res://Scripts/Resources/Abilities/Guardian/Ability_Wall.gd" id="1_c8xtd"]
+[ext_resource type="Texture2D" uid="uid://cs68x0cjm64nt" path="res://Assets/Icons/Talismans/TALISMAN_DE_LA_MURALLA.png" id="2_j4bre"]
 
 [resource]
 script = ExtResource("1_c8xtd")
 ability_name = "Talisman of the Wall"
 description = "Reduces the damage of the next enemy attack to 0"
+icon_talisman = ExtResource("2_j4bre")
+icon_magic = ExtResource("1_268rm")
 cost_red = 10
 cost_blue = 5
 cost_green = 0

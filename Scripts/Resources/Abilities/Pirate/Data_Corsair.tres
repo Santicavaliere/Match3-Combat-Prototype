@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Corsair" load_steps=2 format=3 uid="uid://dfrat0is82kpw"]
+[gd_resource type="Resource" script_class="Ability_Corsair" load_steps=4 format=3 uid="uid://dfrat0is82kpw"]
 
 [ext_resource type="Script" uid="uid://dgxvh6l3u0m8f" path="res://Scripts/Resources/Abilities/Pirate/Ability_Corsair.gd" id="1_h0pkk"]
+[ext_resource type="Texture2D" uid="uid://xfhnadhcy8qv" path="res://Assets/Icons/Magic/magia_corsario_justiciero.png" id="1_wj3c6"]
+[ext_resource type="Texture2D" uid="uid://bvow16jtdhpdt" path="res://Assets/Icons/Talismans/TALISMAN_DEL_CORSARIO_JUSTICIERO.png" id="2_mhu0p"]
 
 [resource]
 script = ExtResource("1_h0pkk")
 ability_name = "Talisman of the Corsair"
 description = "Equalizes both players' life totals to the average"
+icon_talisman = ExtResource("2_mhu0p")
+icon_magic = ExtResource("1_wj3c6")
 cost_red = 6
 cost_blue = 12
 cost_green = 0

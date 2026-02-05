@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Watcher" load_steps=2 format=3 uid="uid://bcce8rwfl47t8"]
+[gd_resource type="Resource" script_class="Ability_Watcher" load_steps=4 format=3 uid="uid://bcce8rwfl47t8"]
 
+[ext_resource type="Texture2D" uid="uid://infnjwj48mnl" path="res://Assets/Icons/Magic/magia_del_vigia.png" id="1_2bm85"]
 [ext_resource type="Script" uid="uid://1s13n8eupimy" path="res://Scripts/Resources/Abilities/Guardian/Ability_Watcher.gd" id="1_rtf32"]
+[ext_resource type="Texture2D" uid="uid://f6sg6xefngc5" path="res://Assets/Icons/Talismans/TALISMAN_DEL_VIGIA.png" id="2_8g2yx"]
 
 [resource]
 script = ExtResource("1_rtf32")
 ability_name = "Talisman of the Watcher"
 description = "Prevents the enemy from using magic on their next turn"
+icon_talisman = ExtResource("2_8g2yx")
+icon_magic = ExtResource("1_2bm85")
 cost_red = 0
 cost_blue = 8
 cost_green = 6

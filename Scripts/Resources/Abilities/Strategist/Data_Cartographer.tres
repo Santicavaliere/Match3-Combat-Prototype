@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Cartographer" load_steps=2 format=3 uid="uid://dk1ep18pcihud"]
+[gd_resource type="Resource" script_class="Ability_Cartographer" load_steps=4 format=3 uid="uid://dk1ep18pcihud"]
 
 [ext_resource type="Script" uid="uid://cso0rhrmce3wc" path="res://Scripts/Resources/Abilities/Strategist/Ability_Cartographer.gd" id="1_ej17p"]
+[ext_resource type="Texture2D" uid="uid://wu7t5rxvshy4" path="res://Assets/Icons/Magic/magia_Cartografo.png" id="1_rrpl0"]
+[ext_resource type="Texture2D" uid="uid://dj03audrnywdr" path="res://Assets/Icons/Talismans/TALISMAN_DEL_CARTOGRAFO.png" id="2_ut2b8"]
 
 [resource]
 script = ExtResource("1_ej17p")
 ability_name = "Cartographer's Wisdome"
 description = "Steal 5 blue scrolls from the board"
+icon_talisman = ExtResource("2_ut2b8")
+icon_magic = ExtResource("1_rrpl0")
 cost_red = 8
 cost_blue = 5
 cost_green = 0

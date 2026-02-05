@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Gunpowder" load_steps=2 format=3 uid="uid://cgme4bti8ass2"]
+[gd_resource type="Resource" script_class="Ability_Gunpowder" load_steps=4 format=3 uid="uid://cgme4bti8ass2"]
 
 [ext_resource type="Script" uid="uid://jgqfsswu8gko" path="res://Scripts/Resources/Abilities/Gunslinger/Ability_Gunpowder.gd" id="1_0k20m"]
+[ext_resource type="Texture2D" uid="uid://busrs7w14eoi0" path="res://Assets/Icons/Magic/magia_de_polvora.png" id="1_c7ou4"]
+[ext_resource type="Texture2D" uid="uid://cdlkbyeasox6o" path="res://Assets/Icons/Talismans/TALISMAN_DE_POLVORA.png" id="2_6px31"]
 
 [resource]
 script = ExtResource("1_0k20m")
 ability_name = "Gunpowder Talisman"
 description = "Explodes 4 red pieces on the board"
+icon_talisman = ExtResource("2_6px31")
+icon_magic = ExtResource("1_c7ou4")
 cost_red = 7
 cost_blue = 12
 cost_green = 0

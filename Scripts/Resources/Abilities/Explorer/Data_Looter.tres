@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Looter" load_steps=2 format=3 uid="uid://c2w7klfvej5kq"]
+[gd_resource type="Resource" script_class="Ability_Looter" load_steps=4 format=3 uid="uid://c2w7klfvej5kq"]
 
 [ext_resource type="Script" uid="uid://h6obvjiqmst3" path="res://Scripts/Resources/Abilities/Explorer/Ability_Looter.gd" id="1_is4kr"]
+[ext_resource type="Texture2D" uid="uid://w0o2s5768kf8" path="res://Assets/Icons/Magic/magia_del_saqueador.png" id="1_unrot"]
+[ext_resource type="Texture2D" uid="uid://dft2rrg18621n" path="res://Assets/Icons/Talismans/TALISMAN_DEL_SAQUEADOR.png" id="2_x1b0r"]
 
 [resource]
 script = ExtResource("1_is4kr")
 ability_name = "Looter's Talisman"
 description = "Steal 30% of the enemy's total gold. Maximum 5 uses per game"
+icon_talisman = ExtResource("2_x1b0r")
+icon_magic = ExtResource("1_unrot")
 cost_red = 0
 cost_blue = 3
 cost_green = 7

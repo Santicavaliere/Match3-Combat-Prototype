@@ -98,17 +98,13 @@ text = "TURN: PLAYER"
 label_settings = SubResource("LabelSettings_4bm6u")
 
 [node name="AbilityTester" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(800, 200)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 285.714
-offset_top = -65.7143
-offset_right = 685.714
-offset_bottom = 134.286
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = 282.857
+offset_top = 108.571
+offset_right = 682.857
+offset_bottom = 308.572
+scale = Vector2(1.11429, 1)
 script = ExtResource("2_qc5w2")
 abilities_to_test = Array[ExtResource("3_lelo4")]([ExtResource("4_b3vmo"), ExtResource("5_dds1n"), ExtResource("6_cn5rm"), ExtResource("7_ako3u"), ExtResource("6_i4i0y"), ExtResource("9_khvou"), ExtResource("10_55bpt"), ExtResource("11_yd1yt"), ExtResource("5_d2sja"), ExtResource("13_0n5r3"), ExtResource("4_1ree7"), ExtResource("15_5h4o4"), ExtResource("16_p4bpa"), ExtResource("17_gcvgm"), ExtResource("18_k3th7")])
 
@@ -116,7 +112,7 @@ abilities_to_test = Array[ExtResource("3_lelo4")]([ExtResource("4_b3vmo"), ExtRe
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
-columns = 3
+columns = 8
 
 [node name="ManaLabel" type="Label" parent="."]
 layout_mode = 0
@@ -126,3 +122,19 @@ offset_right = 320.0
 offset_bottom = 21.5714
 text = "Esperando datos..."
 label_settings = SubResource("LabelSettings_lelo4")
+
+[node name="MagicOverlay" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 660.0
+offset_top = 143.571
+offset_right = 660.0
+offset_bottom = 143.571
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

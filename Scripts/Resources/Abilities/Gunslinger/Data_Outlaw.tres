@@ -1,12 +1,16 @@
-[gd_resource type="Resource" script_class="Ability_Outlaw" load_steps=2 format=3 uid="uid://dswkgrlg4wyf4"]
+[gd_resource type="Resource" script_class="Ability_Outlaw" load_steps=4 format=3 uid="uid://dswkgrlg4wyf4"]
 
 [ext_resource type="Script" uid="uid://bwqujurl80ofi" path="res://Scripts/Resources/Abilities/Gunslinger/Ability_Outlaw.gd" id="1_mt0ro"]
+[ext_resource type="Texture2D" uid="uid://dg3b1rrsrna5x" path="res://Assets/Icons/Magic/magia_del_forajido.png" id="1_qk5n8"]
+[ext_resource type="Texture2D" uid="uid://dddp3h8qriero" path="res://Assets/Icons/Talismans/TALISMAN_DEL_FORAGIDO.png" id="2_xqnuw"]
 
 [resource]
 script = ExtResource("1_mt0ro")
 ability_name = "Outlaw's Talisman"
 description = "Chains all bombs on the board, completely blocking them
 Chained bombs cannot move or fall"
+icon_talisman = ExtResource("2_xqnuw")
+icon_magic = ExtResource("1_qk5n8")
 cost_red = 8
 cost_blue = 6
 cost_green = 0

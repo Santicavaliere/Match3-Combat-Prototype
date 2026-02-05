@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Archivist" load_steps=2 format=3 uid="uid://b3lxrecremjhu"]
+[gd_resource type="Resource" script_class="Ability_Archivist" load_steps=4 format=3 uid="uid://b3lxrecremjhu"]
 
 [ext_resource type="Script" uid="uid://36c4oyb0i1qc" path="res://Scripts/Resources/Abilities/Strategist/Ability_Archivist.gd" id="1_0w71f"]
+[ext_resource type="Texture2D" uid="uid://vn6t4nd8xfie" path="res://Assets/Icons/Magic/magia_Archivista Png.png" id="1_xuyif"]
+[ext_resource type="Texture2D" uid="uid://cyvhfoco8cn1f" path="res://Assets/Icons/Talismans/TALISMAN_DEL_ARCHIVISTA.png" id="2_asxbr"]
 
 [resource]
 script = ExtResource("1_0w71f")
 ability_name = "Archivist's Cannon"
 description = "Fires a cannon. Reduces the enemy's current health by 25%"
+icon_talisman = ExtResource("2_asxbr")
+icon_magic = ExtResource("1_xuyif")
 cost_red = 0
 cost_blue = 0
 cost_green = 10

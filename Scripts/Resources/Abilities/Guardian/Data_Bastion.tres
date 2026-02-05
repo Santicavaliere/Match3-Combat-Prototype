@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Bastion" load_steps=2 format=3 uid="uid://b0f8unf4fdc1e"]
+[gd_resource type="Resource" script_class="Ability_Bastion" load_steps=4 format=3 uid="uid://b0f8unf4fdc1e"]
 
+[ext_resource type="Texture2D" uid="uid://d4e34f1ssi8pt" path="res://Assets/Icons/Magic/magia_del_bastion.png" id="1_bj6sn"]
 [ext_resource type="Script" uid="uid://dymuara4y3dud" path="res://Scripts/Resources/Abilities/Guardian/Ability_Bastion.gd" id="1_qrg5g"]
+[ext_resource type="Texture2D" uid="uid://bx06iy8w63lcu" path="res://Assets/Icons/Talismans/TALISMAN_DEL_BASTION.png" id="2_cw47h"]
 
 [resource]
 script = ExtResource("1_qrg5g")
 ability_name = "Bastion Talisman"
 description = "Explode 3 red pieces and heal 3% of your health for each one"
+icon_talisman = ExtResource("2_cw47h")
+icon_magic = ExtResource("1_bj6sn")
 cost_red = 4
 cost_blue = 8
 cost_green = 7

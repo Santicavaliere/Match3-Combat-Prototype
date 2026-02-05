@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_TreasureHunter" load_steps=2 format=3 uid="uid://byxcigus2mg63"]
+[gd_resource type="Resource" script_class="Ability_TreasureHunter" load_steps=4 format=3 uid="uid://byxcigus2mg63"]
 
+[ext_resource type="Texture2D" uid="uid://c0cxgxf8mgxdv" path="res://Assets/Icons/Magic/magia_del_buscatesoros.png" id="1_4y0jg"]
 [ext_resource type="Script" uid="uid://d4ntaepe2kkjo" path="res://Scripts/Resources/Abilities/Explorer/Ability_TreasureHunter.gd" id="1_r2fh1"]
+[ext_resource type="Texture2D" uid="uid://kh8vpx58a055" path="res://Assets/Icons/Talismans/TALISMAN_DEL_BUSCATESORO.png" id="2_ouyqw"]
 
 [resource]
 script = ExtResource("1_r2fh1")
 ability_name = "Treasure Hunter's Talisman"
 description = "Steal 1 turn and gain 2 extra turns (Move Recharge)"
+icon_talisman = ExtResource("2_ouyqw")
+icon_magic = ExtResource("1_4y0jg")
 cost_red = 5
 cost_blue = 0
 cost_green = 5

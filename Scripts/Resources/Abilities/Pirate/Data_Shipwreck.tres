@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Shipwreck" load_steps=2 format=3 uid="uid://74a8siiskjs4"]
+[gd_resource type="Resource" script_class="Ability_Shipwreck" load_steps=4 format=3 uid="uid://74a8siiskjs4"]
 
+[ext_resource type="Texture2D" uid="uid://cne4r18614eee" path="res://Assets/Icons/Magic/magia_del_naufragio.png" id="1_8cusc"]
 [ext_resource type="Script" uid="uid://dmqa68a34stls" path="res://Scripts/Resources/Abilities/Pirate/Ability_Shipwreck.gd" id="1_endhi"]
+[ext_resource type="Texture2D" uid="uid://csa8ofja2q2nd" path="res://Assets/Icons/Talismans/TALISMAN_DEL_NAUFRAGIO.png" id="2_axv7l"]
 
 [resource]
 script = ExtResource("1_endhi")
 ability_name = "Shipwreck Talisman"
 description = "A lightning bolt strikes from the sky, dealing 35% damage to the enemy"
+icon_talisman = ExtResource("2_axv7l")
+icon_magic = ExtResource("1_8cusc")
 cost_red = 12
 cost_blue = 4
 cost_green = 0

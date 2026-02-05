@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Ability_Navigator" load_steps=2 format=3 uid="uid://dfcrx07td1mdb"]
+[gd_resource type="Resource" script_class="Ability_Navigator" load_steps=4 format=3 uid="uid://dfcrx07td1mdb"]
 
+[ext_resource type="Texture2D" uid="uid://cvq3xjqw5s1kw" path="res://Assets/Icons/Magic/magia_Navegante.png" id="1_25sj1"]
 [ext_resource type="Script" uid="uid://dfmoiba0y1vbi" path="res://Scripts/Resources/Abilities/Strategist/Ability_Navigator.gd" id="1_n1fk2"]
+[ext_resource type="Texture2D" uid="uid://fne4cf87a6jo" path="res://Assets/Icons/Talismans/TALISMAN_DEL_NAVEGANTE.png" id="2_hv5dy"]
 
 [resource]
 script = ExtResource("1_n1fk2")
 ability_name = "Navigator's Route"
 description = "Converts 4 random pieces into scrolls (Blue)"
+icon_talisman = ExtResource("2_hv5dy")
+icon_magic = ExtResource("1_25sj1")
 cost_red = 0
 cost_blue = 6
 cost_green = 0
