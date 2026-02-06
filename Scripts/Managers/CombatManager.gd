@@ -105,8 +105,10 @@ func _on_match_made(type: int, amount: int):
 			elif amount >= 5: xp_gained = 800
 			player_xp += xp_gained
 			print("PROGRESS: Gained ", xp_gained, " XP. Total: ", player_xp)
-
-	if active_tentacles.size() > 0:
+	
+	# FIX KRAKEN/LEVIATHAN: Solo atacar si NO es cascada
+	# Se necesita acceder a la variable is_cascading del grid_manager
+	if active_tentacles.size() > 0 and not grid_manager.is_cascading:
 		var total_tentacle_damage = 0
 		for i in active_tentacles.size():
 			var dmg = int(enemy_hp * 0.02)
@@ -193,10 +195,18 @@ func try_activate_ability(ability: Ability) -> bool:
 	if not is_player_turn: return false
 	if grid_manager and grid_manager.is_processing: return false
 	
+	# --- FIX 1: EVITAR MOVIMIENTOS NEGATIVOS ---
+	# Si la habilidad cuesta turno y ya no tengo movimientos, NO ejecutar.
+	if ability.ability_name != "Treasure Seeker":
+		if grid_manager.current_moves <= 0:
+			print("CombatManager: No moves left to use ability!")
+			return false
+	# -------------------------------------------
+	
 	if not has_enough_mana(ability.cost_red, ability.cost_blue, ability.cost_green):
 		print("Not enough mana")
 		return false
-
+	
 	# 1. Consumir Maná
 	consume_mana(ability.cost_red, ability.cost_blue, ability.cost_green)
 	
@@ -206,6 +216,24 @@ func try_activate_ability(ability: Ability) -> bool:
 	
 	# 3. Ejecutar Lógica
 	ability.execute(self)
+	update_ui_text()
+	
+	# --- FIX: CONSUMO DE TURNO ---
+	# Si la habilidad NO es "Treasure Seeker", restamos un movimiento.
+	# Asegúrate de que el nombre coincida exactamente con el del recurso (Resource)
+	if ability.ability_name != "Treasure Seeker": # O el nombre que le hayas puesto
+		grid_manager.current_moves -= 1
+		SignalBus.moves_updated.emit(grid_manager.current_moves)
+		print("Ability used a turn. Moves left: ", grid_manager.current_moves)
+		# Chequeo extra por si se quedó sin movimientos
+		# --- EL DETALLE CLAVE: SI LLEGAMOS A 0, TERMINAR EL TURNO ---
+		if grid_manager.current_moves <= 0:
+			print("Moves reached 0 via Ability -> Ending Turn...")
+			# Bloqueamos input visualmente para que no pueda spamear
+			grid_manager.is_processing = true 
+			# Emitimos la señal para que arranque el turno enemigo
+			SignalBus.turn_ended.emit()
+	
 	update_ui_text()
 	return true
 

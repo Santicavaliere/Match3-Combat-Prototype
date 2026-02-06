@@ -23,10 +23,11 @@ var second_selected: Piece = null
 var is_processing: bool = false 
 var is_game_over: bool = false # <--- ADDED
 var is_enemy_turn: bool = false # <--- NEW
-
+var is_cascading: bool = false
 # --- TURN SYSTEM ---
 var max_moves: int = 3
 var current_moves: int = 0
+
 
 ## Standard Godot lifecycle method.
 ## Initializes the RNG, creates the grid data structure, spawns initial pieces,
@@ -316,11 +317,13 @@ func _get_piece_at(target_x: int, target_y: int) -> Piece:
 				return child
 	return null
 
+
 ## Handles Gravity and Recursion.
 ## 1. Moves existing pieces down to fill empty slots (nulls).
 ## 2. Spawns new pieces above the screen to fill the top.
 ## 3. Checks for new matches (Chain Reactions) after everything lands.
 func refill_columns():
+	is_cascading = true
 	print("Filling in the board...")
 	var tween = create_tween()
 	tween.set_parallel(true) 
@@ -372,6 +375,7 @@ func refill_columns():
 		print("Chain reaction! Destroying again...")
 		destroy_matches(new_matches)
 	else:
+		is_cascading = false # <--- 2. APAGAMOS LA BANDERA
 		is_processing = false
 		
 		# --- CORRECTION: REALISTIC LOG ---
@@ -381,6 +385,8 @@ func refill_columns():
 			print("Board stable AND No moves left -> ENDING TURN NOW.")
 			# NOTIFY THAT VISUAL PROCESSING IS COMPLETE
 			SignalBus.turn_ended.emit()
+	
+
 
 ## Handles swipe input for mobile/touch controls.
 ## Includes security check for the Outlaw Ability (Locked Pieces).
@@ -401,8 +407,11 @@ func _on_piece_swiped(source_piece: Piece, direction: Vector2):
 	if target_x >= 0 and target_x < width and target_y >= 0 and target_y < height:
 		
 		var target_piece = _get_piece_at(target_x, target_y)
-		
+		# --- FIX: Verificar si el DESTINO también está bloqueado ---
 		if target_piece != null:
+			if target_piece.is_locked: 
+				print("Target is locked! Cannot swap.")
+				return
 			print("Swap by Drag detected: ", source_piece.name, " with ", target_piece.name)
 			swap_pieces(source_piece, target_piece)
 	else:
