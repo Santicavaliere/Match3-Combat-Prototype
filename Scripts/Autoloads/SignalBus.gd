@@ -41,3 +41,8 @@ signal game_over(player_won: bool)
 # Eliminamos la señal anterior de 'current, max'
 # Usamos un diccionario para enviar todos los manás de una vez
 signal mana_updated(mana_dict: Dictionary)
+
+# --- NUEVAS SEÑALES PARA UI FINAL ---
+signal player_hp_changed(current_hp: int, max_hp: int)
+signal enemy_hp_changed(current_hp: int, max_hp: int)
+# Ya tienes mana_updated y moves_updated, esas las usaremos tal cual.

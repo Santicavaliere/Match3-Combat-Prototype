@@ -9,7 +9,9 @@ class_name GridManager
 # --- CONFIGURATION ---
 @export var width: int = 12
 @export var height: int = 7
-@export var offset: int = 64 
+# REEMPLAZAMOS "offset" POR ESTOS DOS:
+@export var offset_x: float = 56.0  # Controla la distancia HORIZONTAL
+@export var offset_y: float = 52.0  # Controla la distancia VERTICAL
 @export var y_offset: int = 0 
 @export var piece_scene: PackedScene
 
@@ -82,9 +84,10 @@ func spawn_pieces():
 			
 			var piece = piece_scene.instantiate()
 			add_child(piece)
-			
-			var pixel_x = x * offset + 35
-			var pixel_y = y * offset + 35 + (y_offset * offset)
+			# --- CAMBIO AQUÍ: Usamos offset_x y offset_y por separado ---
+			var pixel_x = x * offset_x + 35
+			var pixel_y = y * offset_y + 35 + (y_offset * offset_y)
+			# ------------------------------------------------------------
 			piece.position = Vector2(pixel_x, pixel_y)
 			
 			piece.setup(x, y, possible_type)
@@ -178,6 +181,13 @@ func swap_pieces(p1: Piece, p2: Piece):
 	
 	await tween.finished
 	
+	# --- FIX DE SEGURIDAD (AGREGA ESTO) ---
+	# Verificamos si las piezas siguen existiendo después de la espera.
+	if not is_instance_valid(p1) or not is_instance_valid(p2):
+		is_processing = false
+		return
+	# --------------------------------------
+	
 	# 4. Validate Move
 	var matches = find_matches()
 	
@@ -266,24 +276,37 @@ func find_matches() -> Array:
 ## 1. Emits 'match_found' signal for the CombatManager.
 ## 2. Removes visual nodes and clears data.
 ## 3. Calls 'refill_columns' to start the cascade.
+# En GridManager.gd
+
 func destroy_matches(matches: Array):
 	# 1. REMOVE DUPLICATES (MATH FIX)
-	# Create a new list with unique coordinates only
 	var unique_matches = []
 	for coord in matches:
 		if not unique_matches.has(coord):
 			unique_matches.append(coord)
 	
-	# --- COMBAT HOOK ---
-	if unique_matches.size() > 0:
-		var first_coord = unique_matches[0]
-		var type_id = grid_data[first_coord.x][first_coord.y]
+	# --- FIX: CLASIFICAR POR TIPOS (BATCHING) ---
+	# Creamos un diccionario para contar cuántas hay de cada tipo
+	# Ejemplo: { 0: 3, 3: 3 } -> 3 Rojas, 3 Bombas
+	var matches_by_type = {}
+	
+	for coord in unique_matches:
+		var type_id = grid_data[coord.x][coord.y]
 		
-		# NOW WE USE THE REAL SIZE WITHOUT DUPLICATES
-		var count = unique_matches.size() 
-		
+		# Si el tipo no está en el diccionario, lo inicializamos
+		if not matches_by_type.has(type_id):
+			matches_by_type[type_id] = 0
+			
+		# Sumamos 1 a ese tipo
+		matches_by_type[type_id] += 1
+	
+	# --- COMBAT HOOK (EMITIR POR GRUPOS) ---
+	# Ahora recorremos el diccionario y emitimos una señal POR CADA TIPO encontrado
+	for type_id in matches_by_type:
+		var count = matches_by_type[type_id]
 		SignalBus.match_found.emit(type_id, count)
-		print("Signal emitted: Type", type_id, " - Real Amount: ", count) 
+		print("Signal emitted: Type ", type_id, " - Real Amount: ", count)
+	# --------------------------------------------
 	
 	print("Destroying ", unique_matches.size(), " parts...")
 	
@@ -342,9 +365,9 @@ func refill_columns():
 			var type = randi() % 7
 			var new_piece = piece_scene.instantiate()
 			add_child(new_piece)
-			
-			var spawn_y_pixel = (y_offset * offset) - (offset * (pieces_needed - i)) - 50
-			var target_x_pixel = x * offset + 35
+			# --- CAMBIO EN EL SPAWN (Usamos offset_y para la altura de caída) ---
+			var spawn_y_pixel = (y_offset * offset_y) - (offset_y * (pieces_needed - i)) - 50
+			var target_x_pixel = x * offset_x + 35
 			new_piece.position = Vector2(target_x_pixel, spawn_y_pixel)
 			
 			new_piece.setup(x, -1, type) 
@@ -361,7 +384,8 @@ func refill_columns():
 			piece.grid_y = y
 			piece.name = "Piece_" + str(x) + "_" + str(y) 
 			
-			var target_pos = Vector2(x * offset + 35, y * offset + 35 + (y_offset * offset))
+			# Usamos offset_x para la horizontal y offset_y para la vertical
+			var target_pos = Vector2(x * offset_x + 35, y * offset_y + 35 + (y_offset * offset_y))
 			
 			if piece.position != target_pos:
 				tween.tween_property(piece, "position", target_pos, 0.4).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)

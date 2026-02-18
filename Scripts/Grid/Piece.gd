@@ -19,18 +19,27 @@ var is_locked: bool = false
 
 # --- CONFIGURACIÓN DE TAMAÑO ---
 # Ajusta esto si quieres que sean un poco más grandes o chicos (60.0 es ideal para celdas de 64)
-const TARGET_SIZE = 60.0 
+const TARGET_SIZE = 44.0 
 
 # --- TEXTURE LOADING ---
-# Verifica que estas rutas sean EXACTAS a las de tu proyecto
 const TEXTURES = {
+	# Mantenemos TODOS los iconos viejos del Grid por seguridad
+	# hasta que Edison mande los reemplazos exactos (cuadrados).
+	
 	0: preload("res://Assets/Icons/Grid/Rubi rojo.png"),      
 	1: preload("res://Assets/Icons/Grid/Zafiro azul.png"), 
 	2: preload("res://Assets/Icons/Grid/esmeralda.png"),   
-	3: preload("res://Assets/Icons/Grid/bomba grid (1).png"),      
-	4: preload("res://Assets/Icons/Grid/timon (1).png"),      
-	5: preload("res://Assets/Icons/Grid/gold.png"),      
-	6: preload("res://Assets/Icons/Grid/pergasamino ico.png")     
+	
+	# REVERTIDO: Usamos el icono de bomba original del grid.
+	# "bomba bala de canon juego.png" parece ser el proyectil, no la ficha.
+	3: preload("res://Assets/Icons/Grid/bomba grid (1).png"), 
+	
+	# REVERTIDO: Usamos el icono de timón original.
+	# "TIMON BAR.png" es la barra de UI, no la ficha.
+	4: preload("res://Assets/Icons/Grid/timon (1).png"), 
+	
+	5: preload("res://Assets/Icons/Grid/gold.png"),       
+	6: preload("res://Assets/Icons/Grid/pergasamino ico.png")      
 }
 
 # --- INPUT VARIABLES ---

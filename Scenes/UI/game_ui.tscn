@@ -1,0 +1,528 @@
+[gd_scene load_steps=22 format=3 uid="uid://cpsgg6n406orn"]
+
+[ext_resource type="Script" uid="uid://bd05y8rfoxjid" path="res://Scenes/UI/GameUI.gd" id="1_3fiko"]
+[ext_resource type="Texture2D" uid="uid://cgron7dk2u7uy" path="res://Assets/Final/UI/barra vida player -enemigo -empty.png" id="2_lolt2"]
+[ext_resource type="Texture2D" uid="uid://ut2sog5rq3lk" path="res://Assets/Final/UI/container mana empty_resultado.png" id="2_vo2tu"]
+[ext_resource type="Texture2D" uid="uid://ddx5tdglm5hrt" path="res://Assets/Final/UI/PERGAMINO_resultado.png" id="3_5b8pf"]
+[ext_resource type="Texture2D" uid="uid://n0thv2kvciah" path="res://Assets/Final/UI/magic slot_resultado.png" id="4_6w80a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tig4k"]
+atlas = ExtResource("2_lolt2")
+region = Rect2(677, 22, 151.5, 955)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plf53"]
+atlas = ExtResource("2_lolt2")
+region = Rect2(197, 23, 153, 951)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lolt2"]
+atlas = ExtResource("2_lolt2")
+region = Rect2(677, 15.5, 150, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jce"]
+atlas = ExtResource("2_lolt2")
+region = Rect2(435.5, 12.5, 154.5, 966)
+
+[sub_resource type="Gradient" id="Gradient_3fiko"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vo2tu"]
+gradient = SubResource("Gradient_3fiko")
+
+[sub_resource type="Gradient" id="Gradient_5b8pf"]
+colors = PackedColorArray(0, 0, 0.960784, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6w80a"]
+gradient = SubResource("Gradient_5b8pf")
+
+[sub_resource type="Gradient" id="Gradient_lolt2"]
+colors = PackedColorArray(0, 0.537255, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tig4k"]
+gradient = SubResource("Gradient_lolt2")
+
+[sub_resource type="Gradient" id="Gradient_vo2tu"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5b8pf"]
+gradient = SubResource("Gradient_vo2tu")
+
+[sub_resource type="Gradient" id="Gradient_6w80a"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lolt2"]
+gradient = SubResource("Gradient_6w80a")
+
+[sub_resource type="Gradient" id="Gradient_tig4k"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plf53"]
+gradient = SubResource("Gradient_tig4k")
+
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("hp_bar_player", "hp_bar_enemy", "mana_red", "mana_blue", "mana_green")]
+script = ExtResource("1_3fiko")
+hp_bar_player = NodePath("MainLayout/TopBar/HealthRow/PlayerHPBar")
+hp_bar_enemy = NodePath("MainLayout/TopBar/HealthRow/EnemyHPBar")
+mana_red = NodePath("MainLayout/ManaContainer/ManaRed")
+mana_blue = NodePath("MainLayout/ManaContainer/ManaBlue")
+mana_green = NodePath("MainLayout/ManaContainer/ManaGreen")
+
+[node name="MainLayout" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="Control" parent="MainLayout"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="HealthRow" type="Control" parent="MainLayout/TopBar"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 40.0
+
+[node name="PlayerHPBar" type="TextureProgressBar" parent="MainLayout/TopBar/HealthRow"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+offset_left = 297.0
+offset_top = 267.0
+offset_right = 597.0
+offset_bottom = 1221.0
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+max_value = 50.0
+value = 50.0
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_tig4k")
+texture_progress = SubResource("AtlasTexture_plf53")
+
+[node name="EnemyHPBar" type="TextureProgressBar" parent="MainLayout/TopBar/HealthRow"]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+offset_left = 983.0
+offset_top = 241.0
+offset_right = 1283.0
+offset_bottom = 1206.0
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+max_value = 50.0
+value = 50.0
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_lolt2")
+texture_progress = SubResource("AtlasTexture_p8jce")
+
+[node name="ManaContainer" type="Control" parent="MainLayout"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -305.0
+offset_right = 81.0
+offset_bottom = 3.0
+grow_vertical = 2
+
+[node name="ManaRed" type="TextureProgressBar" parent="MainLayout/ManaContainer"]
+custom_minimum_size = Vector2(30, 100)
+layout_mode = 2
+offset_left = 26.0
+offset_top = 42.0
+offset_right = 66.0
+offset_bottom = 142.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_vo2tu")
+
+[node name="ManaBlue" type="TextureProgressBar" parent="MainLayout/ManaContainer"]
+custom_minimum_size = Vector2(30, 100)
+layout_mode = 2
+offset_left = 86.0
+offset_top = 42.0
+offset_right = 126.0
+offset_bottom = 142.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_6w80a")
+
+[node name="ManaGreen" type="TextureProgressBar" parent="MainLayout/ManaContainer"]
+custom_minimum_size = Vector2(30, 100)
+layout_mode = 2
+offset_left = 146.0
+offset_top = 42.0
+offset_right = 186.0
+offset_bottom = 142.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_tig4k")
+
+[node name="MagicPanel_Left" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 253.0
+offset_right = 42.0
+offset_bottom = 293.0
+
+[node name="ManaTubes_BG" type="TextureRect" parent="MagicPanel_Left"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -5.0
+offset_right = 1053.0
+offset_bottom = 1200.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vo2tu")
+stretch_mode = 4
+
+[node name="BarRed" type="TextureProgressBar" parent="MagicPanel_Left/ManaTubes_BG"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 280.0
+offset_right = 295.0
+offset_bottom = 1000.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_5b8pf")
+tint_progress = Color(1, 0.00392157, 0.203922, 1)
+
+[node name="BarGreen" type="TextureProgressBar" parent="MagicPanel_Left/ManaTubes_BG"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 280.0
+offset_right = 515.0
+offset_bottom = 995.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_lolt2")
+tint_progress = Color(0.0431373, 1, 0.180392, 1)
+
+[node name="BarBlue" type="TextureProgressBar" parent="MagicPanel_Left/ManaTubes_BG"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 280.0
+offset_right = 744.0
+offset_bottom = 995.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_plf53")
+tint_progress = Color(0.027451, 0.227451, 1, 1)
+
+[node name="SkillsScroll" type="TextureRect" parent="MagicPanel_Left"]
+layout_mode = 0
+offset_top = 195.0
+offset_right = 827.0
+offset_bottom = 1222.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_5b8pf")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="MagicPanel_Left/SkillsScroll"]
+layout_mode = 0
+offset_left = 303.333
+offset_top = 250.0
+offset_right = 423.333
+offset_bottom = 370.0
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 17
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton3" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton4" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton5" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton6" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton7" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton8" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton9" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton10" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton11" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton12" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton13" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton14" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton15" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="MagicPanel_Right" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1011.0
+offset_top = 253.0
+offset_right = 1051.0
+offset_bottom = 293.0
+
+[node name="ManaTubes_BG" type="TextureRect" parent="MagicPanel_Right"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -3.0
+offset_right = 1024.0
+offset_bottom = 1202.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vo2tu")
+stretch_mode = 4
+flip_h = true
+
+[node name="BarRed" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 275.0
+offset_right = 810.0
+offset_bottom = 995.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_5b8pf")
+tint_progress = Color(1, 0.00392157, 0.203922, 1)
+
+[node name="BarGreen" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 280.0
+offset_right = 585.0
+offset_bottom = 985.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_lolt2")
+tint_progress = Color(0.0431373, 1, 0.180392, 1)
+
+[node name="BarBlue" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 280.0
+offset_right = 364.0
+offset_bottom = 995.0
+max_value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_plf53")
+tint_progress = Color(0.027451, 0.227451, 1, 1)
+
+[node name="SkillsScroll" type="TextureRect" parent="MagicPanel_Right"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 197.0
+offset_right = 846.0
+offset_bottom = 1224.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_5b8pf")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="GridContainer" type="GridContainer" parent="MagicPanel_Right/SkillsScroll"]
+layout_mode = 0
+offset_left = 173.333
+offset_top = 250.0
+offset_right = 532.333
+offset_bottom = 843.0
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 17
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton3" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton4" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton5" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton6" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton7" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton8" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton9" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton10" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton11" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton12" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton13" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton14" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton15" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 105)
+layout_mode = 2
+texture_normal = ExtResource("4_6w80a")
+ignore_texture_size = true
+stretch_mode = 4
