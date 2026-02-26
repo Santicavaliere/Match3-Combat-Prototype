@@ -12,5 +12,5 @@ icon_talisman = ExtResource("2_hv5dy")
 icon_magic = ExtResource("1_25sj1")
 cost_red = 0
 cost_blue = 6
-cost_green = 0
+cost_green = 4
 metadata/_custom_type_script = "uid://dfmoiba0y1vbi"

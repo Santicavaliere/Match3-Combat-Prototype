@@ -46,3 +46,13 @@ signal mana_updated(mana_dict: Dictionary)
 signal player_hp_changed(current_hp: int, max_hp: int)
 signal enemy_hp_changed(current_hp: int, max_hp: int)
 # Ya tienes mana_updated y moves_updated, esas las usaremos tal cual.
+
+# --- NUEVAS SEÑALES PARA TIMONES (EVASIÓN) ---
+signal player_evasion_changed(current_evasion: float)
+signal enemy_evasion_changed(current_evasion: float)
+
+## Emitida cuando el jugador hace clic en una magia del pergamino dorado
+signal ability_cast_requested(ability: Ability)
+
+## Emitida cuando la magia REALMENTE se ejecuta (tenía maná suficiente)
+signal ability_cast_success(ability: Ability)

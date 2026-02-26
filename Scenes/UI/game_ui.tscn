@@ -1,10 +1,155 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpsgg6n406orn"]
+[gd_scene load_steps=166 format=3 uid="uid://cpsgg6n406orn"]
 
 [ext_resource type="Script" uid="uid://bd05y8rfoxjid" path="res://Scenes/UI/GameUI.gd" id="1_3fiko"]
+[ext_resource type="Script" uid="uid://dpdal306bjkvx" path="res://Scripts/Resources/Ability.gd" id="2_es3rm"]
 [ext_resource type="Texture2D" uid="uid://cgron7dk2u7uy" path="res://Assets/Final/UI/barra vida player -enemigo -empty.png" id="2_lolt2"]
-[ext_resource type="Texture2D" uid="uid://ut2sog5rq3lk" path="res://Assets/Final/UI/container mana empty_resultado.png" id="2_vo2tu"]
 [ext_resource type="Texture2D" uid="uid://ddx5tdglm5hrt" path="res://Assets/Final/UI/PERGAMINO_resultado.png" id="3_5b8pf"]
-[ext_resource type="Texture2D" uid="uid://n0thv2kvciah" path="res://Assets/Final/UI/magic slot_resultado.png" id="4_6w80a"]
+[ext_resource type="Resource" uid="uid://dk1ep18pcihud" path="res://Scripts/Resources/Abilities/Strategist/Data_Cartographer.tres" id="3_es3rm"]
+[ext_resource type="Texture2D" uid="uid://l26vfqbx67ih" path="res://Assets/Final/UI/TIMON BAR.png" id="3_tig4k"]
+[ext_resource type="Resource" uid="uid://dfcrx07td1mdb" path="res://Scripts/Resources/Abilities/Strategist/Data_Navigator.tres" id="4_ivle0"]
+[ext_resource type="Texture2D" uid="uid://ddeljlew52eaq" path="res://Assets/Final/UI/Espejo de turnos.png" id="4_plf53"]
+[ext_resource type="Resource" uid="uid://b3lxrecremjhu" path="res://Scripts/Resources/Abilities/Strategist/Data_Archivist.tres" id="5_2pabd"]
+[ext_resource type="Resource" uid="uid://c2w7klfvej5kq" path="res://Scripts/Resources/Abilities/Explorer/Data_Looter.tres" id="6_3ganb"]
+[ext_resource type="Texture2D" uid="uid://b1vtvc0lp7ahm" path="res://Assets/Final/UI/container fillup_resultado.png" id="6_p8jce"]
+[ext_resource type="Resource" uid="uid://b0f8unf4fdc1e" path="res://Scripts/Resources/Abilities/Guardian/Data_Bastion.tres" id="7_4e3xs"]
+[ext_resource type="Texture2D" uid="uid://duq178mmoa4f3" path="res://Assets/Final/UI/Scroll/scroll_000.png" id="8_3hpa5"]
+[ext_resource type="Texture2D" uid="uid://n0thv2kvciah" path="res://Assets/Final/UI/magic slot_resultado.png" id="8_wpaia"]
+[ext_resource type="Texture2D" uid="uid://b3culoapp1t0b" path="res://Assets/Final/UI/Scroll/scroll_001.png" id="9_vvwjs"]
+[ext_resource type="Texture2D" uid="uid://cj12tv60j46yl" path="res://Assets/Final/UI/counter magic slot_resultado.png" id="10_hycpo"]
+[ext_resource type="Texture2D" uid="uid://bryshs3ufe87y" path="res://Assets/Final/UI/Scroll/scroll_002.png" id="10_rmbof"]
+[ext_resource type="Texture2D" uid="uid://u3u3llx00s72" path="res://Assets/Final/UI/Scroll/scroll_003.png" id="11_abugl"]
+[ext_resource type="Texture2D" uid="uid://cwl3f47nirxpg" path="res://Assets/Final/UI/containers.png" id="11_fs7na"]
+[ext_resource type="Texture2D" uid="uid://bbrx42txks2yo" path="res://Assets/Final/UI/Scroll/scroll_004.png" id="12_hgvlg"]
+[ext_resource type="Texture2D" uid="uid://dm6lgfy1bu5k7" path="res://Assets/Final/UI/Scroll/scroll_005.png" id="13_yitrx"]
+[ext_resource type="Texture2D" uid="uid://bkxigl4glanb8" path="res://Assets/Final/UI/Scroll/scroll_006.png" id="14_5m504"]
+[ext_resource type="Texture2D" uid="uid://sxdn1opuyw1y" path="res://Assets/Final/UI/Scroll/scroll_007.png" id="15_787i8"]
+[ext_resource type="Texture2D" uid="uid://bqgfhnb2odtmi" path="res://Assets/Final/UI/Scroll/scroll_008.png" id="16_borsg"]
+[ext_resource type="Texture2D" uid="uid://b53er4ywm8lk8" path="res://Assets/Final/UI/Scroll/scroll_009.png" id="17_opy75"]
+[ext_resource type="Texture2D" uid="uid://b7nw6wntjwlhc" path="res://Assets/Final/UI/Scroll/scroll_010.png" id="18_hvb84"]
+[ext_resource type="Texture2D" uid="uid://b2gle4dj37fqe" path="res://Assets/Final/UI/Scroll/scroll_011.png" id="19_wpaia"]
+[ext_resource type="Texture2D" uid="uid://h6bacpsvkq08" path="res://Assets/Final/UI/Scroll/scroll_012.png" id="20_hycpo"]
+[ext_resource type="Texture2D" uid="uid://cha6e8uy7emlh" path="res://Assets/Final/UI/Scroll/scroll_013.png" id="21_fs7na"]
+[ext_resource type="Texture2D" uid="uid://i70ixoi1rr4a" path="res://Assets/Final/UI/Scroll/scroll_014.png" id="22_vcroo"]
+[ext_resource type="Texture2D" uid="uid://bhbkyi8c1pdd1" path="res://Assets/Final/UI/Scroll/scroll_015.png" id="23_m1ce5"]
+[ext_resource type="Texture2D" uid="uid://c3tyc8cn0jxe1" path="res://Assets/Final/UI/Scroll/scroll_016.png" id="24_yhgli"]
+[ext_resource type="Texture2D" uid="uid://by8dmhird7nhn" path="res://Assets/Final/UI/Scroll/scroll_017.png" id="25_pwwwt"]
+[ext_resource type="Texture2D" uid="uid://c0pxtdfittxah" path="res://Assets/Final/UI/Scroll/scroll_018.png" id="26_es3rm"]
+[ext_resource type="Texture2D" uid="uid://df4pwhfcjt1n" path="res://Assets/Final/UI/Scroll/scroll_019.png" id="27_ivle0"]
+[ext_resource type="Texture2D" uid="uid://b0bbk3lexo4rb" path="res://Assets/Final/UI/Scroll/scroll_020.png" id="28_2pabd"]
+[ext_resource type="Texture2D" uid="uid://ckf7y8t5pbj74" path="res://Assets/Final/UI/Scroll/scroll_021.png" id="29_3ganb"]
+[ext_resource type="Texture2D" uid="uid://bdgoiqw3uwfwj" path="res://Assets/Final/UI/Scroll/scroll_022.png" id="30_4e3xs"]
+[ext_resource type="Texture2D" uid="uid://c503n03gce44u" path="res://Assets/Final/UI/Scroll/scroll_023.png" id="31_lymik"]
+[ext_resource type="Texture2D" uid="uid://d0j5yg4nr2c08" path="res://Assets/Final/UI/Scroll/scroll_024.png" id="32_mdvly"]
+[ext_resource type="Texture2D" uid="uid://cnqjt0igdgbrk" path="res://Assets/Final/UI/Scroll/scroll_025.png" id="33_bvl8i"]
+[ext_resource type="Texture2D" uid="uid://du2sk7waw2on8" path="res://Assets/Final/UI/Scroll/scroll_026.png" id="34_24jxx"]
+[ext_resource type="Texture2D" uid="uid://dxhrvdj6m3gqa" path="res://Assets/Final/UI/Scroll/scroll_027.png" id="35_o1fs3"]
+[ext_resource type="Texture2D" uid="uid://ds34wpgfkw1cm" path="res://Assets/Final/UI/Scroll/scroll_028.png" id="36_yj1mw"]
+[ext_resource type="Texture2D" uid="uid://dl2l01jxumune" path="res://Assets/Final/UI/Scroll/scroll_029.png" id="37_arjxu"]
+[ext_resource type="Texture2D" uid="uid://dke44cqqpgiro" path="res://Assets/Final/UI/Scroll/scroll_030.png" id="38_340mk"]
+[ext_resource type="Texture2D" uid="uid://cr2el4xmexq2j" path="res://Assets/Final/UI/Scroll/scroll_031.png" id="39_d68cs"]
+[ext_resource type="Texture2D" uid="uid://i25lywyot3sp" path="res://Assets/Final/UI/Scroll/scroll_032.png" id="40_3ho3u"]
+[ext_resource type="Texture2D" uid="uid://yg25twsd2sq2" path="res://Assets/Final/UI/Scroll/scroll_033.png" id="41_4ecq0"]
+[ext_resource type="Texture2D" uid="uid://y6r52dn3e5hx" path="res://Assets/Final/UI/Scroll/scroll_034.png" id="42_wl0t5"]
+[ext_resource type="Texture2D" uid="uid://ddxbuuqxqmfc0" path="res://Assets/Final/UI/Scroll/scroll_035.png" id="43_jc18j"]
+[ext_resource type="Texture2D" uid="uid://bjxoammarmid1" path="res://Assets/Final/UI/Scroll/scroll_036.png" id="44_pbx8i"]
+[ext_resource type="Texture2D" uid="uid://bo45imdwk17aj" path="res://Assets/Final/UI/Scroll/scroll_037.png" id="45_gs5hc"]
+[ext_resource type="Texture2D" uid="uid://b3crgdrc1u3hy" path="res://Assets/Final/UI/Scroll/scroll_038.png" id="46_ctd06"]
+[ext_resource type="Texture2D" uid="uid://b17ouxqn80qfn" path="res://Assets/Final/UI/Scroll/scroll_039.png" id="47_k7c20"]
+[ext_resource type="Texture2D" uid="uid://d2rh0m2a0y5vj" path="res://Assets/Final/UI/Scroll/scroll_040.png" id="48_85mjx"]
+[ext_resource type="Texture2D" uid="uid://diht1qaoipfq4" path="res://Assets/Final/UI/Scroll/scroll_041.png" id="49_f65e4"]
+[ext_resource type="Texture2D" uid="uid://c1oxh3aweqt2u" path="res://Assets/Final/UI/Scroll/scroll_042.png" id="50_wromf"]
+[ext_resource type="Texture2D" uid="uid://cbli45yt4121i" path="res://Assets/Final/UI/Scroll/scroll_043.png" id="51_hpt4y"]
+[ext_resource type="Texture2D" uid="uid://bksrt7gvogabf" path="res://Assets/Final/UI/Scroll/scroll_044.png" id="52_10p30"]
+[ext_resource type="Texture2D" uid="uid://jwqs5g27pikq" path="res://Assets/Final/UI/Scroll/scroll_045.png" id="53_mqs4k"]
+[ext_resource type="Texture2D" uid="uid://1ug4y5aaqibu" path="res://Assets/Final/UI/Scroll/scroll_046.png" id="54_pajs4"]
+[ext_resource type="Texture2D" uid="uid://bokmokywfe1ma" path="res://Assets/Final/UI/Scroll/scroll_047.png" id="55_cfshm"]
+[ext_resource type="Texture2D" uid="uid://1ga3b5pm4otv" path="res://Assets/Final/UI/Scroll/scroll_048.png" id="56_unlp3"]
+[ext_resource type="Texture2D" uid="uid://co7wu72md4oqk" path="res://Assets/Final/UI/Scroll/scroll_049.png" id="57_7p8iu"]
+[ext_resource type="Texture2D" uid="uid://t6trgobnt7ia" path="res://Assets/Final/UI/Scroll/scroll_050.png" id="58_5e3pv"]
+[ext_resource type="Texture2D" uid="uid://bxso32nxh66ke" path="res://Assets/Final/UI/Scroll/scroll_051.png" id="59_bxxc6"]
+[ext_resource type="Texture2D" uid="uid://hxubq248jrdt" path="res://Assets/Final/UI/Scroll/scroll_052.png" id="60_my6ea"]
+[ext_resource type="Texture2D" uid="uid://bqsf8reejjh2m" path="res://Assets/Final/UI/Scroll/scroll_053.png" id="61_nnt6k"]
+[ext_resource type="Texture2D" uid="uid://huq4ghsxrvbk" path="res://Assets/Final/UI/Scroll/scroll_054.png" id="62_qvgyo"]
+[ext_resource type="Texture2D" uid="uid://dgyssi2jlwx4s" path="res://Assets/Final/UI/Scroll/scroll_055.png" id="63_cytwg"]
+[ext_resource type="Texture2D" uid="uid://bktmrmpandpc" path="res://Assets/Final/UI/Scroll/scroll_056.png" id="64_8mxpu"]
+[ext_resource type="Texture2D" uid="uid://dkvab4a2yw5u4" path="res://Assets/Final/UI/Scroll/scroll_057.png" id="65_5sxes"]
+[ext_resource type="Texture2D" uid="uid://cyj066n78i0fa" path="res://Assets/Final/UI/Scroll/scroll_058.png" id="66_48f6w"]
+[ext_resource type="Texture2D" uid="uid://vc041l377u76" path="res://Assets/Final/UI/Scroll/scroll_059.png" id="67_g164u"]
+[ext_resource type="Texture2D" uid="uid://k6we8umoirrw" path="res://Assets/Final/UI/Scroll/scroll_060.png" id="68_bn1gh"]
+[ext_resource type="Texture2D" uid="uid://bsfggyc2xty6i" path="res://Assets/Final/UI/Scroll/scroll_061.png" id="69_k2rga"]
+[ext_resource type="Texture2D" uid="uid://civfu8ahyj00s" path="res://Assets/Final/UI/Scroll/scroll_062.png" id="70_rikkr"]
+[ext_resource type="Texture2D" uid="uid://bx14y3mk7lxbo" path="res://Assets/Final/UI/Scroll/scroll_063.png" id="71_aa7tn"]
+[ext_resource type="Texture2D" uid="uid://brhxaul1f4hh3" path="res://Assets/Final/UI/Scroll/scroll_064.png" id="72_gmr74"]
+[ext_resource type="Texture2D" uid="uid://bofb4xyy3yfdk" path="res://Assets/Final/UI/Scroll/scroll_065.png" id="73_gsrck"]
+[ext_resource type="Texture2D" uid="uid://dkd7vcmjmqrgl" path="res://Assets/Final/UI/Scroll/scroll_066.png" id="74_gftl8"]
+[ext_resource type="Texture2D" uid="uid://dkycj3aduxft1" path="res://Assets/Final/UI/Scroll/scroll_067.png" id="75_ol58j"]
+[ext_resource type="Texture2D" uid="uid://b2xs7fc50od3v" path="res://Assets/Final/UI/Scroll/scroll_068.png" id="76_02mbi"]
+[ext_resource type="Texture2D" uid="uid://s2ybbuoyl8nh" path="res://Assets/Final/UI/Scroll/scroll_069.png" id="77_rklff"]
+[ext_resource type="Texture2D" uid="uid://c365phen7iowp" path="res://Assets/Final/UI/Scroll/scroll_070.png" id="78_u5468"]
+[ext_resource type="Texture2D" uid="uid://cd8bvrr33q4k6" path="res://Assets/Final/UI/Scroll/scroll_071.png" id="79_8lj2e"]
+[ext_resource type="Texture2D" uid="uid://52un06d2upjy" path="res://Assets/Final/UI/Scroll/scroll_072.png" id="80_bcsjo"]
+[ext_resource type="Texture2D" uid="uid://buhw0ljxmbh57" path="res://Assets/Final/UI/Scroll/scroll_073.png" id="81_3dqjj"]
+[ext_resource type="Texture2D" uid="uid://ckyimavunkrkx" path="res://Assets/Final/UI/Scroll/scroll_074.png" id="82_wtawy"]
+[ext_resource type="Texture2D" uid="uid://c8c0stjkg2own" path="res://Assets/Final/UI/Scroll/scroll_075.png" id="83_wmdsk"]
+[ext_resource type="Texture2D" uid="uid://cwdtsj13nv7iy" path="res://Assets/Final/UI/Scroll/scroll_076.png" id="84_hjxge"]
+[ext_resource type="Texture2D" uid="uid://8rw5jux2m0ly" path="res://Assets/Final/UI/Scroll/scroll_077.png" id="85_kq7dy"]
+[ext_resource type="Texture2D" uid="uid://des7r0la10dsm" path="res://Assets/Final/UI/Scroll/scroll_078.png" id="86_axdus"]
+[ext_resource type="Texture2D" uid="uid://c874mfou5uk87" path="res://Assets/Final/UI/Scroll/scroll_079.png" id="87_62sbu"]
+[ext_resource type="Texture2D" uid="uid://cs3d34875in3w" path="res://Assets/Final/UI/Scroll/scroll_080.png" id="88_3hqjk"]
+[ext_resource type="Texture2D" uid="uid://nvuyr4tves3i" path="res://Assets/Final/UI/Scroll/scroll_081.png" id="89_1bii7"]
+[ext_resource type="Texture2D" uid="uid://ce3kld8fy435d" path="res://Assets/Final/UI/Scroll/scroll_082.png" id="90_iq5vp"]
+[ext_resource type="Texture2D" uid="uid://ccx8mc1cw6uj2" path="res://Assets/Final/UI/Scroll/scroll_083.png" id="91_sh6m0"]
+[ext_resource type="Texture2D" uid="uid://d4fgluq2eb50l" path="res://Assets/Final/UI/Scroll/scroll_084.png" id="92_6ffuk"]
+[ext_resource type="Texture2D" uid="uid://b2t0o8wjhn531" path="res://Assets/Final/UI/Scroll/scroll_085.png" id="93_y2mfo"]
+[ext_resource type="Texture2D" uid="uid://cl32uaky61aa4" path="res://Assets/Final/UI/Scroll/scroll_086.png" id="94_o7t2n"]
+[ext_resource type="Texture2D" uid="uid://cp0qkr3j2gplh" path="res://Assets/Final/UI/Scroll/scroll_087.png" id="95_82sg8"]
+[ext_resource type="Texture2D" uid="uid://cjqvqvps6eiuy" path="res://Assets/Final/UI/Scroll/scroll_088.png" id="96_b1bln"]
+[ext_resource type="Texture2D" uid="uid://dxr7ija4y7wuv" path="res://Assets/Final/UI/Scroll/scroll_089.png" id="97_qj6yj"]
+[ext_resource type="Texture2D" uid="uid://i7mqisg1b70f" path="res://Assets/Final/UI/Scroll/scroll_090.png" id="98_bicvy"]
+[ext_resource type="Texture2D" uid="uid://dmqy5tukrgyrk" path="res://Assets/Final/UI/Scroll/scroll_091.png" id="99_r32og"]
+[ext_resource type="Texture2D" uid="uid://nb16d5rmoclp" path="res://Assets/Final/UI/Scroll/scroll_092.png" id="100_2fkjv"]
+[ext_resource type="Texture2D" uid="uid://ijqq8e6ctinj" path="res://Assets/Final/UI/Scroll/scroll_093.png" id="101_i1166"]
+[ext_resource type="Texture2D" uid="uid://bvt11v2owb8wf" path="res://Assets/Final/UI/Scroll/scroll_094.png" id="102_061h2"]
+[ext_resource type="Texture2D" uid="uid://br1qrpw03u76y" path="res://Assets/Final/UI/Scroll/scroll_095.png" id="103_tavku"]
+[ext_resource type="Texture2D" uid="uid://bwqm0n0t0y57j" path="res://Assets/Final/UI/Scroll/scroll_096.png" id="104_41c8o"]
+[ext_resource type="Texture2D" uid="uid://hf0g0p4lqd5a" path="res://Assets/Final/UI/Scroll/scroll_097.png" id="105_e1heh"]
+[ext_resource type="Texture2D" uid="uid://d34crrbeo4t8s" path="res://Assets/Final/UI/Scroll/scroll_098.png" id="106_ttpv6"]
+[ext_resource type="Texture2D" uid="uid://breg3syh1g6wj" path="res://Assets/Final/UI/Scroll/scroll_099.png" id="107_fw0v8"]
+[ext_resource type="Texture2D" uid="uid://boef0ej0w4giv" path="res://Assets/Final/UI/Scroll/scroll_100.png" id="108_xxl5e"]
+[ext_resource type="Texture2D" uid="uid://difvsru0mxu80" path="res://Assets/Final/UI/Scroll/scroll_101.png" id="109_1x41f"]
+[ext_resource type="Texture2D" uid="uid://b1nvkhqcjpj66" path="res://Assets/Final/UI/Scroll/scroll_102.png" id="110_f411q"]
+[ext_resource type="Texture2D" uid="uid://bp8o2vax3g652" path="res://Assets/Final/UI/Scroll/scroll_103.png" id="111_p6ywu"]
+[ext_resource type="Texture2D" uid="uid://btnkyh33wu8h3" path="res://Assets/Final/UI/Scroll/scroll_104.png" id="112_jdw8y"]
+[ext_resource type="Texture2D" uid="uid://cocg17hvkbqyy" path="res://Assets/Final/UI/Scroll/scroll_105.png" id="113_vsr6e"]
+[ext_resource type="Texture2D" uid="uid://bdosicanbr6oe" path="res://Assets/Final/UI/Scroll/scroll_106.png" id="114_61n73"]
+[ext_resource type="Texture2D" uid="uid://bli2aksuwxgfb" path="res://Assets/Final/UI/Scroll/scroll_107.png" id="115_gxncp"]
+[ext_resource type="Texture2D" uid="uid://da2xqr5ogn8qs" path="res://Assets/Final/UI/Scroll/scroll_108.png" id="116_ibutm"]
+[ext_resource type="Texture2D" uid="uid://ce1j6n4h05pb7" path="res://Assets/Final/UI/Scroll/scroll_109.png" id="117_cwjju"]
+[ext_resource type="Texture2D" uid="uid://bbwo0xot6kt73" path="res://Assets/Final/UI/Scroll/scroll_110.png" id="118_tbqvm"]
+[ext_resource type="Texture2D" uid="uid://b2l70fvpsxhp0" path="res://Assets/Final/UI/Scroll/scroll_111.png" id="119_23dpi"]
+[ext_resource type="Texture2D" uid="uid://b2purlakg57j7" path="res://Assets/Final/UI/Scroll/scroll_112.png" id="120_6a0q6"]
+[ext_resource type="Texture2D" uid="uid://di28al5djo8xj" path="res://Assets/Final/UI/Scroll/scroll_113.png" id="121_yq045"]
+[ext_resource type="Texture2D" uid="uid://ihmgin6ixlxt" path="res://Assets/Final/UI/Scroll/scroll_114.png" id="122_0y2yx"]
+[ext_resource type="Texture2D" uid="uid://bpol4vv8kk73r" path="res://Assets/Final/UI/Scroll/scroll_115.png" id="123_v2p3o"]
+[ext_resource type="Texture2D" uid="uid://voqqq40lcrw0" path="res://Assets/Final/UI/Scroll/scroll_116.png" id="124_hhk51"]
+[ext_resource type="Texture2D" uid="uid://digge12wvc8ro" path="res://Assets/Final/UI/Scroll/scroll_117.png" id="125_qci2w"]
+[ext_resource type="Texture2D" uid="uid://4bptjdie1ecj" path="res://Assets/Final/UI/Scroll/scroll_118.png" id="126_tpqbp"]
+[ext_resource type="Texture2D" uid="uid://h7v88yc8sdld" path="res://Assets/Final/UI/Scroll/scroll_119.png" id="127_hkkmt"]
+[ext_resource type="Texture2D" uid="uid://dlndljnsfc3id" path="res://Assets/Final/UI/Scroll/scroll_120.png" id="128_sbqqe"]
+[ext_resource type="Texture2D" uid="uid://ty8gd1ulpau3" path="res://Assets/Final/UI/Scroll/scroll_121.png" id="129_3o73c"]
+[ext_resource type="Texture2D" uid="uid://d3dunnkqo1aua" path="res://Assets/Final/UI/Scroll/scroll_122.png" id="130_w7rsl"]
+[ext_resource type="Texture2D" uid="uid://drp22l47t7j3s" path="res://Assets/Final/UI/Scroll/scroll_123.png" id="131_ugxib"]
+[ext_resource type="Texture2D" uid="uid://bg8vwg5iuof8v" path="res://Assets/Final/UI/Scroll/scroll_124.png" id="132_8j8yh"]
+[ext_resource type="Texture2D" uid="uid://4eypxhw6dqsy" path="res://Assets/Final/UI/Scroll/scroll_125.png" id="133_2byiq"]
+[ext_resource type="Texture2D" uid="uid://bcfggne5ga0gg" path="res://Assets/Final/UI/Scroll/scroll_126.png" id="134_njfpf"]
+[ext_resource type="Texture2D" uid="uid://dfkca8bi57hue" path="res://Assets/Final/UI/Scroll/scroll_127.png" id="135_w03sy"]
+[ext_resource type="Texture2D" uid="uid://r4v15ks61stw" path="res://Assets/Final/UI/Scroll/scroll_128.png" id="136_p8toy"]
+[ext_resource type="Texture2D" uid="uid://cvrsvvnx5m0pl" path="res://Assets/Final/UI/Scroll/scroll_129.png" id="137_76sib"]
+[ext_resource type="Texture2D" uid="uid://dj03audrnywdr" path="res://Assets/Icons/Talismans/TALISMAN_DEL_CARTOGRAFO.png" id="138_yitrx"]
+[ext_resource type="Texture2D" uid="uid://fne4cf87a6jo" path="res://Assets/Icons/Talismans/TALISMAN_DEL_NAVEGANTE.png" id="139_5m504"]
+[ext_resource type="Texture2D" uid="uid://cyvhfoco8cn1f" path="res://Assets/Icons/Talismans/TALISMAN_DEL_ARCHIVISTA.png" id="140_787i8"]
+[ext_resource type="Texture2D" uid="uid://dft2rrg18621n" path="res://Assets/Icons/Talismans/TALISMAN_DEL_SAQUEADOR.png" id="141_borsg"]
+[ext_resource type="Texture2D" uid="uid://bx06iy8w63lcu" path="res://Assets/Icons/Talismans/TALISMAN_DEL_BASTION.png" id="142_opy75"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tig4k"]
 atlas = ExtResource("2_lolt2")
@@ -22,49 +167,461 @@ region = Rect2(677, 15.5, 150, 960)
 atlas = ExtResource("2_lolt2")
 region = Rect2(435.5, 12.5, 154.5, 966)
 
-[sub_resource type="Gradient" id="Gradient_3fiko"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnd0w"]
+atlas = ExtResource("3_tig4k")
+region = Rect2(614, 20.167, 112.5, 969)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vo2tu"]
-gradient = SubResource("Gradient_3fiko")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhxso"]
+atlas = ExtResource("3_tig4k")
+region = Rect2(296, 20, 111, 964.5)
 
-[sub_resource type="Gradient" id="Gradient_5b8pf"]
-colors = PackedColorArray(0, 0, 0.960784, 1, 1, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pgsb"]
+atlas = ExtResource("3_tig4k")
+region = Rect2(615.5, 21.5, 111, 966)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6w80a"]
-gradient = SubResource("Gradient_5b8pf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6rob"]
+atlas = ExtResource("3_tig4k")
+region = Rect2(294.5, 23, 112.5, 961.5)
 
-[sub_resource type="Gradient" id="Gradient_lolt2"]
-colors = PackedColorArray(0, 0.537255, 0, 1, 1, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkbk7"]
+atlas = ExtResource("6_p8jce")
+region = Rect2(223.5, 249, 153, 687)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tig4k"]
-gradient = SubResource("Gradient_lolt2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f07i2"]
+atlas = ExtResource("6_p8jce")
+region = Rect2(438, 246, 153, 691.5)
 
-[sub_resource type="Gradient" id="Gradient_vo2tu"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwiya"]
+atlas = ExtResource("6_p8jce")
+region = Rect2(649.5, 244.5, 153, 691.5)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5b8pf"]
-gradient = SubResource("Gradient_vo2tu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd57w"]
+atlas = ExtResource("6_p8jce")
+region = Rect2(220.5, 249, 154.5, 691.5)
 
-[sub_resource type="Gradient" id="Gradient_6w80a"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2lyg"]
+atlas = ExtResource("6_p8jce")
+region = Rect2(433.5, 247.5, 157.5, 685.5)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_lolt2"]
-gradient = SubResource("Gradient_6w80a")
+[sub_resource type="AtlasTexture" id="AtlasTexture_llaam"]
+atlas = ExtResource("6_p8jce")
+region = Rect2(649.5, 252, 156, 682.5)
 
-[sub_resource type="Gradient" id="Gradient_tig4k"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ypa4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_3hpa5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vvwjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rmbof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_abugl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hgvlg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yitrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5m504")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_787i8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_borsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_opy75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hvb84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wpaia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_hycpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_fs7na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vcroo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_m1ce5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_yhgli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_pwwwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_es3rm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_ivle0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_2pabd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_3ganb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_4e3xs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_lymik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_mdvly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_bvl8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_24jxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_o1fs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_yj1mw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_arjxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_340mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_d68cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_3ho3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_4ecq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_wl0t5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_jc18j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_pbx8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_gs5hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_ctd06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_k7c20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_85mjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_f65e4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_wromf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_hpt4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_10p30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_mqs4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_pajs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_cfshm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_unlp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_7p8iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_5e3pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_bxxc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_my6ea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_nnt6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_qvgyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_cytwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_8mxpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_5sxes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_48f6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_g164u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_bn1gh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_k2rga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_rikkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_aa7tn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_gmr74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_gsrck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_gftl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_ol58j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_02mbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_rklff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_u5468")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_8lj2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_bcsjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_3dqjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_wtawy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_wmdsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_hjxge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_kq7dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_axdus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_62sbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_3hqjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_1bii7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_iq5vp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_sh6m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_6ffuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_y2mfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_o7t2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_82sg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_b1bln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_qj6yj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_bicvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_r32og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_2fkjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_i1166")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_061h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_tavku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_41c8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_e1heh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_ttpv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_fw0v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_xxl5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_1x41f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_f411q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_p6ywu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_jdw8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_vsr6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_61n73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_gxncp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_ibutm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_cwjju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_tbqvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_23dpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_6a0q6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_yq045")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_0y2yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_v2p3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_hhk51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_qci2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_tpqbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_hkkmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_sbqqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_3o73c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_w7rsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_ugxib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_8j8yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_2byiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_njfpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_w03sy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_p8toy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_76sib")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_plf53"]
-gradient = SubResource("Gradient_tig4k")
-
-[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("hp_bar_player", "hp_bar_enemy", "mana_red", "mana_blue", "mana_green")]
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("hp_bar_player", "hp_bar_enemy", "helm_bar_player", "helm_bar_enemy", "player_mana_red", "player_mana_blue", "player_mana_green", "enemy_mana_red", "enemy_mana_blue", "enemy_mana_green", "turn_text", "magic_overlay", "magic_buttons")]
 script = ExtResource("1_3fiko")
 hp_bar_player = NodePath("MainLayout/TopBar/HealthRow/PlayerHPBar")
 hp_bar_enemy = NodePath("MainLayout/TopBar/HealthRow/EnemyHPBar")
-mana_red = NodePath("MainLayout/ManaContainer/ManaRed")
-mana_blue = NodePath("MainLayout/ManaContainer/ManaBlue")
-mana_green = NodePath("MainLayout/ManaContainer/ManaGreen")
+helm_bar_player = NodePath("MainLayout/PlayerHelmBar")
+helm_bar_enemy = NodePath("MainLayout/EnemyHelmBar")
+player_mana_red = NodePath("MagicPanel_Left/ManaTubes_BG/BarRed")
+player_mana_blue = NodePath("MagicPanel_Left/ManaTubes_BG/BarBlue")
+player_mana_green = NodePath("MagicPanel_Left/ManaTubes_BG/BarGreen")
+enemy_mana_red = NodePath("MagicPanel_Right/ManaTubes_BG/BarRed")
+enemy_mana_blue = NodePath("MagicPanel_Right/ManaTubes_BG/BarBlue")
+enemy_mana_green = NodePath("MagicPanel_Right/ManaTubes_BG/BarGreen")
+turn_text = NodePath("MainLayout/TurnMirror/TurnText")
+magic_overlay = NodePath("MagicOverlay")
+equipped_abilities = Array[ExtResource("2_es3rm")]([ExtResource("3_es3rm"), ExtResource("4_ivle0"), ExtResource("5_2pabd"), ExtResource("6_3ganb"), ExtResource("7_4e3xs")])
+magic_buttons = [NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5")]
+metadata/_edit_vertical_guides_ = [-227.0]
 
 [node name="MainLayout" type="Control" parent="."]
 layout_mode = 3
@@ -92,11 +649,10 @@ offset_bottom = 40.0
 [node name="PlayerHPBar" type="TextureProgressBar" parent="MainLayout/TopBar/HealthRow"]
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
-offset_left = 297.0
-offset_top = 267.0
-offset_right = 597.0
-offset_bottom = 1221.0
-rotation = -1.5708
+offset_left = 21.0
+offset_top = 33.0
+offset_right = 321.0
+offset_bottom = 988.0
 scale = Vector2(0.2, 0.2)
 max_value = 50.0
 value = 50.0
@@ -107,11 +663,10 @@ texture_progress = SubResource("AtlasTexture_plf53")
 [node name="EnemyHPBar" type="TextureProgressBar" parent="MainLayout/TopBar/HealthRow"]
 custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
-offset_left = 983.0
-offset_top = 241.0
-offset_right = 1283.0
-offset_bottom = 1206.0
-rotation = 1.5708
+offset_left = 1228.0
+offset_top = 33.0
+offset_right = 1528.0
+offset_bottom = 999.0
 scale = Vector2(0.2, 0.2)
 max_value = 50.0
 value = 50.0
@@ -119,52 +674,52 @@ fill_mode = 3
 texture_under = SubResource("AtlasTexture_lolt2")
 texture_progress = SubResource("AtlasTexture_p8jce")
 
-[node name="ManaContainer" type="Control" parent="MainLayout"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 41.0
-offset_top = -305.0
-offset_right = 81.0
-offset_bottom = 3.0
-grow_vertical = 2
-
-[node name="ManaRed" type="TextureProgressBar" parent="MainLayout/ManaContainer"]
-custom_minimum_size = Vector2(30, 100)
-layout_mode = 2
-offset_left = 26.0
-offset_top = 42.0
-offset_right = 66.0
-offset_bottom = 142.0
+[node name="PlayerHelmBar" type="TextureProgressBar" parent="MainLayout"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 238.0
+offset_right = 755.0
+offset_bottom = 1206.0
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
 max_value = 50.0
 fill_mode = 3
-nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_vo2tu")
+texture_under = SubResource("AtlasTexture_mnd0w")
+texture_progress = SubResource("AtlasTexture_bhxso")
 
-[node name="ManaBlue" type="TextureProgressBar" parent="MainLayout/ManaContainer"]
-custom_minimum_size = Vector2(30, 100)
-layout_mode = 2
-offset_left = 86.0
-offset_top = 42.0
-offset_right = 126.0
-offset_bottom = 142.0
+[node name="EnemyHelmBar" type="TextureProgressBar" parent="MainLayout"]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 271.0
+offset_right = 761.0
+offset_bottom = 1236.0
+rotation = -1.5708
+scale = Vector2(0.3, 0.3)
 max_value = 50.0
 fill_mode = 3
-nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_6w80a")
+texture_under = SubResource("AtlasTexture_0pgsb")
+texture_progress = SubResource("AtlasTexture_q6rob")
 
-[node name="ManaGreen" type="TextureProgressBar" parent="MainLayout/ManaContainer"]
-custom_minimum_size = Vector2(30, 100)
-layout_mode = 2
-offset_left = 146.0
-offset_top = 42.0
-offset_right = 186.0
-offset_bottom = 142.0
-max_value = 50.0
-fill_mode = 3
-nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_tig4k")
+[node name="TurnMirror" type="TextureRect" parent="MainLayout"]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 146.0
+offset_right = 1618.0
+offset_bottom = 1170.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_plf53")
+
+[node name="TurnText" type="Label" parent="MainLayout/TurnMirror"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 50.0
+offset_right = 712.0
+offset_bottom = 868.0
+theme_override_colors/font_color = Color(0, 0.0627451, 0.0823529, 1)
+theme_override_font_sizes/font_size = 600
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MagicPanel_Left" type="Control" parent="."]
 layout_mode = 3
@@ -176,174 +731,425 @@ offset_bottom = 293.0
 
 [node name="ManaTubes_BG" type="TextureRect" parent="MagicPanel_Left"]
 layout_mode = 0
-offset_left = 54.0
-offset_top = -5.0
-offset_right = 1053.0
-offset_bottom = 1200.0
+offset_left = 69.0
+offset_top = 138.0
+offset_right = 859.0
+offset_bottom = 898.0
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_vo2tu")
-stretch_mode = 4
+texture = ExtResource("11_fs7na")
+expand_mode = 1
 
 [node name="BarRed" type="TextureProgressBar" parent="MagicPanel_Left/ManaTubes_BG"]
 layout_mode = 0
-offset_left = 150.0
-offset_top = 280.0
-offset_right = 295.0
-offset_bottom = 1000.0
+offset_left = 115.0
+offset_top = 170.0
+offset_right = 255.0
+offset_bottom = 640.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_5b8pf")
-tint_progress = Color(1, 0.00392157, 0.203922, 1)
+texture_progress = SubResource("AtlasTexture_wkbk7")
 
 [node name="BarGreen" type="TextureProgressBar" parent="MagicPanel_Left/ManaTubes_BG"]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 280.0
-offset_right = 515.0
-offset_bottom = 995.0
+offset_left = 295.0
+offset_top = 170.0
+offset_right = 440.0
+offset_bottom = 635.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_lolt2")
-tint_progress = Color(0.0431373, 1, 0.180392, 1)
+texture_progress = SubResource("AtlasTexture_f07i2")
 
 [node name="BarBlue" type="TextureProgressBar" parent="MagicPanel_Left/ManaTubes_BG"]
 layout_mode = 0
-offset_left = 600.0
-offset_top = 280.0
-offset_right = 744.0
-offset_bottom = 995.0
+offset_left = 480.0
+offset_top = 170.0
+offset_right = 620.0
+offset_bottom = 635.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_plf53")
-tint_progress = Color(0.027451, 0.227451, 1, 1)
+texture_progress = SubResource("AtlasTexture_pwiya")
 
 [node name="SkillsScroll" type="TextureRect" parent="MagicPanel_Left"]
 layout_mode = 0
-offset_top = 195.0
-offset_right = 827.0
-offset_bottom = 1222.0
+offset_left = -2.0
+offset_top = 257.0
+offset_right = 834.0
+offset_bottom = 990.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_5b8pf")
 expand_mode = 1
-stretch_mode = 4
 
 [node name="GridContainer" type="GridContainer" parent="MagicPanel_Left/SkillsScroll"]
 layout_mode = 0
-offset_left = 303.333
-offset_top = 250.0
-offset_right = 423.333
-offset_bottom = 370.0
-theme_override_constants/h_separation = 18
-theme_override_constants/v_separation = 17
-columns = 3
+offset_left = 177.0
+offset_top = 190.0
+offset_right = 300.0
+offset_bottom = 783.0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 6
 
-[node name="TextureButton" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(115, 90)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("8_wpaia")
+expand_mode = 1
 
-[node name="TextureButton2" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -51.6666
+offset_right = 1558.5
+offset_bottom = 1561.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
 
-[node name="TextureButton3" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 3.0
+offset_right = 1745.0
+offset_bottom = 1246.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
 
-[node name="TextureButton4" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
-[node name="TextureButton5" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 0
+offset_left = 249.667
+offset_top = 3.33325
+offset_right = 1868.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
 
-[node name="TextureButton6" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
-[node name="TextureButton7" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 3.33325
+offset_right = 1992.0
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
 
-[node name="TextureButton8" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
-[node name="TextureButton9" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton2" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 90)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("8_wpaia")
+expand_mode = 1
 
-[node name="TextureButton10" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 2.99999
+offset_top = -12.6666
+offset_right = 1616.0
+offset_bottom = 1600.33
+scale = Vector2(0.07, 0.07)
 
-[node name="TextureButton11" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 126.333
+offset_top = 4.00004
+offset_right = 1745.33
+offset_bottom = 1247.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
 
-[node name="TextureButton12" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
-[node name="TextureButton13" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 249.667
+offset_top = 4.00004
+offset_right = 1868.67
+offset_bottom = 1247.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
 
-[node name="TextureButton14" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
-[node name="TextureButton15" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 4.00004
+offset_right = 1992.0
+offset_bottom = 1247.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="TextureButton3" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 90)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("8_wpaia")
+expand_mode = 1
+
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 0
+offset_left = -0.333341
+offset_top = -11.9999
+offset_right = 1612.67
+offset_bottom = 1601.0
+scale = Vector2(0.07, 0.07)
+
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 0
+offset_left = 126.333
+offset_top = 1.33341
+offset_right = 1745.33
+offset_bottom = 1244.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 0
+offset_left = 249.667
+offset_top = 1.33341
+offset_right = 1868.67
+offset_bottom = 1244.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 1.33341
+offset_right = 1992.0
+offset_bottom = 1244.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="TextureButton4" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 90)
+layout_mode = 2
+texture = ExtResource("8_wpaia")
+expand_mode = 1
+
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 1136.0
+offset_bottom = 899.0
+scale = Vector2(0.1, 0.1)
+
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 0
+offset_left = 126.333
+offset_top = 1.99992
+offset_right = 1745.33
+offset_bottom = 1245.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 0
+offset_left = 249.667
+offset_top = 1.99992
+offset_right = 1868.67
+offset_bottom = 1245.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = 1.99992
+offset_right = 1992.0
+offset_bottom = 1245.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="TextureButton5" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(105, 90)
+layout_mode = 2
+texture = ExtResource("8_wpaia")
+expand_mode = 1
+
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 0
+offset_right = 1097.0
+offset_bottom = 893.0
+scale = Vector2(0.1, 0.1)
+
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 0
+offset_left = 126.333
+offset_top = -0.666707
+offset_right = 1745.33
+offset_bottom = 1242.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 0
+offset_left = 249.667
+offset_top = -0.666707
+offset_right = 1868.67
+offset_bottom = 1242.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = -0.666707
+offset_right = 1992.0
+offset_bottom = 1242.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
 [node name="MagicPanel_Right" type="Control" parent="."]
 layout_mode = 3
@@ -355,61 +1161,57 @@ offset_bottom = 293.0
 
 [node name="ManaTubes_BG" type="TextureRect" parent="MagicPanel_Right"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = -3.0
-offset_right = 1024.0
-offset_bottom = 1202.0
+offset_left = 43.0
+offset_top = 138.0
+offset_right = 823.0
+offset_bottom = 908.0
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_vo2tu")
-stretch_mode = 4
+texture = ExtResource("11_fs7na")
+expand_mode = 1
 flip_h = true
 
 [node name="BarRed" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
 layout_mode = 0
-offset_left = 670.0
-offset_top = 275.0
-offset_right = 810.0
-offset_bottom = 995.0
+offset_left = 535.0
+offset_top = 205.0
+offset_right = 665.0
+offset_bottom = 760.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_5b8pf")
-tint_progress = Color(1, 0.00392157, 0.203922, 1)
+texture_progress = SubResource("AtlasTexture_fd57w")
 
 [node name="BarGreen" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 280.0
-offset_right = 585.0
-offset_bottom = 985.0
+offset_left = 355.0
+offset_top = 205.0
+offset_right = 485.0
+offset_bottom = 760.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_lolt2")
-tint_progress = Color(0.0431373, 1, 0.180392, 1)
+texture_progress = SubResource("AtlasTexture_m2lyg")
 
 [node name="BarBlue" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 280.0
-offset_right = 364.0
-offset_bottom = 995.0
+offset_left = 175.0
+offset_top = 210.0
+offset_right = 305.0
+offset_bottom = 760.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = SubResource("GradientTexture2D_plf53")
-tint_progress = Color(0.027451, 0.227451, 1, 1)
+texture_progress = SubResource("AtlasTexture_llaam")
 
 [node name="SkillsScroll" type="TextureRect" parent="MagicPanel_Right"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 197.0
-offset_right = 846.0
-offset_bottom = 1224.0
+offset_left = 18.0
+offset_top = 259.0
+offset_right = 864.0
+offset_bottom = 986.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_5b8pf")
 expand_mode = 1
-stretch_mode = 4
 flip_h = true
 
 [node name="GridContainer" type="GridContainer" parent="MagicPanel_Right/SkillsScroll"]
@@ -425,104 +1227,110 @@ columns = 3
 [node name="TextureButton" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
 custom_minimum_size = Vector2(105, 105)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="TextureButton2" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
 custom_minimum_size = Vector2(105, 105)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="TextureButton3" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
 custom_minimum_size = Vector2(105, 105)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="TextureButton4" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
 custom_minimum_size = Vector2(105, 105)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
 ignore_texture_size = true
 stretch_mode = 4
 
 [node name="TextureButton5" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
 custom_minimum_size = Vector2(105, 105)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="TextureButton6" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="HorizontalScroll" type="AnimatedSprite2D" parent="."]
+position = Vector2(131, 328)
+scale = Vector2(0.594141, 0.474306)
+sprite_frames = SubResource("SpriteFrames_5ypa4")
+autoplay = "default"
 
-[node name="TextureButton7" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="HBoxContainer" type="HBoxContainer" parent="HorizontalScroll"]
+visible = false
+offset_left = -200.289
+offset_top = -134.143
+offset_right = 199.711
+offset_bottom = 126.857
+theme_override_constants/separation = -155
 
-[node name="TextureButton8" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureRect" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
+custom_minimum_size = Vector2(204, 261)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("138_yitrx")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureButton9" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureRect2" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
+custom_minimum_size = Vector2(204, 261)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("139_5m504")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureButton10" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureRect3" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
+custom_minimum_size = Vector2(204, 261)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("140_787i8")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureButton11" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureRect4" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
+custom_minimum_size = Vector2(204, 261)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("141_borsg")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureButton12" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureRect5" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
+custom_minimum_size = Vector2(204, 261)
 layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("142_opy75")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureButton13" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="HorizontalScrollEnemy" type="AnimatedSprite2D" parent="."]
+position = Vector2(1149, 326)
+scale = Vector2(0.594141, 0.474306)
+sprite_frames = SubResource("SpriteFrames_5ypa4")
+autoplay = "default"
+flip_h = true
 
-[node name="TextureButton14" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="HBoxContainer" type="HBoxContainer" parent="HorizontalScrollEnemy"]
+visible = false
+offset_left = -200.289
+offset_top = -134.143
+offset_right = 199.711
+offset_bottom = 126.857
+theme_override_constants/separation = -155
 
-[node name="TextureButton15" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-texture_normal = ExtResource("4_6w80a")
-ignore_texture_size = true
-stretch_mode = 4
+[node name="MagicOverlay" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="animation_finished" from="HorizontalScroll" to="." method="_on_horizontal_scroll_animation_finished"]
+[connection signal="animation_finished" from="HorizontalScrollEnemy" to="." method="_on_horizontal_scroll_animation_finished"]

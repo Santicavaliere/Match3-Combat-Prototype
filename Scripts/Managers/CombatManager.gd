@@ -40,6 +40,7 @@ func _ready():
 	SignalBus.match_found.connect(_on_match_made)
 	# SignalBus.moves_updated.connect(_on_moves_updated) <-- YA NO NECESITAMOS ESCUCHAR ESTO AQUÍ
 	SignalBus.turn_ended.connect(_on_player_turn_ended_safely)
+	SignalBus.ability_cast_requested.connect(try_activate_ability)
 
 # --- MANA SYSTEM ---
 func add_mana(color_type: String, amount: int):
@@ -88,6 +89,7 @@ func _on_match_made(type: int, amount: int):
 			elif amount >= 5: evasion_boost = 0.20
 			player_evasion += evasion_boost
 			if player_evasion > 0.9: player_evasion = 0.9
+			SignalBus.player_evasion_changed.emit(player_evasion) # <--- NUEVO
 			print("COMBAT: Evasion Up! Enemy Miss Chance: ", player_evasion * 100, "%")
 		5: # MONEDA
 			var gold_gained = amount * 100
@@ -152,6 +154,9 @@ func update_ui_state():
 	# Ahora solo emitimos señales, no tocamos Labels
 	SignalBus.player_hp_changed.emit(player_hp, MAX_HP)
 	SignalBus.enemy_hp_changed.emit(enemy_hp, MAX_HP)
+	
+	SignalBus.player_evasion_changed.emit(player_evasion) # <--- NUEVO
+	SignalBus.enemy_evasion_changed.emit(enemy_evasion)   # <--- NUEVO
 	# Si quisieras avisar del turno:
 	# SignalBus.turn_changed.emit("PLAYER" if is_player_turn else "ENEMY")
 
@@ -210,7 +215,8 @@ func try_activate_ability(ability: Ability) -> bool:
 	# 3. Ejecutar Lógica
 	ability.execute(self)
 	update_ui_state()
-	
+	# --- AVISAMOS A LA UI QUE FUE UN ÉXITO PARA LA ANIMACIÓN ---
+	SignalBus.ability_cast_success.emit(ability)
 	# FIX: CONSUMO DE TURNO
 	if ability.ability_name != "Treasure Seeker":
 		grid_manager.current_moves -= 1

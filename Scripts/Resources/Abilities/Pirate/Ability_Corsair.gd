@@ -26,5 +26,5 @@ func execute(combat_manager: Node):
 	combat_manager.player_hp = average
 	combat_manager.enemy_hp = average
 	
-	combat_manager.update_ui_text()
+	combat_manager.update_ui_state()
 	print("Corsair: Divine justice. Lives equal to ", average)

@@ -16,7 +16,7 @@ func execute(combat_manager: Node):
 			if combat_manager.player_hp > combat_manager.MAX_HP:
 				combat_manager.player_hp = combat_manager.MAX_HP
 			
-			combat_manager.update_ui_text()
+			combat_manager.update_ui_state()
 			print("Bastión: Healed ", heal_amount, " HP (", destroyed_count, " bombs absorbed).")
 		else:
 			print("Bastion: No bombs available.")
