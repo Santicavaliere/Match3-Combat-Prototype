@@ -18,6 +18,10 @@ extends CanvasLayer
 @export var enemy_mana_blue: TextureProgressBar
 @export var enemy_mana_green: TextureProgressBar
 
+@export_group("Recursos (Oro y XP)")
+@export var gold_label: Label
+@export var xp_label: Label
+
 @export_group("Textos")
 @export var turn_text: Label
 
@@ -28,6 +32,13 @@ extends CanvasLayer
 @export var equipped_abilities: Array[Ability]
 @export var magic_buttons: Array[TextureRect] # Antes decía TextureButton
 
+@export_group("End Match Screens")
+@export var tex_you_win: Texture2D
+@export var tex_game_over: Texture2D
+
+@onready var game_over_panel = $GameOverPanel
+@onready var result_image = $GameOverPanel/ResultImage
+
 func _ready():
 	# --- CONEXIÓN DE SEÑALES ---
 	SignalBus.player_hp_changed.connect(_update_player_hp)
@@ -37,8 +48,17 @@ func _ready():
 	
 	SignalBus.player_evasion_changed.connect(_update_player_helm)
 	SignalBus.enemy_evasion_changed.connect(_update_enemy_helm)
-	# --- NUEVO: Conectamos la animación épica ---
+	
 	SignalBus.ability_cast_success.connect(_on_ability_cast_success)
+	SignalBus.player_gold_changed.connect(_update_gold)
+	SignalBus.player_xp_changed.connect(_update_xp)
+	
+	# Conectamos la señal de fin de juego
+	SignalBus.game_over.connect(_on_game_over)
+	
+	# Aseguramos que el panel arranque oculto
+	if game_over_panel:
+		game_over_panel.hide()
 	
 	# --- FIX VISUAL INICIAL ---
 	if hp_bar_player: hp_bar_player.value = hp_bar_player.max_value
@@ -85,6 +105,14 @@ func _update_mana(pool: Dictionary):
 func _update_moves(amount):
 	if turn_text:
 		turn_text.text = str(amount) # Solo mandamos el número para el espejo
+
+func _update_gold(amount: int):
+	if gold_label:
+		gold_label.text = "Gold: " + str(amount)
+
+func _update_xp(amount: int):
+	if xp_label:
+		xp_label.text = "XP: " + str(amount)
 
 # --- MAGIA VISUAL (TWEENS) ---
 func _animate_bar(bar: TextureProgressBar, new_value: float): # <--- Cambiado a float
@@ -185,3 +213,22 @@ func _on_ability_cast_success(ability: Ability):
 		
 		# Fase 3: Se oculta
 		overlay_tween.tween_callback(magic_overlay.hide)
+		
+
+# --- PANTALLAS DE FIN DE JUEGO ---
+func _on_game_over(player_won: bool):
+	if not game_over_panel or not result_image: return
+	
+	# ---> ¡ACÁ ESTÁ LA MAGIA DE TUS DOS ASSETS! <---
+	if player_won:
+		result_image.texture = tex_you_win
+	else:
+		result_image.texture = tex_game_over
+		
+	# Preparamos el panel invisible para animarlo
+	game_over_panel.modulate.a = 0.0
+	game_over_panel.show()
+	
+	# Hacemos que aparezca suavemente (Fade in)
+	var tween = create_tween()
+	tween.tween_property(game_over_panel, "modulate:a", 1.0, 0.8).set_ease(Tween.EASE_OUT)

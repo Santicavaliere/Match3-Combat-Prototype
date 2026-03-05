@@ -31,6 +31,9 @@ signal enemy_turn_finished
 ## Can be used to trigger screen shake or particle effects.
 signal enemy_damaged(amount: int)
 
+## Emitida cuando el jugador recibe daño REAL (después de evasión y escudos)
+signal player_damaged(amount: int)
+
 ## Signal intended for healing mechanics (e.g. matching Green tiles).
 signal player_healed(amount: int)
 
@@ -56,3 +59,20 @@ signal ability_cast_requested(ability: Ability)
 
 ## Emitida cuando la magia REALMENTE se ejecuta (tenía maná suficiente)
 signal ability_cast_success(ability: Ability)
+
+## Emitidas cuando el jugador recolecta oro o experiencia
+signal player_gold_changed(new_amount: int)
+signal player_xp_changed(new_amount: int)
+
+# --- SEÑALES PARA SINCRONIZACIÓN DE IA ---
+## El CombatManager le avisa al barco visual que empiece su animación de ataque y cuánto daño hará.
+signal enemy_attack_requested(damage_amount: int)
+
+## El barco visual le avisa al CombatManager el momento exacto en que golpea para restar la vida.
+signal apply_damage_to_player(amount: int)
+
+## El barco visual avisa que ya volvió a su posición y terminó su turno.
+signal enemy_animation_finished
+
+## El CombatManager le avisa al barco del jugador que dispare una bala con "X" daño
+signal player_attack_requested(damage_amount: int)

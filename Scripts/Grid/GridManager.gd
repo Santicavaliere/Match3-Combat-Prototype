@@ -192,11 +192,29 @@ func swap_pieces(p1: Piece, p2: Piece):
 	var matches = find_matches()
 	
 	if matches.size() > 0:
+		# Filtramos para saber exactamente cuántas fichas únicas formaron el match inicial
+		var unique_matches = []
+		for coord in matches:
+			if not unique_matches.has(coord):
+				unique_matches.append(coord)
+		
+		var match_count = unique_matches.size()
+		
 		destroy_matches(matches)
-		# --- TURN LOGIC ---
-		current_moves -= 1
+		
+		# --- LÓGICA DE TURNOS SEGÚN EL MATCH ---
+		if match_count == 3:
+			current_moves -= 1
+			print("Match 3 - Consumed 1 move. Moves left: ", current_moves)
+		elif match_count == 4:
+			print("Match 4 - Free move! Moves left: ", current_moves)
+			_show_floating_text("FREE MOVE!", Color.AQUA) # Color celeste para el 4
+		elif match_count >= 5:
+			current_moves += 1
+			print("Match 5+ - Gained 1 move! Moves left: ", current_moves)
+			_show_floating_text("EXTRA TURN!", Color.GOLD) # Color dorado para el 5
+		
 		SignalBus.moves_updated.emit(current_moves) ### NOTIFY UI ###
-		print("Valid move! Moves left: ", current_moves)
 		
 		if current_moves <= 0:
 			print("WARNING: No more moves!")
@@ -204,9 +222,6 @@ func swap_pieces(p1: Piece, p2: Piece):
 		# -----------------------
 	else:
 		swap_back(p1, p2)
-	
-	first_selected = null
-	second_selected = null
 
 ## Reverts a swap if the move was invalid (created no matches).
 func swap_back(p1: Piece, p2: Piece):
@@ -531,3 +546,35 @@ func convert_random_pieces_to(target_type_id: int, count: int):
 	# var new_matches = find_matches()
 	# if new_matches.size() > 0:
 	# 	destroy_matches(new_matches)
+	
+
+# --- FEEDBACK VISUAL PARA TURNOS EXTRA ---
+func _show_floating_text(message: String, text_color: Color):
+	var label = Label.new()
+	label.text = message
+	
+	# Estilo del texto
+	label.add_theme_font_size_override("font_size", 48)
+	label.add_theme_color_override("font_color", text_color)
+	label.add_theme_color_override("font_outline_color", Color.BLACK)
+	label.add_theme_constant_override("outline_size", 8)
+	
+	# Lo centramos matemáticamente con respecto a tu Grid
+	var board_center_x = (width * offset_x) / 2.0
+	var board_center_y = (height * offset_y) / 2.0
+	# Le restamos un poco a X para que quede bien en el medio
+	label.position = Vector2(board_center_x - 120, board_center_y - 100) 
+	label.z_index = 100 # Para que aparezca por encima de todas las gemas
+	
+	add_child(label)
+	
+	# Animación de flotar y desaparecer
+	var tween = create_tween()
+	tween.set_parallel(true)
+	# Sube 100 píxeles hacia arriba
+	tween.tween_property(label, "position:y", -100.0, 1.2).as_relative()
+	# Se vuelve transparente
+	tween.tween_property(label, "modulate:a", 0.0, 1.2).set_trans(Tween.TRANS_SINE)
+	
+	# Cuando termina la animación, borramos el nodo para no consumir memoria
+	tween.tween_callback(label.queue_free).set_delay(1.2)

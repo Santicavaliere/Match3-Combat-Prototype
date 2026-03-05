@@ -35,12 +35,15 @@ func _ready():
 	
 	# Enviamos estado inicial a la UI
 	update_ui_state()
+	SignalBus.player_gold_changed.emit(player_gold)
+	SignalBus.player_xp_changed.emit(player_xp)
 	_update_mana_ui()
 	
 	SignalBus.match_found.connect(_on_match_made)
 	# SignalBus.moves_updated.connect(_on_moves_updated) <-- YA NO NECESITAMOS ESCUCHAR ESTO AQUÍ
 	SignalBus.turn_ended.connect(_on_player_turn_ended_safely)
 	SignalBus.ability_cast_requested.connect(try_activate_ability)
+	SignalBus.apply_damage_to_player.connect(player_take_damage)
 
 # --- MANA SYSTEM ---
 func add_mana(color_type: String, amount: int):
@@ -80,7 +83,10 @@ func _on_match_made(type: int, amount: int):
 			if amount == 3: bomb_damage = 3
 			elif amount == 4: bomb_damage = 5
 			elif amount >= 5: bomb_damage = 8
-			apply_damage_to_enemy(bomb_damage)
+			
+			# REEMPLAZAMOS EL DAÑO DIRECTO POR LA SEÑAL:
+			SignalBus.player_attack_requested.emit(bomb_damage)
+			
 			print("COMBAT: Bomb! Dealt ", bomb_damage, " damage.")
 		4: # TIMÓN
 			var evasion_boost = 0.0
@@ -95,6 +101,7 @@ func _on_match_made(type: int, amount: int):
 			var gold_gained = amount * 100
 			player_gold += gold_gained
 			print("LOOT: Gained ", gold_gained, " Gold. Total: ", player_gold)
+			SignalBus.player_gold_changed.emit(player_gold) 
 		6: # PERGAMINO
 			var xp_gained = 0
 			if amount == 3: xp_gained = 100
@@ -102,6 +109,7 @@ func _on_match_made(type: int, amount: int):
 			elif amount >= 5: xp_gained = 800
 			player_xp += xp_gained
 			print("PROGRESS: Gained ", xp_gained, " XP. Total: ", player_xp)
+			SignalBus.player_xp_changed.emit(player_xp) 
 	
 	# FIX KRAKEN/LEVIATHAN
 	if active_tentacles.size() > 0 and not grid_manager.is_cascading:
@@ -120,6 +128,9 @@ func apply_damage_to_enemy(dmg: int):
 	if enemy_hp < 0: enemy_hp = 0
 	
 	update_ui_state() # Notificamos el cambio
+	
+	# ---> ¡ESTA ES LA LÍNEA NUEVA! Le avisamos al cuerpo que reaccione <---
+	SignalBus.enemy_damaged.emit(dmg)
 	
 	if enemy_hp == 0:
 		print("VICTORY!")
@@ -143,6 +154,9 @@ func player_take_damage(amount: int):
 	player_hp -= amount
 	if player_hp < 0: player_hp = 0
 	
+	# ---> LÍNEA NUEVA: Le avisamos al barco del jugador que haga su animación <---
+	SignalBus.player_damaged.emit(amount)
+	
 	update_ui_state() # Notificamos el cambio
 	
 	if player_hp == 0:
@@ -164,25 +178,53 @@ func update_ui_state():
 func _on_player_turn_ended_safely():
 	if is_player_turn: start_enemy_phase()
 
+#func start_enemy_phase():
+#	is_player_turn = false
+#	# UI Update via Signal (Pendiente si agregas un label de turno en GameUI)
+#	
+#	await get_tree().create_timer(1.0).timeout
+#	if player_hp > 0: enemy_attack_action(1)
+#	await get_tree().create_timer(1.0).timeout
+#	if player_hp > 0: enemy_attack_action(2)
+#	await get_tree().create_timer(1.0).timeout
+#	if player_hp > 0: enemy_attack_action(3)
+#	await get_tree().create_timer(0.5).timeout
+#	if player_hp > 0 and enemy_hp > 0: return_turn_to_player()
+
+#func enemy_attack_action(action_number: int):
+#	if player_hp <= 0 or enemy_hp <= 0: return
+#	if is_enemy_magic_blocked: print("Enemy Silenced! Attack skipped.")
+#	var dmg = randi_range(2, 4)
+#	player_take_damage(dmg)
+#	print("Enemy Action ", action_number, " executed.")
+
 func start_enemy_phase():
 	is_player_turn = false
-	# UI Update via Signal (Pendiente si agregas un label de turno en GameUI)
-	
-	await get_tree().create_timer(1.0).timeout
-	if player_hp > 0: enemy_attack_action(1)
-	await get_tree().create_timer(1.0).timeout
-	if player_hp > 0: enemy_attack_action(2)
-	await get_tree().create_timer(1.0).timeout
-	if player_hp > 0: enemy_attack_action(3)
-	await get_tree().create_timer(0.5).timeout
-	if player_hp > 0 and enemy_hp > 0: return_turn_to_player()
+	await get_tree().create_timer(0.5).timeout # Pequeña pausa antes de arrancar
 
-func enemy_attack_action(action_number: int):
-	if player_hp <= 0 or enemy_hp <= 0: return
-	if is_enemy_magic_blocked: print("Enemy Silenced! Attack skipped.")
-	var dmg = randi_range(2, 4)
-	player_take_damage(dmg)
-	print("Enemy Action ", action_number, " executed.")
+	# Ciclo de 3 ataques del enemigo
+	for i in range(3):
+		if player_hp <= 0 or enemy_hp <= 0: return # Si alguien murió, cortamos todo
+
+		if is_enemy_magic_blocked:
+			print("Enemy Silenced! Attack skipped.")
+			continue
+
+		# Calculamos el daño
+		var dmg = randi_range(2, 4)
+
+		# 1. Le avisamos al barco que ataque y le guardamos el daño
+		SignalBus.enemy_attack_requested.emit(dmg)
+
+		# 2. MAGIA: Pausamos este código hasta que el barco termine su animación completa
+		await SignalBus.enemy_animation_finished
+
+		# 3. Pausita de respiro entre ataques
+		await get_tree().create_timer(0.3).timeout 
+
+	# Al terminar los 3 ataques, devolvemos el turno al jugador (y desbloqueamos la grilla)
+	if player_hp > 0 and enemy_hp > 0: 
+		return_turn_to_player()
 
 func return_turn_to_player():
 	is_player_turn = true

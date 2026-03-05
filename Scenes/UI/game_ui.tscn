@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=3 uid="uid://cpsgg6n406orn"]
+[gd_scene load_steps=168 format=3 uid="uid://cpsgg6n406orn"]
 
 [ext_resource type="Script" uid="uid://bd05y8rfoxjid" path="res://Scenes/UI/GameUI.gd" id="1_3fiko"]
 [ext_resource type="Script" uid="uid://dpdal306bjkvx" path="res://Scripts/Resources/Ability.gd" id="2_es3rm"]
@@ -13,8 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://b1vtvc0lp7ahm" path="res://Assets/Final/UI/container fillup_resultado.png" id="6_p8jce"]
 [ext_resource type="Resource" uid="uid://b0f8unf4fdc1e" path="res://Scripts/Resources/Abilities/Guardian/Data_Bastion.tres" id="7_4e3xs"]
 [ext_resource type="Texture2D" uid="uid://duq178mmoa4f3" path="res://Assets/Final/UI/Scroll/scroll_000.png" id="8_3hpa5"]
+[ext_resource type="Texture2D" uid="uid://dtq4kcfy53hni" path="res://Assets/Final/UI/_aux.png" id="8_m1ce5"]
 [ext_resource type="Texture2D" uid="uid://n0thv2kvciah" path="res://Assets/Final/UI/magic slot_resultado.png" id="8_wpaia"]
 [ext_resource type="Texture2D" uid="uid://b3culoapp1t0b" path="res://Assets/Final/UI/Scroll/scroll_001.png" id="9_vvwjs"]
+[ext_resource type="Texture2D" uid="uid://db6mrcik0m0yc" path="res://Assets/Final/UI/gemini-image-2_Modernize_this_frame_by_adding_two_full_Anubis_statues_standing_on_each_side_hol-0.png" id="9_yhgli"]
 [ext_resource type="Texture2D" uid="uid://cj12tv60j46yl" path="res://Assets/Final/UI/counter magic slot_resultado.png" id="10_hycpo"]
 [ext_resource type="Texture2D" uid="uid://bryshs3ufe87y" path="res://Assets/Final/UI/Scroll/scroll_002.png" id="10_rmbof"]
 [ext_resource type="Texture2D" uid="uid://u3u3llx00s72" path="res://Assets/Final/UI/Scroll/scroll_003.png" id="11_abugl"]
@@ -605,7 +607,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("hp_bar_player", "hp_bar_enemy", "helm_bar_player", "helm_bar_enemy", "player_mana_red", "player_mana_blue", "player_mana_green", "enemy_mana_red", "enemy_mana_blue", "enemy_mana_green", "turn_text", "magic_overlay", "magic_buttons")]
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("hp_bar_player", "hp_bar_enemy", "helm_bar_player", "helm_bar_enemy", "player_mana_red", "player_mana_blue", "player_mana_green", "enemy_mana_red", "enemy_mana_blue", "enemy_mana_green", "gold_label", "xp_label", "turn_text", "magic_overlay", "magic_buttons")]
 script = ExtResource("1_3fiko")
 hp_bar_player = NodePath("MainLayout/TopBar/HealthRow/PlayerHPBar")
 hp_bar_enemy = NodePath("MainLayout/TopBar/HealthRow/EnemyHPBar")
@@ -617,10 +619,14 @@ player_mana_green = NodePath("MagicPanel_Left/ManaTubes_BG/BarGreen")
 enemy_mana_red = NodePath("MagicPanel_Right/ManaTubes_BG/BarRed")
 enemy_mana_blue = NodePath("MagicPanel_Right/ManaTubes_BG/BarBlue")
 enemy_mana_green = NodePath("MagicPanel_Right/ManaTubes_BG/BarGreen")
+gold_label = NodePath("GoldLabel")
+xp_label = NodePath("XPLabel")
 turn_text = NodePath("MainLayout/TurnMirror/TurnText")
 magic_overlay = NodePath("MagicOverlay")
 equipped_abilities = Array[ExtResource("2_es3rm")]([ExtResource("3_es3rm"), ExtResource("4_ivle0"), ExtResource("5_2pabd"), ExtResource("6_3ganb"), ExtResource("7_4e3xs")])
 magic_buttons = [NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5")]
+tex_you_win = ExtResource("8_m1ce5")
+tex_game_over = ExtResource("9_yhgli")
 metadata/_edit_vertical_guides_ = [-227.0]
 
 [node name="MainLayout" type="Control" parent="."]
@@ -1262,46 +1268,41 @@ autoplay = "default"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HorizontalScroll"]
 visible = false
-offset_left = -200.289
-offset_top = -134.143
-offset_right = 199.711
-offset_bottom = 126.857
-theme_override_constants/separation = -155
+offset_left = -195.24
+offset_top = -162.342
+offset_right = 245.76
+offset_bottom = 155.658
+theme_override_constants/separation = -99
 
 [node name="TextureRect" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
-custom_minimum_size = Vector2(204, 261)
+custom_minimum_size = Vector2(158, 241)
 layout_mode = 2
 texture = ExtResource("138_yitrx")
 expand_mode = 1
-stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
-custom_minimum_size = Vector2(204, 261)
+custom_minimum_size = Vector2(158, 241)
 layout_mode = 2
 texture = ExtResource("139_5m504")
 expand_mode = 1
-stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
-custom_minimum_size = Vector2(204, 261)
+custom_minimum_size = Vector2(158, 241)
 layout_mode = 2
 texture = ExtResource("140_787i8")
 expand_mode = 1
-stretch_mode = 5
 
 [node name="TextureRect4" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
-custom_minimum_size = Vector2(204, 261)
+custom_minimum_size = Vector2(158, 241)
 layout_mode = 2
 texture = ExtResource("141_borsg")
 expand_mode = 1
-stretch_mode = 5
 
 [node name="TextureRect5" type="TextureRect" parent="HorizontalScroll/HBoxContainer"]
-custom_minimum_size = Vector2(204, 261)
+custom_minimum_size = Vector2(158, 241)
 layout_mode = 2
 texture = ExtResource("142_opy75")
 expand_mode = 1
-stretch_mode = 5
 
 [node name="HorizontalScrollEnemy" type="AnimatedSprite2D" parent="."]
 position = Vector2(1149, 326)
@@ -1331,6 +1332,51 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GoldLabel" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 416.0
+offset_right = 51.0
+offset_bottom = 439.0
+
+[node name="XPLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 452.0
+offset_right = 50.0
+offset_bottom = 475.0
+
+[node name="GameOverPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.588235)
+
+[node name="ResultImage" type="TextureRect" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -252.0
+offset_right = 223.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="animation_finished" from="HorizontalScroll" to="." method="_on_horizontal_scroll_animation_finished"]
 [connection signal="animation_finished" from="HorizontalScrollEnemy" to="." method="_on_horizontal_scroll_animation_finished"]
