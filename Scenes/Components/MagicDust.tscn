@@ -1,0 +1,1086 @@
+[gd_scene load_steps=262 format=3 uid="uid://pi65rp4k3hgd"]
+
+[ext_resource type="Texture2D" uid="uid://c37ufsopnpvrd" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_1.webp" id="1_s51ei"]
+[ext_resource type="Texture2D" uid="uid://dg27fk17kvolq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_2.webp" id="2_5cb61"]
+[ext_resource type="Texture2D" uid="uid://cry0lv0p0pmmh" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_3.webp" id="3_p0hx0"]
+[ext_resource type="Texture2D" uid="uid://b3vwhayde1xu4" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_4.webp" id="4_3cudw"]
+[ext_resource type="Texture2D" uid="uid://dngdixbptwks0" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_5.webp" id="5_0an72"]
+[ext_resource type="Texture2D" uid="uid://bjuov23gbmokn" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_6.webp" id="6_iaapf"]
+[ext_resource type="Texture2D" uid="uid://cs4cnh5yeifmh" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_7.webp" id="7_nqat7"]
+[ext_resource type="Texture2D" uid="uid://dlxdgeodtseho" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_8.webp" id="8_qunr4"]
+[ext_resource type="Texture2D" uid="uid://73ch53q4yeno" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_9.webp" id="9_koqi4"]
+[ext_resource type="Texture2D" uid="uid://dcul2ycn1jnxd" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_10.webp" id="10_faa8e"]
+[ext_resource type="Texture2D" uid="uid://bpyxycjfofpfx" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_11.webp" id="11_j8irk"]
+[ext_resource type="Texture2D" uid="uid://b2rsv1dr0vsfq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_12.webp" id="12_e4miu"]
+[ext_resource type="Texture2D" uid="uid://dthsl7lvvfq7e" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_13.webp" id="13_s8rjp"]
+[ext_resource type="Texture2D" uid="uid://bbwrqfnb8n1od" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_14.webp" id="14_ff1h5"]
+[ext_resource type="Texture2D" uid="uid://6vsqlch4khqa" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_15.webp" id="15_wh8rc"]
+[ext_resource type="Texture2D" uid="uid://bthxl2s3r5ra3" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_16.webp" id="16_g03vl"]
+[ext_resource type="Texture2D" uid="uid://b0ilveryhufqt" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_17.webp" id="17_d0wbc"]
+[ext_resource type="Texture2D" uid="uid://d2ivrq5dgm5po" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_18.webp" id="18_p62lx"]
+[ext_resource type="Texture2D" uid="uid://t25au1y8431l" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_19.webp" id="19_rny0c"]
+[ext_resource type="Texture2D" uid="uid://b2ukcma6apnat" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_20.webp" id="20_q5n66"]
+[ext_resource type="Texture2D" uid="uid://bho7y13c3bnb5" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_21.webp" id="21_rgry3"]
+[ext_resource type="Texture2D" uid="uid://52d8kh4lilwu" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_22.webp" id="22_x06xb"]
+[ext_resource type="Texture2D" uid="uid://das2m17xrs4mr" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_23.webp" id="23_ih6nh"]
+[ext_resource type="Texture2D" uid="uid://ddcj64uhwkxgp" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_24.webp" id="24_q4vma"]
+[ext_resource type="Texture2D" uid="uid://b3l1iltvh05jm" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_25.webp" id="25_hg1gp"]
+[ext_resource type="Texture2D" uid="uid://dywhkt468d6yo" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_26.webp" id="26_6ernu"]
+[ext_resource type="Texture2D" uid="uid://b10eh6wk3wj3e" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_27.webp" id="27_igy47"]
+[ext_resource type="Texture2D" uid="uid://cedg6d0lwp681" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_28.webp" id="28_17h3o"]
+[ext_resource type="Texture2D" uid="uid://lup5kmba3465" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_29.webp" id="29_2uod2"]
+[ext_resource type="Texture2D" uid="uid://d03hb2fdncn2p" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_30.webp" id="30_t6nah"]
+[ext_resource type="Texture2D" uid="uid://ox7n6ikcu07k" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_31.webp" id="31_wwmx7"]
+[ext_resource type="Texture2D" uid="uid://dgatn3a0cyear" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_32.webp" id="32_wenag"]
+[ext_resource type="Texture2D" uid="uid://0mvday6i6jjl" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_33.webp" id="33_j3ysj"]
+[ext_resource type="Texture2D" uid="uid://ctlymo427yeqw" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_34.webp" id="34_ykbou"]
+[ext_resource type="Texture2D" uid="uid://cbq5fuo5niiwy" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_35.webp" id="35_2odk2"]
+[ext_resource type="Texture2D" uid="uid://c5jktcxf7p2lq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_36.webp" id="36_j2yth"]
+[ext_resource type="Texture2D" uid="uid://jb0fpgoihhtw" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_37.webp" id="37_vprmt"]
+[ext_resource type="Texture2D" uid="uid://7uwdd1ohl051" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_38.webp" id="38_dw6lj"]
+[ext_resource type="Texture2D" uid="uid://clscvhngsx8yu" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_39.webp" id="39_wjoko"]
+[ext_resource type="Texture2D" uid="uid://ct7bvw4rj6r1t" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_40.webp" id="40_ljh4r"]
+[ext_resource type="Texture2D" uid="uid://buxag34ikswaq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_41.webp" id="41_etyet"]
+[ext_resource type="Texture2D" uid="uid://ck0lga2tmujtx" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_42.webp" id="42_w8ej5"]
+[ext_resource type="Texture2D" uid="uid://cj7e81s52dnwb" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_43.webp" id="43_ru0ky"]
+[ext_resource type="Texture2D" uid="uid://c7pnmp0n8sxfq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_44.webp" id="44_kybhi"]
+[ext_resource type="Texture2D" uid="uid://bxfm25ubqo2ec" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_45.webp" id="45_0c37c"]
+[ext_resource type="Texture2D" uid="uid://2cewb500xm7o" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_46.webp" id="46_31lqw"]
+[ext_resource type="Texture2D" uid="uid://1b6tecid2p7x" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_47.webp" id="47_hia4u"]
+[ext_resource type="Texture2D" uid="uid://b3f1bn1qslkyy" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_48.webp" id="48_pgp61"]
+[ext_resource type="Texture2D" uid="uid://bi1mem8201pke" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_49.webp" id="49_fb6pt"]
+[ext_resource type="Texture2D" uid="uid://dgp4rnb000757" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_50.webp" id="50_7yqmv"]
+[ext_resource type="Texture2D" uid="uid://bnaa2evtswnnc" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Yellow_Sparks/Yellow_Sparks_51.webp" id="51_83qcv"]
+[ext_resource type="Texture2D" uid="uid://cwafiq4acj5cp" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_1.webp" id="52_1gb1r"]
+[ext_resource type="Texture2D" uid="uid://q6x5peab5e52" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_2.webp" id="53_s3ftl"]
+[ext_resource type="Texture2D" uid="uid://deq8blji5hs3j" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_3.webp" id="54_flaom"]
+[ext_resource type="Texture2D" uid="uid://cjbrluhxjuiya" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_4.webp" id="55_bnypw"]
+[ext_resource type="Texture2D" uid="uid://cxuu5r6lahhmb" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_5.webp" id="56_ieiiu"]
+[ext_resource type="Texture2D" uid="uid://n1tjh3gln1jg" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_6.webp" id="57_6w780"]
+[ext_resource type="Texture2D" uid="uid://vk33yl5ur7dc" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_7.webp" id="58_jksuy"]
+[ext_resource type="Texture2D" uid="uid://bu8r7mp6d1vmj" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_8.webp" id="59_c3h2d"]
+[ext_resource type="Texture2D" uid="uid://bquqflfa8hhtx" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_9.webp" id="60_pb1rs"]
+[ext_resource type="Texture2D" uid="uid://dyl8vond48wal" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_10.webp" id="61_ouwjp"]
+[ext_resource type="Texture2D" uid="uid://jxpvsluectmk" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_11.webp" id="62_6w3rl"]
+[ext_resource type="Texture2D" uid="uid://buhdcj0p80r8y" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_12.webp" id="63_dontk"]
+[ext_resource type="Texture2D" uid="uid://c5v00xjlpy285" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_13.webp" id="64_lnx3g"]
+[ext_resource type="Texture2D" uid="uid://d0cy3wd07mpnb" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_14.webp" id="65_rqfe5"]
+[ext_resource type="Texture2D" uid="uid://dasumr57gfn21" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_15.webp" id="66_85kuv"]
+[ext_resource type="Texture2D" uid="uid://ca5uyb6cn15sk" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_16.webp" id="67_s4h52"]
+[ext_resource type="Texture2D" uid="uid://c0meihk1lt7vl" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_17.webp" id="68_3ls8c"]
+[ext_resource type="Texture2D" uid="uid://d7t5ic00ywm3" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_18.webp" id="69_ysdn5"]
+[ext_resource type="Texture2D" uid="uid://dabes415dua4s" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_19.webp" id="70_5raav"]
+[ext_resource type="Texture2D" uid="uid://c4cssydabk558" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_20.webp" id="71_ttk6t"]
+[ext_resource type="Texture2D" uid="uid://cx6ivs28bwn8p" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_21.webp" id="72_fp2ji"]
+[ext_resource type="Texture2D" uid="uid://dg6cekbvoc62h" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_22.webp" id="73_w801a"]
+[ext_resource type="Texture2D" uid="uid://britj7ayofea1" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_23.webp" id="74_rlgtp"]
+[ext_resource type="Texture2D" uid="uid://ciqnn6wq7o23o" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_24.webp" id="75_6r4b1"]
+[ext_resource type="Texture2D" uid="uid://twke18p2ospx" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_25.webp" id="76_sqrjn"]
+[ext_resource type="Texture2D" uid="uid://gbmgsimv38jh" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_26.webp" id="77_s5a22"]
+[ext_resource type="Texture2D" uid="uid://b8fyckugm5wjo" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_27.webp" id="78_3ph8k"]
+[ext_resource type="Texture2D" uid="uid://c2s6ac5bbmels" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_28.webp" id="79_bm1vg"]
+[ext_resource type="Texture2D" uid="uid://b3602ltqlmbi8" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_29.webp" id="80_e6010"]
+[ext_resource type="Texture2D" uid="uid://erc41w876ucr" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_30.webp" id="81_qa8qh"]
+[ext_resource type="Texture2D" uid="uid://5ikwojfuow27" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_31.webp" id="82_v04vu"]
+[ext_resource type="Texture2D" uid="uid://bha2k5n04qrgt" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_32.webp" id="83_qa0hr"]
+[ext_resource type="Texture2D" uid="uid://vlnkhh4jyu7o" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_33.webp" id="84_wgalj"]
+[ext_resource type="Texture2D" uid="uid://duw1k72dvut87" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_34.webp" id="85_e2x8a"]
+[ext_resource type="Texture2D" uid="uid://20x3t71vfxlc" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_35.webp" id="86_0rtm0"]
+[ext_resource type="Texture2D" uid="uid://ds3jvvsf3h8t6" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_36.webp" id="87_1idpw"]
+[ext_resource type="Texture2D" uid="uid://bx0jaupq4cp31" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_37.webp" id="88_ju0re"]
+[ext_resource type="Texture2D" uid="uid://bpjg8srjruhi5" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_38.webp" id="89_gptqu"]
+[ext_resource type="Texture2D" uid="uid://bhdgqvlhc8q71" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_39.webp" id="90_frm1x"]
+[ext_resource type="Texture2D" uid="uid://1hfsyeuem2yb" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_40.webp" id="91_avu08"]
+[ext_resource type="Texture2D" uid="uid://u7hqa2eugn47" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_41.webp" id="92_q0rnx"]
+[ext_resource type="Texture2D" uid="uid://5sgjpsvt48c2" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_42.webp" id="93_mg3yg"]
+[ext_resource type="Texture2D" uid="uid://dh85l66tord18" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_43.webp" id="94_o7ihl"]
+[ext_resource type="Texture2D" uid="uid://kt7nt4murj4j" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_44.webp" id="95_o1hkb"]
+[ext_resource type="Texture2D" uid="uid://mbp3h714rdn1" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_45.webp" id="96_c2jxc"]
+[ext_resource type="Texture2D" uid="uid://dey7btk15uqqu" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_46.webp" id="97_21v42"]
+[ext_resource type="Texture2D" uid="uid://uf4g2a6ir4qf" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_47.webp" id="98_gny4x"]
+[ext_resource type="Texture2D" uid="uid://cd5gy11e8hmwh" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_48.webp" id="99_630yp"]
+[ext_resource type="Texture2D" uid="uid://c662scajxywew" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_49.webp" id="100_ur6om"]
+[ext_resource type="Texture2D" uid="uid://dlj80ishvrq3v" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_50.webp" id="101_1cc1m"]
+[ext_resource type="Texture2D" uid="uid://df6t7t402etvn" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/blue_sparks/blue_sparks_51.webp" id="102_3ba4o"]
+[ext_resource type="Texture2D" uid="uid://c6cqujl5dx5pe" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_1.webp" id="103_48rbj"]
+[ext_resource type="Texture2D" uid="uid://ckbugbtmiswxr" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_2.webp" id="104_qykgu"]
+[ext_resource type="Texture2D" uid="uid://dru8rk6opkr40" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_3.webp" id="105_2boqb"]
+[ext_resource type="Texture2D" uid="uid://c1wan4ccfnhj7" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_4.webp" id="106_uld51"]
+[ext_resource type="Texture2D" uid="uid://dufvvh5bpd3x" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_5.webp" id="107_vfurb"]
+[ext_resource type="Texture2D" uid="uid://dgngwej2iqgj5" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_6.webp" id="108_q48be"]
+[ext_resource type="Texture2D" uid="uid://dwlw2jg370iep" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_7.webp" id="109_8rxtl"]
+[ext_resource type="Texture2D" uid="uid://c8g5b5hfbhg80" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_8.webp" id="110_iyp4h"]
+[ext_resource type="Texture2D" uid="uid://b1u7tff3o4aa7" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_9.webp" id="111_psxl3"]
+[ext_resource type="Texture2D" uid="uid://btnk7pmcwl2vs" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_10.webp" id="112_3wm3e"]
+[ext_resource type="Texture2D" uid="uid://dg6xqypcnhvmc" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_11.webp" id="113_me8lv"]
+[ext_resource type="Texture2D" uid="uid://c3wkdmbwcejln" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_12.webp" id="114_5otgq"]
+[ext_resource type="Texture2D" uid="uid://ct08qly5m1smr" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_13.webp" id="115_57end"]
+[ext_resource type="Texture2D" uid="uid://d3uij4a66tlwy" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_14.webp" id="116_3hli1"]
+[ext_resource type="Texture2D" uid="uid://dt2d8j53bnp23" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_15.webp" id="117_mtksy"]
+[ext_resource type="Texture2D" uid="uid://dqoaq7jf3wbid" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_16.webp" id="118_n48jj"]
+[ext_resource type="Texture2D" uid="uid://u8jtcfovmxiy" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_17.webp" id="119_7kktm"]
+[ext_resource type="Texture2D" uid="uid://57bs4a86bjjv" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_18.webp" id="120_tvcdb"]
+[ext_resource type="Texture2D" uid="uid://cxm6ak4ibbps3" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_19.webp" id="121_rreai"]
+[ext_resource type="Texture2D" uid="uid://c07rabqykteen" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_20.webp" id="122_m1ttw"]
+[ext_resource type="Texture2D" uid="uid://cov86varjy7ym" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_21.webp" id="123_qp0cc"]
+[ext_resource type="Texture2D" uid="uid://8gmvpifb5q7u" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_22.webp" id="124_7lx8s"]
+[ext_resource type="Texture2D" uid="uid://y3d5tu8ku6ts" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_23.webp" id="125_w7it1"]
+[ext_resource type="Texture2D" uid="uid://bhfhg1818la7f" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_24.webp" id="126_cmgwx"]
+[ext_resource type="Texture2D" uid="uid://cb2tep2na8yvd" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_25.webp" id="127_0bb8i"]
+[ext_resource type="Texture2D" uid="uid://byfcjbghmpt7m" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_26.webp" id="128_6nnsp"]
+[ext_resource type="Texture2D" uid="uid://dhij6drhg3k0l" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_27.webp" id="129_fytuu"]
+[ext_resource type="Texture2D" uid="uid://dkdmrb8any515" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_28.webp" id="130_gdp3w"]
+[ext_resource type="Texture2D" uid="uid://dkm2odktjildx" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_29.webp" id="131_siumy"]
+[ext_resource type="Texture2D" uid="uid://doyptalbsof0e" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_30.webp" id="132_bwck8"]
+[ext_resource type="Texture2D" uid="uid://bv1ja0ns4y003" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_31.webp" id="133_hxo6s"]
+[ext_resource type="Texture2D" uid="uid://c78bfcb7krtwo" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_32.webp" id="134_p5nwh"]
+[ext_resource type="Texture2D" uid="uid://1po62w072d82" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_33.webp" id="135_60udq"]
+[ext_resource type="Texture2D" uid="uid://bap6fmcbb5g4r" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_34.webp" id="136_vb7qw"]
+[ext_resource type="Texture2D" uid="uid://befqqfisws8ly" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_35.webp" id="137_qknx6"]
+[ext_resource type="Texture2D" uid="uid://cql1de3oxtuvv" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_36.webp" id="138_r2xsf"]
+[ext_resource type="Texture2D" uid="uid://upxeaix62p8u" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_37.webp" id="139_we4cn"]
+[ext_resource type="Texture2D" uid="uid://dm0pwpmh1dvn5" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_38.webp" id="140_1l162"]
+[ext_resource type="Texture2D" uid="uid://tw5qvm3aief3" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_39.webp" id="141_luvbq"]
+[ext_resource type="Texture2D" uid="uid://bgkn57014m8s4" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_40.webp" id="142_nbtw4"]
+[ext_resource type="Texture2D" uid="uid://bfr1cms4fay6e" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_41.webp" id="143_cdn1k"]
+[ext_resource type="Texture2D" uid="uid://x7o1kdfidlqg" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_42.webp" id="144_ehucw"]
+[ext_resource type="Texture2D" uid="uid://c7samvuucfdo4" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_43.webp" id="145_ufree"]
+[ext_resource type="Texture2D" uid="uid://c247pfrocyrrm" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_44.webp" id="146_6uwb3"]
+[ext_resource type="Texture2D" uid="uid://cig5fp52k80o0" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_45.webp" id="147_6cj40"]
+[ext_resource type="Texture2D" uid="uid://djig1lnxwxpl8" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_46.webp" id="148_lvmea"]
+[ext_resource type="Texture2D" uid="uid://bgrykwemq2wd6" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_47.webp" id="149_h38b5"]
+[ext_resource type="Texture2D" uid="uid://b4r0pca2aify2" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_48.webp" id="150_38onj"]
+[ext_resource type="Texture2D" uid="uid://4gaargnartxl" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_49.webp" id="151_mu10y"]
+[ext_resource type="Texture2D" uid="uid://412m3h2hx0jo" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_50.webp" id="152_jxh3c"]
+[ext_resource type="Texture2D" uid="uid://cark71r0bu2u7" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Green_Sparks/Green_Sparks_51.webp" id="153_jahkt"]
+[ext_resource type="Texture2D" uid="uid://bbwwpgmmfb1sf" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_1.webp" id="154_6ml0l"]
+[ext_resource type="Texture2D" uid="uid://cpsq7hldh85bm" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_2.webp" id="155_kqj5p"]
+[ext_resource type="Texture2D" uid="uid://v2rscmbjyuhs" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_3.webp" id="156_0qrao"]
+[ext_resource type="Texture2D" uid="uid://idcidl8awuyh" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_4.webp" id="157_wmqw0"]
+[ext_resource type="Texture2D" uid="uid://dm3wv30otssoa" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_5.webp" id="158_tuufu"]
+[ext_resource type="Texture2D" uid="uid://byne41yg454wg" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_6.webp" id="159_k57ca"]
+[ext_resource type="Texture2D" uid="uid://dyk68oqeg5q6q" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_7.webp" id="160_ehp40"]
+[ext_resource type="Texture2D" uid="uid://bmjy7o3iswxoe" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_8.webp" id="161_1o1nd"]
+[ext_resource type="Texture2D" uid="uid://d08llq0pkdifs" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_9.webp" id="162_uosrj"]
+[ext_resource type="Texture2D" uid="uid://c1p2me1a5trbv" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_10.webp" id="163_78jxs"]
+[ext_resource type="Texture2D" uid="uid://bekhud576tsku" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_11.webp" id="164_33isf"]
+[ext_resource type="Texture2D" uid="uid://dpxx6vmk0wqjn" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_12.webp" id="165_31nhf"]
+[ext_resource type="Texture2D" uid="uid://b66f0g01trcqq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_13.webp" id="166_3f230"]
+[ext_resource type="Texture2D" uid="uid://b8egoylquohwv" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_14.webp" id="167_riq54"]
+[ext_resource type="Texture2D" uid="uid://dd88np71lwdr1" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_15.webp" id="168_rqc3s"]
+[ext_resource type="Texture2D" uid="uid://dg3orpfh3i7cq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_16.webp" id="169_vuqkk"]
+[ext_resource type="Texture2D" uid="uid://ijhuqe7qxy1x" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_17.webp" id="170_nahii"]
+[ext_resource type="Texture2D" uid="uid://c3tjohxsvfbm0" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_18.webp" id="171_hftby"]
+[ext_resource type="Texture2D" uid="uid://6j11x5thcgxu" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_19.webp" id="172_nl0y1"]
+[ext_resource type="Texture2D" uid="uid://cmffxpo8rd5yn" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_20.webp" id="173_dd65b"]
+[ext_resource type="Texture2D" uid="uid://r76ss563355q" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_21.webp" id="174_f3cdh"]
+[ext_resource type="Texture2D" uid="uid://cys36mm0rpjse" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_22.webp" id="175_3c4sh"]
+[ext_resource type="Texture2D" uid="uid://bmnhr864v0uhi" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_23.webp" id="176_p35mf"]
+[ext_resource type="Texture2D" uid="uid://boaqsx5owtq78" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_24.webp" id="177_n7otu"]
+[ext_resource type="Texture2D" uid="uid://bi6vdwknwny7j" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_25.webp" id="178_20eq8"]
+[ext_resource type="Texture2D" uid="uid://bmq3w6s8dv4ih" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_26.webp" id="179_4xop2"]
+[ext_resource type="Texture2D" uid="uid://b8c60wq1tirka" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_27.webp" id="180_0ptx1"]
+[ext_resource type="Texture2D" uid="uid://c5rmcxxw8m32f" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_28.webp" id="181_qfmlw"]
+[ext_resource type="Texture2D" uid="uid://ci4o4gfm0nhuo" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_29.webp" id="182_fc2y7"]
+[ext_resource type="Texture2D" uid="uid://6qjf3mghy4pw" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_30.webp" id="183_fc8l0"]
+[ext_resource type="Texture2D" uid="uid://cblqmafmeoty7" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_31.webp" id="184_gmhtn"]
+[ext_resource type="Texture2D" uid="uid://pt1rfk31snu8" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_32.webp" id="185_oywep"]
+[ext_resource type="Texture2D" uid="uid://bdfptwqx83cob" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_33.webp" id="186_b2waa"]
+[ext_resource type="Texture2D" uid="uid://bcs21cy5n523v" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_34.webp" id="187_oh47r"]
+[ext_resource type="Texture2D" uid="uid://cvsw7ymrofofe" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_35.webp" id="188_f8dkf"]
+[ext_resource type="Texture2D" uid="uid://1x2k01gryvyx" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_36.webp" id="189_tauce"]
+[ext_resource type="Texture2D" uid="uid://bntpqbreg2dvc" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_37.webp" id="190_w35b8"]
+[ext_resource type="Texture2D" uid="uid://dwpiyaljv8xih" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_38.webp" id="191_1grp8"]
+[ext_resource type="Texture2D" uid="uid://d4fuwweskows8" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_39.webp" id="192_1j836"]
+[ext_resource type="Texture2D" uid="uid://tnqj8qmvyxj2" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_40.webp" id="193_w32k2"]
+[ext_resource type="Texture2D" uid="uid://bjci35g5mpksq" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_41.webp" id="194_mxa7u"]
+[ext_resource type="Texture2D" uid="uid://cwao01twd3ggf" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_42.webp" id="195_4qcmk"]
+[ext_resource type="Texture2D" uid="uid://crnu5db1k7ky0" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_43.webp" id="196_a3u5y"]
+[ext_resource type="Texture2D" uid="uid://dgyvg5jhqvmht" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_44.webp" id="197_o4nq6"]
+[ext_resource type="Texture2D" uid="uid://bqhepxtoilq5g" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_45.webp" id="198_obfa2"]
+[ext_resource type="Texture2D" uid="uid://bpdlmvccqohro" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_46.webp" id="199_hlwnt"]
+[ext_resource type="Texture2D" uid="uid://d3vgnxja281oi" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_47.webp" id="200_u1ke1"]
+[ext_resource type="Texture2D" uid="uid://debdpd3l155or" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_48.webp" id="201_xyv1d"]
+[ext_resource type="Texture2D" uid="uid://mn0wt7kvsa2b" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_49.webp" id="202_pyiyx"]
+[ext_resource type="Texture2D" uid="uid://3bruap3c4yej" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_50.webp" id="203_pvncg"]
+[ext_resource type="Texture2D" uid="uid://divr1lwg2us73" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Red_Sparks/Red_Sparks_51.webp" id="204_ohko6"]
+[ext_resource type="Texture2D" uid="uid://ci5i764rfd4re" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_1.webp" id="205_5yb06"]
+[ext_resource type="Texture2D" uid="uid://c75mih67ed8oy" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_2.webp" id="206_a82ir"]
+[ext_resource type="Texture2D" uid="uid://ep2lyjyxtsih" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_3.webp" id="207_ax6p0"]
+[ext_resource type="Texture2D" uid="uid://bnb5qdr3ijf34" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_4.webp" id="208_laf20"]
+[ext_resource type="Texture2D" uid="uid://c2set1gwyhtre" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_5.webp" id="209_2axav"]
+[ext_resource type="Texture2D" uid="uid://c3avf0x5fwtuc" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_6.webp" id="210_i3tbp"]
+[ext_resource type="Texture2D" uid="uid://dmsowgkm6r4kv" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_7.webp" id="211_kw2bd"]
+[ext_resource type="Texture2D" uid="uid://b7eveau2aa0gr" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_8.webp" id="212_kfqev"]
+[ext_resource type="Texture2D" uid="uid://dhheg814ga816" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_9.webp" id="213_s712v"]
+[ext_resource type="Texture2D" uid="uid://dsxfdaiku4tt6" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_10.webp" id="214_73gdt"]
+[ext_resource type="Texture2D" uid="uid://buvnk5it1lqoy" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_11.webp" id="215_oi7dt"]
+[ext_resource type="Texture2D" uid="uid://balftv2s3ajix" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_12.webp" id="216_qshmv"]
+[ext_resource type="Texture2D" uid="uid://dkqkandk7ohks" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_13.webp" id="217_72r1x"]
+[ext_resource type="Texture2D" uid="uid://vu6fq3yddnyk" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_14.webp" id="218_nul2l"]
+[ext_resource type="Texture2D" uid="uid://cml8eksnem4ea" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_15.webp" id="219_80nda"]
+[ext_resource type="Texture2D" uid="uid://b4kou0p1k27xu" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_16.webp" id="220_8f6sa"]
+[ext_resource type="Texture2D" uid="uid://dhw6w88tamww7" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_17.webp" id="221_kylab"]
+[ext_resource type="Texture2D" uid="uid://dge4jltj8v7gf" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_18.webp" id="222_lfwpy"]
+[ext_resource type="Texture2D" uid="uid://w286nwa7ehmh" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_19.webp" id="223_ged4v"]
+[ext_resource type="Texture2D" uid="uid://u7qtre7t4ema" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_20.webp" id="224_6asfu"]
+[ext_resource type="Texture2D" uid="uid://b8ckkueqq35wg" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_21.webp" id="225_wqcxk"]
+[ext_resource type="Texture2D" uid="uid://chm4xp5df1rtu" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_22.webp" id="226_emn6g"]
+[ext_resource type="Texture2D" uid="uid://n6ix85pjfeqv" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_23.webp" id="227_uach2"]
+[ext_resource type="Texture2D" uid="uid://xfcewhjftqn8" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_24.webp" id="228_5e2j3"]
+[ext_resource type="Texture2D" uid="uid://dj5hnevbw3kl1" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_25.webp" id="229_5t3y3"]
+[ext_resource type="Texture2D" uid="uid://dkblmgxkp45yj" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_26.webp" id="230_s1dli"]
+[ext_resource type="Texture2D" uid="uid://ccdr7xwngf6n5" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_27.webp" id="231_bb0uf"]
+[ext_resource type="Texture2D" uid="uid://web4pcvbybyl" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_28.webp" id="232_2tblh"]
+[ext_resource type="Texture2D" uid="uid://bs6jwphna2r3q" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_29.webp" id="233_gnxec"]
+[ext_resource type="Texture2D" uid="uid://bo1rqlusoelrk" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_30.webp" id="234_kki6m"]
+[ext_resource type="Texture2D" uid="uid://5uijvgnlph1a" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_31.webp" id="235_a8hbp"]
+[ext_resource type="Texture2D" uid="uid://h5r1cpcbbxak" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_32.webp" id="236_l6jys"]
+[ext_resource type="Texture2D" uid="uid://cp224xhn0sksv" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_33.webp" id="237_46x4r"]
+[ext_resource type="Texture2D" uid="uid://bvaeqv6bbpn82" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_34.webp" id="238_jo5jl"]
+[ext_resource type="Texture2D" uid="uid://dxmi3g26m82om" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_35.webp" id="239_kjloj"]
+[ext_resource type="Texture2D" uid="uid://bw6mcib75v3ri" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_36.webp" id="240_shyr8"]
+[ext_resource type="Texture2D" uid="uid://sc4e72i7fcoo" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_37.webp" id="241_0jkcb"]
+[ext_resource type="Texture2D" uid="uid://book5x5t58tdt" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_38.webp" id="242_u1e5r"]
+[ext_resource type="Texture2D" uid="uid://dcyh8o0kk3j8" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_39.webp" id="243_x75t1"]
+[ext_resource type="Texture2D" uid="uid://cmae4metf0vku" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_40.webp" id="244_y7j8x"]
+[ext_resource type="Texture2D" uid="uid://uajojhwxqh4x" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_41.webp" id="245_k2hls"]
+[ext_resource type="Texture2D" uid="uid://85ivng0wenao" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_42.webp" id="246_supaq"]
+[ext_resource type="Texture2D" uid="uid://cuu1l8xnjwi05" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_43.webp" id="247_wuaw0"]
+[ext_resource type="Texture2D" uid="uid://dcggvqcfm5ty2" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_44.webp" id="248_6gs5c"]
+[ext_resource type="Texture2D" uid="uid://c66uoqm8oijgt" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_45.webp" id="249_wb4ui"]
+[ext_resource type="Texture2D" uid="uid://tdi8qvs78nem" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_46.webp" id="250_xpahb"]
+[ext_resource type="Texture2D" uid="uid://0qojbrjhd0ml" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_47.webp" id="251_ie5qo"]
+[ext_resource type="Texture2D" uid="uid://dwy0drhepgyx5" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_48.webp" id="252_bs5tq"]
+[ext_resource type="Texture2D" uid="uid://sj6uqu8o3043" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_49.webp" id="253_dqf81"]
+[ext_resource type="Texture2D" uid="uid://d3mcqer8be38t" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_50.webp" id="254_iq3tb"]
+[ext_resource type="Texture2D" uid="uid://dbkvve5eex0pk" path="res://Assets/Final/Environment/VFX_Santiago_Final/Chispas_Colores_VFX/Gold_Sparks/Gold_Sparks_51.webp" id="255_cymcn"]
+[ext_resource type="Script" uid="uid://qbp17rc2whqw" path="res://Scripts/MagicDust.gd" id="441_e2oqc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5y3t1"]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_677vu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s51ei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5cb61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p0hx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3cudw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0an72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iaapf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nqat7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qunr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_koqi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_faa8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j8irk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e4miu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_s8rjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ff1h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wh8rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g03vl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_d0wbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_p62lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rny0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q5n66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_rgry3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_x06xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ih6nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_q4vma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_hg1gp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6ernu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_igy47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_17h3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_2uod2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_t6nah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_wwmx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_wenag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_j3ysj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ykbou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_2odk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_j2yth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_vprmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_dw6lj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_wjoko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ljh4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_etyet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_w8ej5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_ru0ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_kybhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_0c37c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_31lqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_hia4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_pgp61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_fb6pt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_7yqmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_83qcv")
+}],
+"loop": true,
+"name": &"gold",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_1gb1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_s3ftl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_flaom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_bnypw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_ieiiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_6w780")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_jksuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_c3h2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_pb1rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_ouwjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_6w3rl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_dontk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_lnx3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_rqfe5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_85kuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_s4h52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_3ls8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_ysdn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_5raav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_ttk6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_fp2ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_w801a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_rlgtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_6r4b1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_sqrjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_s5a22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_3ph8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_bm1vg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_e6010")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_qa8qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_v04vu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_qa0hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_wgalj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_e2x8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_0rtm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_1idpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_ju0re")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_gptqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_frm1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_avu08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_q0rnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_mg3yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_o7ihl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_o1hkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_c2jxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_21v42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_gny4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_630yp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_ur6om")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_1cc1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_3ba4o")
+}],
+"loop": true,
+"name": &"mana_blue",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("103_48rbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_qykgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_2boqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_uld51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_vfurb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_q48be")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_8rxtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_iyp4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_psxl3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_3wm3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_me8lv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_5otgq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_57end")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_3hli1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_mtksy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_n48jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_7kktm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_tvcdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_rreai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_m1ttw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_qp0cc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_7lx8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_w7it1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_cmgwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_0bb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_6nnsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_fytuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_gdp3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_siumy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_bwck8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_hxo6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_p5nwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_60udq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_vb7qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_qknx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_r2xsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_we4cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_1l162")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_luvbq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_nbtw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_cdn1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_ehucw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_ufree")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_6uwb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_6cj40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_lvmea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_h38b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_38onj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_mu10y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_jxh3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_jahkt")
+}],
+"loop": true,
+"name": &"mana_green",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("154_6ml0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_kqj5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_0qrao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_wmqw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_tuufu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_k57ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_ehp40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_1o1nd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_uosrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_78jxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_33isf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_31nhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_3f230")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_riq54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_rqc3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_vuqkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_nahii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_hftby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_nl0y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_dd65b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_f3cdh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_3c4sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_p35mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_n7otu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_20eq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_4xop2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_0ptx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_qfmlw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_fc2y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_fc8l0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_gmhtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_oywep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_b2waa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_oh47r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_f8dkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_tauce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_w35b8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_1grp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_1j836")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_w32k2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_mxa7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_4qcmk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_a3u5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_o4nq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_obfa2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_hlwnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("200_u1ke1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_xyv1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_pyiyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_pvncg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_ohko6")
+}],
+"loop": true,
+"name": &"mana_red",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("205_5yb06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_a82ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_ax6p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_laf20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_2axav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_i3tbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_kw2bd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_kfqev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_s712v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_73gdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_oi7dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_qshmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_72r1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_nul2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_80nda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("220_8f6sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("221_kylab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("222_lfwpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("223_ged4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("224_6asfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("225_wqcxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("226_emn6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("227_uach2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("228_5e2j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("229_5t3y3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("230_s1dli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("231_bb0uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("232_2tblh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("233_gnxec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("234_kki6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("235_a8hbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("236_l6jys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("237_46x4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("238_jo5jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("239_kjloj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("240_shyr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("241_0jkcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("242_u1e5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("243_x75t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("244_y7j8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("245_k2hls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("246_supaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("247_wuaw0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("248_6gs5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("249_wb4ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("250_xpahb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_ie5qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("252_bs5tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("253_dqf81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("254_iq3tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("255_cymcn")
+}],
+"loop": true,
+"name": &"xp",
+"speed": 15.0
+}]
+
+[sub_resource type="Curve" id="Curve_s51ei"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_5cb61"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_5cb61"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="MagicDust" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_5y3t1")
+sprite_frames = SubResource("SpriteFrames_677vu")
+animation = &"mana_blue"
+frame_progress = 0.514866
+script = ExtResource("441_e2oqc")
+
+[node name="Trail" type="CPUParticles2D" parent="."]
+use_parent_material = true
+amount = 200
+texture = ExtResource("154_6ml0l")
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_curve = SubResource("Curve_s51ei")
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_5cb61")
+color_ramp = SubResource("Gradient_5cb61")

@@ -14,8 +14,11 @@ var type: int
 var grid_x: int
 var grid_y: int
 var is_locked: bool = false 
+var chain_sprite: Sprite2D
+const CHAIN_TEX = preload("res://Assets/Final/UI/cadenas bloqueo de bombas.png") 
 
 @onready var sprite = $Sprite2D
+@onready var selection_vfx = $SelectionVFX
 
 # --- CONFIGURACIÓN DE TAMAÑO ---
 # Ajusta esto si quieres que sean un poco más grandes o chicos (60.0 es ideal para celdas de 64)
@@ -56,6 +59,22 @@ func setup(tx: int, ty: int, t_type: int):
 	# --- VISUAL UPDATE ---
 	sprite.modulate = Color.WHITE
 	
+	
+	if not chain_sprite:
+		chain_sprite = Sprite2D.new()
+		chain_sprite.texture = CHAIN_TEX
+		chain_sprite.hide()
+		chain_sprite.z_index = 10 # Asegura que se dibuje por encima de la gema
+		add_child(chain_sprite)
+		
+		
+		var tex_size = CHAIN_TEX.get_size()
+		var max_side = max(tex_size.x, tex_size.y)
+		if max_side > TARGET_SIZE:
+			var scale_factor = TARGET_SIZE / max_side
+			chain_sprite.scale = Vector2(scale_factor, scale_factor)
+	
+	
 	if TEXTURES.has(type):
 		var tex = TEXTURES[type]
 		sprite.texture = tex
@@ -74,12 +93,19 @@ func setup(tx: int, ty: int, t_type: int):
 	else:
 		print("ERROR: No texture found for Piece Type: ", type)
 		sprite.modulate = Color.MAGENTA 
+	
+	# --- EL FIX DEL VFX (VERSIÓN FINAL) ---
+	if selection_vfx:
+		selection_vfx.hide() # Volvemos a ocultarlo
+		selection_vfx.z_index = 100 # Lo dejamos bien alto
+		
+		if selection_vfx.sprite_frames:
+			selection_vfx.sprite_frames.set_animation_loop("default", true)
 
 # ==========================================
 #      LÓGICA DE INPUT (RECUPERADA)
 # ==========================================
 
-# 1. DETECCIÓN INICIAL (Click o Toque)
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	var is_click = false
 	
@@ -88,13 +114,12 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	elif event is InputEventScreenTouch and event.pressed:
 		is_click = true
 		
-	if is_click:
+	# --- EL FIX DEL CLIC FANTASMA ---
+	# Solo procesamos el clic si NO estábamos arrastrando ya
+	if is_click and not is_dragging:
 		is_dragging = true
 		start_touch_pos = get_global_mouse_position()
 		
-		# Feedback visual: Pequeño salto al seleccionar
-		var original_scale = sprite.scale
-		scale = Vector2(1.1, 1.1) 
 		piece_selected.emit(self)
 
 # 2. SEGUIMIENTO GLOBAL (Arrastrar)
@@ -136,7 +161,12 @@ func calculate_direction(difference: Vector2):
 # 4. RESETEAR ESTADO
 func stop_dragging():
 	is_dragging = false
-	scale = Vector2(1.0, 1.0) # Volver al tamaño normal del nodo
+	
+	# FIX: Solo volver a 1.0 si NO está el aura mágica encendida
+	if selection_vfx and selection_vfx.visible:
+		scale = Vector2(1.1, 1.1)
+	else:
+		scale = Vector2(1.0, 1.0)
 
 # 5. BLOQUEO (Para habilidades como Outlaw)
 func set_locked(locked: bool):
@@ -145,6 +175,22 @@ func set_locked(locked: bool):
 		sprite.modulate = Color(0.4, 0.4, 0.4) 
 		# Reducimos un poquito la escala visual actual
 		scale = Vector2(0.9, 0.9)
+		if chain_sprite: chain_sprite.show()
 	else:
 		sprite.modulate = Color.WHITE
 		scale = Vector2(1.0, 1.0)
+		if chain_sprite: chain_sprite.hide()
+
+func set_selected(active: bool):
+	if active:
+		print("✅ ENCENDIENDO anillo mágico en la ficha: ", grid_x, ",", grid_y)
+		scale = Vector2(1.1, 1.1)
+		if selection_vfx:
+			selection_vfx.show()
+			selection_vfx.play("default")
+	else:
+		print("❌ APAGANDO anillo mágico en la ficha: ", grid_x, ",", grid_y)
+		scale = Vector2(1.0, 1.0)
+		if selection_vfx:
+			selection_vfx.hide()
+			selection_vfx.stop()

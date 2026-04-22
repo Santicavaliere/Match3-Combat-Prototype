@@ -1,10 +1,11 @@
-[gd_scene load_steps=168 format=3 uid="uid://cpsgg6n406orn"]
+[gd_scene load_steps=194 format=3 uid="uid://cpsgg6n406orn"]
 
 [ext_resource type="Script" uid="uid://bd05y8rfoxjid" path="res://Scenes/UI/GameUI.gd" id="1_3fiko"]
 [ext_resource type="Script" uid="uid://dpdal306bjkvx" path="res://Scripts/Resources/Ability.gd" id="2_es3rm"]
 [ext_resource type="Texture2D" uid="uid://cgron7dk2u7uy" path="res://Assets/Final/UI/barra vida player -enemigo -empty.png" id="2_lolt2"]
+[ext_resource type="PackedScene" uid="uid://pi65rp4k3hgd" path="res://Scenes/Components/MagicDust.tscn" id="2_mdvly"]
 [ext_resource type="Texture2D" uid="uid://ddx5tdglm5hrt" path="res://Assets/Final/UI/PERGAMINO_resultado.png" id="3_5b8pf"]
-[ext_resource type="Resource" uid="uid://dk1ep18pcihud" path="res://Scripts/Resources/Abilities/Strategist/Data_Cartographer.tres" id="3_es3rm"]
+[ext_resource type="Resource" uid="uid://dswkgrlg4wyf4" path="res://Scripts/Resources/Abilities/Gunslinger/Data_Outlaw.tres" id="3_m1ce5"]
 [ext_resource type="Texture2D" uid="uid://l26vfqbx67ih" path="res://Assets/Final/UI/TIMON BAR.png" id="3_tig4k"]
 [ext_resource type="Resource" uid="uid://dfcrx07td1mdb" path="res://Scripts/Resources/Abilities/Strategist/Data_Navigator.tres" id="4_ivle0"]
 [ext_resource type="Texture2D" uid="uid://ddeljlew52eaq" path="res://Assets/Final/UI/Espejo de turnos.png" id="4_plf53"]
@@ -13,10 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://b1vtvc0lp7ahm" path="res://Assets/Final/UI/container fillup_resultado.png" id="6_p8jce"]
 [ext_resource type="Resource" uid="uid://b0f8unf4fdc1e" path="res://Scripts/Resources/Abilities/Guardian/Data_Bastion.tres" id="7_4e3xs"]
 [ext_resource type="Texture2D" uid="uid://duq178mmoa4f3" path="res://Assets/Final/UI/Scroll/scroll_000.png" id="8_3hpa5"]
+[ext_resource type="Resource" uid="uid://osw0enyx8aq1" path="res://Scripts/Resources/Abilities/Explorer/Data_Merchant.tres" id="8_es3rm"]
 [ext_resource type="Texture2D" uid="uid://dtq4kcfy53hni" path="res://Assets/Final/UI/_aux.png" id="8_m1ce5"]
 [ext_resource type="Texture2D" uid="uid://n0thv2kvciah" path="res://Assets/Final/UI/magic slot_resultado.png" id="8_wpaia"]
+[ext_resource type="Resource" uid="uid://byxcigus2mg63" path="res://Scripts/Resources/Abilities/Explorer/Data_TreasureHunter.tres" id="9_ivle0"]
 [ext_resource type="Texture2D" uid="uid://b3culoapp1t0b" path="res://Assets/Final/UI/Scroll/scroll_001.png" id="9_vvwjs"]
 [ext_resource type="Texture2D" uid="uid://db6mrcik0m0yc" path="res://Assets/Final/UI/gemini-image-2_Modernize_this_frame_by_adding_two_full_Anubis_statues_standing_on_each_side_hol-0.png" id="9_yhgli"]
+[ext_resource type="Resource" uid="uid://c8ev6t42o8lrn" path="res://Scripts/Resources/Abilities/Guardian/Data_Wall.tres" id="10_2pabd"]
 [ext_resource type="Texture2D" uid="uid://cj12tv60j46yl" path="res://Assets/Final/UI/counter magic slot_resultado.png" id="10_hycpo"]
 [ext_resource type="Texture2D" uid="uid://bryshs3ufe87y" path="res://Assets/Final/UI/Scroll/scroll_002.png" id="10_rmbof"]
 [ext_resource type="Texture2D" uid="uid://u3u3llx00s72" path="res://Assets/Final/UI/Scroll/scroll_003.png" id="11_abugl"]
@@ -25,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dm6lgfy1bu5k7" path="res://Assets/Final/UI/Scroll/scroll_005.png" id="13_yitrx"]
 [ext_resource type="Texture2D" uid="uid://bkxigl4glanb8" path="res://Assets/Final/UI/Scroll/scroll_006.png" id="14_5m504"]
 [ext_resource type="Texture2D" uid="uid://sxdn1opuyw1y" path="res://Assets/Final/UI/Scroll/scroll_007.png" id="15_787i8"]
+[ext_resource type="Texture2D" uid="uid://cxmudpvberc73" path="res://Assets/icon live/livees.webp" id="16_4e3xs"]
 [ext_resource type="Texture2D" uid="uid://bqgfhnb2odtmi" path="res://Assets/Final/UI/Scroll/scroll_008.png" id="16_borsg"]
 [ext_resource type="Texture2D" uid="uid://b53er4ywm8lk8" path="res://Assets/Final/UI/Scroll/scroll_009.png" id="17_opy75"]
 [ext_resource type="Texture2D" uid="uid://b7nw6wntjwlhc" path="res://Assets/Final/UI/Scroll/scroll_010.png" id="18_hvb84"]
@@ -152,6 +157,19 @@
 [ext_resource type="Texture2D" uid="uid://cyvhfoco8cn1f" path="res://Assets/Icons/Talismans/TALISMAN_DEL_ARCHIVISTA.png" id="140_787i8"]
 [ext_resource type="Texture2D" uid="uid://dft2rrg18621n" path="res://Assets/Icons/Talismans/TALISMAN_DEL_SAQUEADOR.png" id="141_borsg"]
 [ext_resource type="Texture2D" uid="uid://bx06iy8w63lcu" path="res://Assets/Icons/Talismans/TALISMAN_DEL_BASTION.png" id="142_opy75"]
+[ext_resource type="Texture2D" uid="uid://c3cgxxkipnwsq" path="res://Assets/Icons/Talismans/TALISMAN_DEL_MERCADER.png" id="156_3ganb"]
+[ext_resource type="Texture2D" uid="uid://kh8vpx58a055" path="res://Assets/Icons/Talismans/TALISMAN_DEL_BUSCATESORO.png" id="157_4e3xs"]
+[ext_resource type="Texture2D" uid="uid://cs68x0cjm64nt" path="res://Assets/Icons/Talismans/TALISMAN_DE_LA_MURALLA.png" id="158_lymik"]
+[ext_resource type="Texture2D" uid="uid://wlpx5tq02i3c" path="res://Assets/icon live/fragmentos de poseidon.webp" id="160_lymik"]
+[ext_resource type="Texture2D" uid="uid://bn1ydsc1mvnuq" path="res://Assets/Final/UI/containers_gold_xp/coins_container.png" id="162_4ecq0"]
+[ext_resource type="Texture2D" uid="uid://bpcjqk1ijr5w5" path="res://Assets/Final/Environment/UI_WebP_Optimizado/icon.webp" id="162_340mk"]
+[ext_resource type="Texture2D" uid="uid://y7bjasdmx0nb" path="res://Assets/Final/Environment/backound_of_mana_stone/backound_of_mana_stone.webp" id="162_bvl8i"]
+[ext_resource type="Texture2D" uid="uid://d4ar5y5hv11at" path="res://Assets/Final/Environment/UI_WebP_Optimizado/icon_press.webp" id="163_d68cs"]
+[ext_resource type="Texture2D" uid="uid://bg3kj2sjeefuj" path="res://Assets/Final/Environment/backound_of_mana_stone/PAUSA.webp" id="163_o1fs3"]
+[ext_resource type="Texture2D" uid="uid://bessdmhn2ayj1" path="res://Assets/Final/UI/containers_gold_xp/container_scroll.png" id="163_wl0t5"]
+[ext_resource type="Texture2D" uid="uid://cpvu8d2203y68" path="res://Assets/Final/Environment/UI_WebP_Optimizado/flecha.webp" id="164_3ho3u"]
+[ext_resource type="Texture2D" uid="uid://deivlrihdcoan" path="res://Assets/Final/Environment/UI_WebP_Optimizado/reload.webp" id="164_d68cs"]
+[ext_resource type="Texture2D" uid="uid://dwn7jdy2m0gjm" path="res://Assets/Final/Environment/backound_of_mana_stone/MENU.webp" id="164_yj1mw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tig4k"]
 atlas = ExtResource("2_lolt2")
@@ -184,6 +202,14 @@ region = Rect2(615.5, 21.5, 111, 966)
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6rob"]
 atlas = ExtResource("3_tig4k")
 region = Rect2(294.5, 23, 112.5, 961.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lymik"]
+atlas = ExtResource("16_4e3xs")
+region = Rect2(164.896, 166.556, 473.046, 109.394)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdvly"]
+atlas = ExtResource("16_4e3xs")
+region = Rect2(165.776, 20.3974, 471.553, 109.574)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkbk7"]
 atlas = ExtResource("6_p8jce")
@@ -607,8 +633,63 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("hp_bar_player", "hp_bar_enemy", "helm_bar_player", "helm_bar_enemy", "player_mana_red", "player_mana_blue", "player_mana_green", "enemy_mana_red", "enemy_mana_blue", "enemy_mana_green", "gold_label", "xp_label", "turn_text", "magic_overlay", "magic_buttons")]
+[sub_resource type="LabelSettings" id="LabelSettings_d68cs"]
+font_color = Color(1, 0.2, 0, 1)
+outline_size = 4
+outline_color = Color(0.2, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ho3u"]
+font_size = 7
+font_color = Color(1, 0.2, 0, 1)
+outline_size = 4
+outline_color = Color(0.2, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ecq0"]
+font_size = 9
+font_color = Color(1, 0.2, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wl0t5"]
+font_size = 7
+font_color = Color(1, 0.2, 0, 1)
+outline_size = 4
+outline_color = Color(0.2, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jc18j"]
+font_size = 9
+font_color = Color(1, 0.2, 0, 1)
+outline_size = 3
+outline_color = Color(0.00566115, 0.00566115, 0.00566115, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pbx8i"]
+font_size = 10
+font_color = Color(1, 0.2, 0, 1)
+outline_size = 4
+outline_color = Color(0.2, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="GameUI" type="CanvasLayer" node_paths=PackedStringArray("target_mana_red", "target_mana_blue", "target_mana_green", "target_gold", "target_xp", "target_enemy_mana_red", "target_enemy_mana_blue", "target_enemy_mana_green", "target_enemy_gold", "target_enemy_xp", "hp_bar_player", "hp_bar_enemy", "helm_bar_player", "helm_bar_enemy", "player_mana_red", "player_mana_blue", "player_mana_green", "enemy_mana_red", "enemy_mana_blue", "enemy_mana_green", "gold_label", "xp_label", "enemy_gold_label", "enemy_xp_label", "turn_text", "timer_label", "fragments_label", "lives_bar", "lives_purchase_popup", "btn_buy_lives", "btn_close_popup", "magic_overlay", "magic_buttons", "enemy_magic_buttons")]
+layer = 10
 script = ExtResource("1_3fiko")
+magic_dust_scene = ExtResource("2_mdvly")
+target_mana_red = NodePath("TargetManaRed")
+target_mana_blue = NodePath("TargetManaBlue")
+target_mana_green = NodePath("TargetManaGreen")
+target_gold = NodePath("TargetGold")
+target_xp = NodePath("TargetXP")
+target_enemy_mana_red = NodePath("TargetEnemyManaRed")
+target_enemy_mana_blue = NodePath("TargetEnemyManaBlue")
+target_enemy_mana_green = NodePath("TargetEnemyManaGreen")
+target_enemy_gold = NodePath("TargetEnemyGold")
+target_enemy_xp = NodePath("TargetEnemyXP")
 hp_bar_player = NodePath("MainLayout/TopBar/HealthRow/PlayerHPBar")
 hp_bar_enemy = NodePath("MainLayout/TopBar/HealthRow/EnemyHPBar")
 helm_bar_player = NodePath("MainLayout/PlayerHelmBar")
@@ -619,12 +700,22 @@ player_mana_green = NodePath("MagicPanel_Left/ManaTubes_BG/BarGreen")
 enemy_mana_red = NodePath("MagicPanel_Right/ManaTubes_BG/BarRed")
 enemy_mana_blue = NodePath("MagicPanel_Right/ManaTubes_BG/BarBlue")
 enemy_mana_green = NodePath("MagicPanel_Right/ManaTubes_BG/BarGreen")
-gold_label = NodePath("GoldLabel")
-xp_label = NodePath("XPLabel")
+gold_label = NodePath("GoldBackground/GoldLabel")
+xp_label = NodePath("XPBackground/XPLabel")
+enemy_gold_label = NodePath("EnemyGoldBackground/EnemyGoldLabel")
+enemy_xp_label = NodePath("EnemyXPBackground/EnemyXPLabel")
 turn_text = NodePath("MainLayout/TurnMirror/TurnText")
+timer_label = NodePath("MainLayout/PremiumHUD/TimerLabel")
+fragments_label = NodePath("MainLayout/PremiumHUD/FragmentsLabel")
+lives_bar = NodePath("MainLayout/PremiumHUD/LivesBar")
+lives_purchase_popup = NodePath("LivesPurchasePopup")
+btn_buy_lives = NodePath("LivesPurchasePopup/Panel/BtnBuyLives")
+btn_close_popup = NodePath("LivesPurchasePopup/Panel/BtnClose")
 magic_overlay = NodePath("MagicOverlay")
-equipped_abilities = Array[ExtResource("2_es3rm")]([ExtResource("3_es3rm"), ExtResource("4_ivle0"), ExtResource("5_2pabd"), ExtResource("6_3ganb"), ExtResource("7_4e3xs")])
+equipped_abilities = Array[ExtResource("2_es3rm")]([ExtResource("3_m1ce5"), ExtResource("4_ivle0"), ExtResource("5_2pabd"), ExtResource("6_3ganb"), ExtResource("7_4e3xs")])
 magic_buttons = [NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton2"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton3"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton4"), NodePath("MagicPanel_Left/SkillsScroll/GridContainer/TextureButton5")]
+enemy_equipped_abilities = Array[ExtResource("2_es3rm")]([ExtResource("6_3ganb"), ExtResource("8_es3rm"), ExtResource("9_ivle0"), ExtResource("7_4e3xs"), ExtResource("10_2pabd")])
+enemy_magic_buttons = [NodePath("MagicPanel_Right/SkillsScroll/GridContainer/TextureButton"), NodePath("MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2"), NodePath("MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3"), NodePath("MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4"), NodePath("MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5")]
 tex_you_win = ExtResource("8_m1ce5")
 tex_game_over = ExtResource("9_yhgli")
 metadata/_edit_vertical_guides_ = [-227.0]
@@ -682,12 +773,12 @@ texture_progress = SubResource("AtlasTexture_p8jce")
 
 [node name="PlayerHelmBar" type="TextureProgressBar" parent="MainLayout"]
 layout_mode = 0
-offset_left = 643.0
-offset_top = 238.0
-offset_right = 755.0
-offset_bottom = 1206.0
+offset_left = 645.0
+offset_top = 244.0
+offset_right = 757.0
+offset_bottom = 1213.0
 rotation = 1.5708
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 max_value = 50.0
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_mnd0w")
@@ -695,12 +786,12 @@ texture_progress = SubResource("AtlasTexture_bhxso")
 
 [node name="EnemyHelmBar" type="TextureProgressBar" parent="MainLayout"]
 layout_mode = 0
-offset_left = 649.0
-offset_top = 271.0
-offset_right = 761.0
-offset_bottom = 1236.0
+offset_left = 647.0
+offset_top = 272.0
+offset_right = 759.0
+offset_bottom = 1238.0
 rotation = -1.5708
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.25, 0.25)
 max_value = 50.0
 fill_mode = 3
 texture_under = SubResource("AtlasTexture_0pgsb")
@@ -726,6 +817,39 @@ theme_override_font_sizes/font_size = 600
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PremiumHUD" type="HBoxContainer" parent="MainLayout"]
+layout_mode = 0
+offset_left = 62.0
+offset_right = 255.0
+offset_bottom = 48.0
+
+[node name="LivesBar" type="TextureProgressBar" parent="MainLayout/PremiumHUD"]
+custom_minimum_size = Vector2(193, 41)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 5.0
+value = 5.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_lymik")
+texture_progress = SubResource("AtlasTexture_mdvly")
+
+[node name="TimerLabel" type="Label" parent="MainLayout/PremiumHUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MAX"
+
+[node name="FragmentIcon" type="TextureRect" parent="MainLayout/PremiumHUD"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("160_lymik")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FragmentsLabel" type="Label" parent="MainLayout/PremiumHUD"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "100"
 
 [node name="MagicPanel_Left" type="Control" parent="."]
 layout_mode = 3
@@ -1178,10 +1302,10 @@ flip_h = true
 
 [node name="BarRed" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
 layout_mode = 0
-offset_left = 535.0
-offset_top = 205.0
-offset_right = 665.0
-offset_bottom = 760.0
+offset_left = 530.0
+offset_top = 170.0
+offset_right = 660.0
+offset_bottom = 625.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
@@ -1190,9 +1314,9 @@ texture_progress = SubResource("AtlasTexture_fd57w")
 [node name="BarGreen" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
 layout_mode = 0
 offset_left = 355.0
-offset_top = 205.0
+offset_top = 175.0
 offset_right = 485.0
-offset_bottom = 760.0
+offset_bottom = 620.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
@@ -1201,9 +1325,9 @@ texture_progress = SubResource("AtlasTexture_m2lyg")
 [node name="BarBlue" type="TextureProgressBar" parent="MagicPanel_Right/ManaTubes_BG"]
 layout_mode = 0
 offset_left = 175.0
-offset_top = 210.0
+offset_top = 175.0
 offset_right = 305.0
-offset_bottom = 760.0
+offset_bottom = 625.0
 max_value = 50.0
 fill_mode = 3
 nine_patch_stretch = true
@@ -1222,43 +1346,402 @@ flip_h = true
 
 [node name="GridContainer" type="GridContainer" parent="MagicPanel_Right/SkillsScroll"]
 layout_mode = 0
-offset_left = 173.333
-offset_top = 250.0
-offset_right = 532.333
-offset_bottom = 843.0
+offset_left = 546.667
+offset_top = 190.0
+offset_right = 682.667
+offset_bottom = 708.0
 theme_override_constants/h_separation = 18
-theme_override_constants/v_separation = 17
-columns = 3
+theme_override_constants/v_separation = 3
 
-[node name="TextureButton" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="TextureButton" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(115, 90)
 layout_mode = 2
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("8_wpaia")
+expand_mode = 1
 
-[node name="TextureButton2" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-ignore_texture_size = true
-stretch_mode = 4
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -51.6666
+offset_right = 1558.5
+offset_bottom = 1561.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
 
-[node name="TextureButton3" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-ignore_texture_size = true
-stretch_mode = 4
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 0
+offset_left = -123.333
+offset_top = 3.33325
+offset_right = 1495.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
 
-[node name="TextureButton4" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
-layout_mode = 2
-ignore_texture_size = true
-stretch_mode = 4
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
-[node name="TextureButton5" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
-custom_minimum_size = Vector2(105, 105)
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 0
+offset_left = -373.333
+offset_top = 3.33325
+offset_right = 1245.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton"]
+layout_mode = 0
+offset_left = -246.667
+offset_top = 3.33325
+offset_right = 1372.33
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="TextureButton2" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(115, 90)
 layout_mode = 2
-ignore_texture_size = true
-stretch_mode = 4
+texture = ExtResource("8_wpaia")
+expand_mode = 1
+
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -51.6666
+offset_right = 1558.5
+offset_bottom = 1561.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 0
+offset_left = -123.333
+offset_top = 3.33325
+offset_right = 1495.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 0
+offset_left = -373.333
+offset_top = 3.33325
+offset_right = 1245.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2"]
+layout_mode = 0
+offset_left = -246.667
+offset_top = 3.33325
+offset_right = 1372.33
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton2/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="TextureButton3" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(115, 90)
+layout_mode = 2
+texture = ExtResource("8_wpaia")
+expand_mode = 1
+
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -51.6666
+offset_right = 1558.5
+offset_bottom = 1561.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 0
+offset_left = -123.333
+offset_top = 3.33325
+offset_right = 1495.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 0
+offset_left = -373.333
+offset_top = 3.33325
+offset_right = 1245.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3"]
+layout_mode = 0
+offset_left = -246.667
+offset_top = 3.33325
+offset_right = 1372.33
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton3/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="TextureButton4" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(115, 90)
+layout_mode = 2
+texture = ExtResource("8_wpaia")
+expand_mode = 1
+
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -51.6666
+offset_right = 1558.5
+offset_bottom = 1561.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 0
+offset_left = -123.333
+offset_top = 3.33325
+offset_right = 1495.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 0
+offset_left = -373.333
+offset_top = 3.33325
+offset_right = 1245.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4"]
+layout_mode = 0
+offset_left = -246.667
+offset_top = 3.33325
+offset_right = 1372.33
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton4/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="TextureButton5" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer"]
+custom_minimum_size = Vector2(115, 90)
+layout_mode = 2
+texture = ExtResource("8_wpaia")
+expand_mode = 1
+
+[node name="IconBtn" type="TextureButton" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -51.6666
+offset_right = 1558.5
+offset_bottom = 1561.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.07, 0.07)
+
+[node name="BoxRed" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 0
+offset_left = -123.333
+offset_top = 3.33325
+offset_right = 1495.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5/BoxRed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxBlue" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 0
+offset_left = -373.333
+offset_top = 3.33325
+offset_right = 1245.67
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5/BoxBlue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
+
+[node name="BoxGreen" type="TextureRect" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5"]
+layout_mode = 0
+offset_left = -246.667
+offset_top = 3.33325
+offset_right = 1372.33
+offset_bottom = 1246.33
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_hycpo")
+
+[node name="Label" type="Label" parent="MagicPanel_Right/SkillsScroll/GridContainer/TextureButton5/BoxGreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 1000
 
 [node name="HorizontalScroll" type="AnimatedSprite2D" parent="."]
 position = Vector2(131, 328)
@@ -1313,11 +1796,43 @@ flip_h = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HorizontalScrollEnemy"]
 visible = false
-offset_left = -200.289
-offset_top = -134.143
-offset_right = 199.711
-offset_bottom = 126.857
-theme_override_constants/separation = -155
+layout_direction = 3
+offset_left = -203.655
+offset_top = -162.342
+offset_right = 196.345
+offset_bottom = 155.658
+theme_override_constants/separation = -100
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HorizontalScrollEnemy/HBoxContainer"]
+custom_minimum_size = Vector2(158, 241)
+layout_mode = 2
+texture = ExtResource("141_borsg")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HorizontalScrollEnemy/HBoxContainer"]
+custom_minimum_size = Vector2(158, 241)
+layout_mode = 2
+texture = ExtResource("156_3ganb")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HorizontalScrollEnemy/HBoxContainer"]
+custom_minimum_size = Vector2(158, 241)
+layout_mode = 2
+texture = ExtResource("157_4e3xs")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="HorizontalScrollEnemy/HBoxContainer"]
+custom_minimum_size = Vector2(158, 241)
+layout_mode = 2
+texture = ExtResource("142_opy75")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="HorizontalScrollEnemy/HBoxContainer"]
+custom_minimum_size = Vector2(158, 241)
+layout_mode = 2
+texture = ExtResource("158_lymik")
+expand_mode = 1
 
 [node name="MagicOverlay" type="TextureRect" parent="."]
 visible = false
@@ -1333,19 +1848,51 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GoldLabel" type="Label" parent="."]
-offset_left = 11.0
-offset_top = 416.0
-offset_right = 51.0
-offset_bottom = 439.0
+[node name="GoldBackground" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_top = 385.0
+offset_right = 97.0
+offset_bottom = 485.0
+texture = ExtResource("162_4ecq0")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="XPLabel" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 452.0
-offset_right = 50.0
-offset_bottom = 475.0
+[node name="GoldLabel" type="Label" parent="GoldBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="XPBackground" type="TextureRect" parent="."]
+offset_left = 243.0
+offset_top = 295.0
+offset_right = 363.0
+offset_bottom = 425.0
+rotation = -1.55944
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("163_wl0t5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="XPLabel" type="Label" parent="XPBackground"]
+layout_mode = 0
+offset_left = 64.3934
+offset_top = 34.2709
+offset_right = 104.393
+offset_bottom = 57.2709
+rotation = 1.5702
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="GameOverPanel" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1375,8 +1922,375 @@ offset_right = 223.0
 offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("8_m1ce5")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="MasterEndGameLayout" type="VBoxContainer" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOverPanel/MasterEndGameLayout"]
+layout_mode = 2
+text = "Consumed talisman"
+label_settings = SubResource("LabelSettings_d68cs")
+horizontal_alignment = 1
+
+[node name="WinnerLoadoutContainer" type="HBoxContainer" parent="GameOverPanel/MasterEndGameLayout"]
+layout_mode = 2
+theme_override_constants/separation = -82
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout/WinnerLoadoutContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+texture = ExtResource("138_yitrx")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout/WinnerLoadoutContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+texture = ExtResource("139_5m504")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout/WinnerLoadoutContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+texture = ExtResource("140_787i8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout/WinnerLoadoutContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+texture = ExtResource("141_borsg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout/WinnerLoadoutContainer"]
+custom_minimum_size = Vector2(50, 70)
+layout_mode = 2
+texture = ExtResource("142_opy75")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StatsContainer" type="HBoxContainer" parent="GameOverPanel/MasterEndGameLayout"]
+layout_mode = 2
+theme_override_constants/separation = 41
+alignment = 1
+
+[node name="GoldColumn" type="VBoxContainer" parent="GameOverPanel/MasterEndGameLayout/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOverPanel/MasterEndGameLayout/StatsContainer/GoldColumn"]
+layout_mode = 2
+text = "Gold Collected"
+label_settings = SubResource("LabelSettings_3ho3u")
+
+[node name="GoldResultLabel" type="Label" parent="GameOverPanel/MasterEndGameLayout/StatsContainer/GoldColumn"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_4ecq0")
+
+[node name="XPColumn" type="VBoxContainer" parent="GameOverPanel/MasterEndGameLayout/StatsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GameOverPanel/MasterEndGameLayout/StatsContainer/XPColumn"]
+layout_mode = 2
+text = "XP Gained"
+label_settings = SubResource("LabelSettings_wl0t5")
+
+[node name="XPResultLabel" type="Label" parent="GameOverPanel/MasterEndGameLayout/StatsContainer/XPColumn"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jc18j")
+
+[node name="MostUsedLabel" type="Label" parent="GameOverPanel/MasterEndGameLayout"]
+layout_mode = 2
+text = "Most Used Talisman"
+label_settings = SubResource("LabelSettings_pbx8i")
+horizontal_alignment = 1
+
+[node name="MostUsedCard" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout"]
+custom_minimum_size = Vector2(40, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("142_opy75")
+expand_mode = 1
+
+[node name="ActionButtonsContainer" type="HBoxContainer" parent="GameOverPanel/MasterEndGameLayout"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="WrapperReload" type="Control" parent="GameOverPanel/MasterEndGameLayout/ActionButtonsContainer"]
+custom_minimum_size = Vector2(84, 92)
+layout_mode = 2
+
+[node name="BtnReload" type="TextureButton" parent="GameOverPanel/MasterEndGameLayout/ActionButtonsContainer/WrapperReload"]
+custom_minimum_size = Vector2(84, 92)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(42, 46)
+texture_normal = ExtResource("162_340mk")
+texture_pressed = ExtResource("163_d68cs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="IconoReload" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout/ActionButtonsContainer/WrapperReload/BtnReload"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -35.5
+offset_right = 14.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("164_d68cs")
+expand_mode = 1
+
+[node name="WrapperNext" type="Control" parent="GameOverPanel/MasterEndGameLayout/ActionButtonsContainer"]
+custom_minimum_size = Vector2(84, 92)
+layout_mode = 2
+
+[node name="BtnNext" type="TextureButton" parent="GameOverPanel/MasterEndGameLayout/ActionButtonsContainer/WrapperNext"]
+custom_minimum_size = Vector2(84, 92)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(42, 46)
+texture_normal = ExtResource("162_340mk")
+texture_pressed = ExtResource("163_d68cs")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="IconoNext" type="TextureRect" parent="GameOverPanel/MasterEndGameLayout/ActionButtonsContainer/WrapperNext/BtnNext"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 8.0
+offset_right = 59.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("164_3ho3u")
+expand_mode = 1
+
+[node name="EnemyGoldBackground" type="TextureRect" parent="."]
+offset_left = 1191.0
+offset_top = 398.0
+offset_right = 1287.0
+offset_bottom = 498.0
+texture = ExtResource("162_4ecq0")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="EnemyGoldLabel" type="Label" parent="EnemyGoldBackground"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 37.0
+offset_right = 76.0
+offset_bottom = 60.0
+
+[node name="EnemyXPBackground" type="TextureRect" parent="."]
+offset_left = 930.0
+offset_top = 292.0
+offset_right = 1050.0
+offset_bottom = 422.0
+rotation = -1.56924
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("163_wl0t5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="EnemyXPLabel" type="Label" parent="EnemyXPBackground"]
+layout_mode = 0
+offset_left = 66.0685
+offset_top = 43.897
+offset_right = 106.069
+offset_bottom = 66.897
+rotation = 1.54106
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="LivesPurchasePopup" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 0.862745)
+
+[node name="Panel" type="Panel" parent="LivesPurchasePopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LivesPurchasePopup/Panel"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 45.0
+offset_right = 288.0
+offset_bottom = 68.0
+text = "¡You ran out of lives!"
+
+[node name="Label2" type="Label" parent="LivesPurchasePopup/Panel"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 202.0
+offset_right = 339.0
+offset_bottom = 277.0
+text = "              You can use your 
+Poseidon Fragments to recharge 
+your lives and continue playing."
+
+[node name="TextureRect" type="TextureRect" parent="LivesPurchasePopup/Panel"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 147.0
+offset_top = 86.0
+offset_right = 267.0
+offset_bottom = 206.0
+texture = ExtResource("160_lymik")
+expand_mode = 1
+
+[node name="BtnBuyLives" type="Button" parent="LivesPurchasePopup/Panel"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 338.0
+offset_right = 318.0
+offset_bottom = 369.0
+text = "Recharge 5 Lives (Cost: 50)"
+
+[node name="BtnClose" type="Button" parent="LivesPurchasePopup/Panel"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 434.0
+offset_right = 266.0
+offset_bottom = 465.0
+text = "Back to Menu"
+
+[node name="TargetManaRed" type="Marker2D" parent="."]
+position = Vector2(107, 503)
+
+[node name="TargetManaGreen" type="Marker2D" parent="."]
+position = Vector2(145, 503)
+
+[node name="TargetManaBlue" type="Marker2D" parent="."]
+position = Vector2(180, 503)
+
+[node name="TargetGold" type="Marker2D" parent="."]
+position = Vector2(31, 434)
+
+[node name="TargetXP" type="Marker2D" parent="."]
+position = Vector2(272, 252)
+
+[node name="TargetEnemyManaRed" type="Marker2D" parent="."]
+position = Vector2(1177, 515)
+
+[node name="TargetEnemyManaGreen" type="Marker2D" parent="."]
+position = Vector2(1140, 516)
+
+[node name="TargetEnemyManaBlue" type="Marker2D" parent="."]
+position = Vector2(1099, 514)
+
+[node name="TargetEnemyGold" type="Marker2D" parent="."]
+position = Vector2(1223, 449)
+
+[node name="TargetEnemyXP" type="Marker2D" parent="."]
+position = Vector2(972, 246)
+
+[node name="PauseMenuPanel" type="Control" parent="."]
+process_mode = 3
+visible = false
+z_index = 4096
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("162_bvl8i")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="BtnResume" type="Button" parent="PauseMenuPanel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+icon = ExtResource("163_o1fs3")
+icon_alignment = 1
+expand_icon = true
+
+[node name="BtnMainMenu" type="Button" parent="PauseMenuPanel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+icon = ExtResource("164_yj1mw")
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="animation_finished" from="HorizontalScroll" to="." method="_on_horizontal_scroll_animation_finished"]
 [connection signal="animation_finished" from="HorizontalScrollEnemy" to="." method="_on_horizontal_scroll_animation_finished"]

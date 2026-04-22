@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5qobedhc23up"]
+
+[ext_resource type="AudioStream" uid="uid://co0hoxen2ovm7" path="res://Assets/Audio/music_loop/ocean.mp3" id="1_cu2p2"]
+
+[node name="OceanAudio" type="AudioStreamPlayer"]
+stream = ExtResource("1_cu2p2")
+volume_db = -15.0
+autoplay = true

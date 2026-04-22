@@ -4,22 +4,18 @@ extends Node
 @onready var timer = $Timer
 
 func _ready():
-	# 1. Conectamos la señal de fin de juego para detener la fábrica de gaviotas
 	SignalBus.game_over.connect(_on_game_over)
 	
-	# 2. Conectamos el Timer por código
 	timer.timeout.connect(_on_timer_timeout)
 	
-	# 3. Arrancamos el primer temporizador aleatorio
 	start_random_timer()
 
 func _on_timer_timeout():
 	spawn_seagull()
-	start_random_timer() # Volvemos a sortear un tiempo para la próxima
+	start_random_timer() 
 
 func start_random_timer():
-	# Sortea un tiempo de espera. Aparecerá una gaviota entre cada 4 y 12 segundos.
-	# (Podés cambiar estos números a tu gusto)
+	
 	timer.start(randf_range(4.0, 12.0))
 
 func spawn_seagull():

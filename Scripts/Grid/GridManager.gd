@@ -3,15 +3,14 @@ extends Node2D
 ## Core system that manages the Match-3 grid logic.
 ##
 ## Handles procedural generation, the input state machine, swapping mechanics,
-## match detection algorithms, and the refill cascade (gravity).
+## match detection algorithms, the refill cascade (gravity), and deadlock prevention.
 class_name GridManager
 
 # --- CONFIGURATION ---
 @export var width: int = 12
 @export var height: int = 7
-# REEMPLAZAMOS "offset" POR ESTOS DOS:
-@export var offset_x: float = 56.0  # Controla la distancia HORIZONTAL
-@export var offset_y: float = 52.0  # Controla la distancia VERTICAL
+@export var offset_x: float = 56.0  # Horizontal spacing control
+@export var offset_y: float = 52.0  # Vertical spacing control
 @export var y_offset: int = 0 
 @export var piece_scene: PackedScene
 
@@ -23,40 +22,46 @@ var grid_data: Array = []
 var first_selected: Piece = null
 var second_selected: Piece = null
 var is_processing: bool = false 
-var is_game_over: bool = false # <--- ADDED
-var is_enemy_turn: bool = false # <--- NEW
+var is_game_over: bool = false
+var is_enemy_turn: bool = false
 var is_cascading: bool = false
+var is_out_of_lives: bool = false
+
 # --- TURN SYSTEM ---
 var max_moves: int = 3
 var current_moves: int = 0
 
-
 ## Standard Godot lifecycle method.
 ## Initializes the RNG, creates the grid data structure, spawns initial pieces,
-## connects necessary signals for the game loop (Enemy turn, Player turn, Game Over),
-## and starts the first turn.
+## connects necessary signals for the game loop, and starts the first turn.
 func _ready():
 	randomize()
 	grid_data = make_2d_array()
-	spawn_pieces()
 	
-	# CONNECT SIGNALS FOR TURN MANAGEMENT
-	#SignalBus.enemy_turn_finished.connect(reset_turn) 
-	SignalBus.enemy_turn_finished.connect(_on_enemy_finished) # Changed to intermediate function
-	SignalBus.turn_ended.connect(_on_player_ended) # Logic connection
-	# SignalBus.turn_ended.connect(reset_turn) 
+	# ¡Acá borramos el spawn_pieces() viejo que generaba el duplicado!
 	
-	SignalBus.game_over.connect(_on_game_over) # <--- NEW CONNECTION
+	SignalBus.enemy_turn_finished.connect(_on_enemy_finished)
+	SignalBus.turn_ended.connect(_on_player_ended)
+	SignalBus.game_over.connect(_on_game_over)
 	
-	# INITIALIZE TURN
-	reset_turn() ### NEW ###
+	if LifeManager.consume_life_to_play():
+		print("¡Vida descontada! Iniciando partida...")
+		spawn_pieces() # <-- AHORA SÍ, ESTE ES EL ÚNICO SPAWN
+		reset_turn()
+		
+		print_grid_to_console()
+	else:
+		print("No hay vidas. Bloqueando inicio y mostrando tienda.")
+		is_out_of_lives = true
+		
+		await get_tree().create_timer(0.1).timeout 
+		SignalBus.show_lives_purchase_popup.emit()
+		
 	
-	print_grid_to_console()
 
 ## Resets the turn state, restoring action points and notifying the UI.
 func reset_turn():
 	current_moves = max_moves
-	# Notify the UI via the Global Bus
 	SignalBus.moves_updated.emit(current_moves)
 	is_processing = false
 	print("Turn Reset. Moves: ", current_moves)
@@ -75,21 +80,19 @@ func make_2d_array() -> Array:
 func spawn_pieces():
 	for x in width:
 		for y in height:
-			var possible_type = randi() % 7
+			var possible_type = _get_random_piece_type()
 			while _match_is_possible(x, y, possible_type):
-				possible_type = randi() % 7
+				possible_type = _get_random_piece_type()
 			
 			grid_data[x][y] = possible_type
 			
-			
 			var piece = piece_scene.instantiate()
 			add_child(piece)
-			# --- CAMBIO AQUÍ: Usamos offset_x y offset_y por separado ---
+			
 			var pixel_x = x * offset_x + 35
 			var pixel_y = y * offset_y + 35 + (y_offset * offset_y)
-			# ------------------------------------------------------------
-			piece.position = Vector2(pixel_x, pixel_y)
 			
+			piece.position = Vector2(pixel_x, pixel_y)
 			piece.setup(x, y, possible_type)
 			
 			if not piece.piece_selected.is_connected(_on_piece_clicked):
@@ -112,52 +115,55 @@ func _match_is_possible(x, y, type) -> bool:
 
 ## Input State Machine.
 ## Handles the First Click (Select) and Second Click (Swap) logic.
-## Validates locks (Outlaw ability), Game Over state, and Turn state.
+## Validates locks, Game Over state, and Turn state.
 func _on_piece_clicked(piece: Piece):
-	if is_game_over: return # <--- ADDED AT START
-	if is_enemy_turn: return # <--- TOTAL BLOCK
-	if is_processing: return 
-	if current_moves <= 0: return ### NEW: INPUT BLOCK ### 
+	if is_game_over or is_enemy_turn or is_processing or is_out_of_lives: return
 	
-	# --- NEW LOCK CHECK ---
+	if current_moves <= 0: return 
+	
 	if piece.is_locked:
 		print("GridManager: This piece is locked/chained.")
-		return # Ignore click
-	# ---------------------
+		return 
 	
 	if first_selected == null:
 		first_selected = piece
-		first_selected.modulate = Color(1.2, 1.2, 1.2) 
+		first_selected.set_selected(true) # <-- EL FIX
 		print("Selected 1: ", piece.grid_x, ",", piece.grid_y)
 		
 	elif first_selected == piece:
-		first_selected.modulate = Color.WHITE
-		first_selected = null
-		print("Deselected")
+		# --- THE FIX MOBILE ---
+		# Instead of turning off the circle and deselecting, we do NOTHING.
+		# This keeps the magic circle on so the player can
+		# initiate a smooth drag without visual flickering.
+		print("Tap on the same card. Waiting for drag...")
+		pass
 		
 	else:
 		second_selected = piece
 		print("Selected 2: ", piece.grid_x, ",", piece.grid_y)
 		
 		if _is_adjacent(first_selected, second_selected):
-			first_selected.modulate = Color.WHITE
+			first_selected.set_selected(false) 
 			swap_pieces(first_selected, second_selected)
+			first_selected = null
+			second_selected = null
 		else:
-			first_selected.modulate = Color.WHITE
+			first_selected.set_selected(false) 
 			first_selected = piece
-			first_selected.modulate = Color(1.2, 1.2, 1.2)
+			first_selected.set_selected(true) 
 			second_selected = null
 
-## Checks if two pieces are immediate neighbors (Horizontally or Vertically).
+## Checks if two pieces are immediate neighbors.
 func _is_adjacent(p1: Piece, p2: Piece) -> bool:
 	var diff_x = abs(p1.grid_x - p2.grid_x)
 	var diff_y = abs(p1.grid_y - p2.grid_y)
 	return (diff_x + diff_y) == 1
 
-## Core Mechanic: Swaps two pieces in Data and Visually.
-## If no match is found after the swap, it triggers 'swap_back'.
+## Core Mechanic: Swaps two pieces in data and visually.
+## Triggers match validation and consumes turn points.
 func swap_pieces(p1: Piece, p2: Piece):
 	is_processing = true 
+	
 	# 1. Swap Data
 	var temp_type = grid_data[p1.grid_x][p1.grid_y]
 	grid_data[p1.grid_x][p1.grid_y] = grid_data[p2.grid_x][p2.grid_y]
@@ -181,18 +187,15 @@ func swap_pieces(p1: Piece, p2: Piece):
 	
 	await tween.finished
 	
-	# --- FIX DE SEGURIDAD (AGREGA ESTO) ---
-	# Verificamos si las piezas siguen existiendo después de la espera.
+	# Security check: Ensure pieces exist after animation
 	if not is_instance_valid(p1) or not is_instance_valid(p2):
 		is_processing = false
 		return
-	# --------------------------------------
 	
 	# 4. Validate Move
 	var matches = find_matches()
 	
 	if matches.size() > 0:
-		# Filtramos para saber exactamente cuántas fichas únicas formaron el match inicial
 		var unique_matches = []
 		for coord in matches:
 			if not unique_matches.has(coord):
@@ -202,24 +205,22 @@ func swap_pieces(p1: Piece, p2: Piece):
 		
 		destroy_matches(matches)
 		
-		# --- LÓGICA DE TURNOS SEGÚN EL MATCH ---
+		# Turn logic based on match count
 		if match_count == 3:
 			current_moves -= 1
 			print("Match 3 - Consumed 1 move. Moves left: ", current_moves)
 		elif match_count == 4:
 			print("Match 4 - Free move! Moves left: ", current_moves)
-			_show_floating_text("FREE MOVE!", Color.AQUA) # Color celeste para el 4
+			_show_floating_text("FREE MOVE!", Color.AQUA)
 		elif match_count >= 5:
 			current_moves += 1
 			print("Match 5+ - Gained 1 move! Moves left: ", current_moves)
-			_show_floating_text("EXTRA TURN!", Color.GOLD) # Color dorado para el 5
+			_show_floating_text("EXTRA TURN!", Color.GOLD)
 		
-		SignalBus.moves_updated.emit(current_moves) ### NOTIFY UI ###
+		SignalBus.moves_updated.emit(current_moves)
 		
 		if current_moves <= 0:
 			print("WARNING: No more moves!")
-			# We will handle the turn switch to the enemy here later
-		# -----------------------
 	else:
 		swap_back(p1, p2)
 
@@ -244,13 +245,11 @@ func swap_back(p1: Piece, p2: Piece):
 	tween.tween_property(p2, "position", p1.position, 0.3).set_trans(Tween.TRANS_SINE)
 	
 	await tween.finished
-	
 	is_processing = false 
 
 ## Prints the grid ID layout to the debug console.
 func print_grid_to_console():
 	print("--- GENERATED MAP ---")
-	
 	for y in range(height):
 		var row_string = ""
 		for x in range(width):
@@ -288,63 +287,70 @@ func find_matches() -> Array:
 	return matches_found
 
 ## Handles the removal of matched pieces and triggers the Combat System.
-## 1. Emits 'match_found' signal for the CombatManager.
-## 2. Removes visual nodes and clears data.
-## 3. Calls 'refill_columns' to start the cascade.
-# En GridManager.gd
-
 func destroy_matches(matches: Array):
-	# 1. REMOVE DUPLICATES (MATH FIX)
 	var unique_matches = []
 	for coord in matches:
 		if not unique_matches.has(coord):
 			unique_matches.append(coord)
 	
-	# --- FIX: CLASIFICAR POR TIPOS (BATCHING) ---
-	# Creamos un diccionario para contar cuántas hay de cada tipo
-	# Ejemplo: { 0: 3, 3: 3 } -> 3 Rojas, 3 Bombas
+	# Batch matches by type to emit grouped signals
 	var matches_by_type = {}
-	
 	for coord in unique_matches:
 		var type_id = grid_data[coord.x][coord.y]
-		
-		# Si el tipo no está en el diccionario, lo inicializamos
 		if not matches_by_type.has(type_id):
 			matches_by_type[type_id] = 0
-			
-		# Sumamos 1 a ese tipo
 		matches_by_type[type_id] += 1
 	
-	# --- COMBAT HOOK (EMITIR POR GRUPOS) ---
-	# Ahora recorremos el diccionario y emitimos una señal POR CADA TIPO encontrado
 	for type_id in matches_by_type:
 		var count = matches_by_type[type_id]
 		SignalBus.match_found.emit(type_id, count)
 		print("Signal emitted: Type ", type_id, " - Real Amount: ", count)
-	# --------------------------------------------
 	
 	print("Destroying ", unique_matches.size(), " parts...")
 	
-	# Use the unique list for destruction
+	# --- VARIABLES PARA EL CENTROIDE (NUEVO) ---
+	var center_sums = {}
+	var piece_counts = {}
+	# ------------------------------------------
+	
 	for coord in unique_matches:
-		if grid_data[coord.x][coord.y] == null:
-			continue
-			
-		grid_data[coord.x][coord.y] = null 
+		var current_id = grid_data[int(coord.x)][int(coord.y)]
 		
-		var piece_to_delete = _get_piece_at(coord.x, coord.y)
+		if current_id == null:
+			continue
+		
+		# Limpiamos la data
+		grid_data[int(coord.x)][int(coord.y)] = null 
+		
+		var piece_to_delete = _get_piece_at(int(coord.x), int(coord.y))
 		if piece_to_delete:
+			# --- ACUMULAMOS POSICIONES PARA EL CENTROIDE (NUEVO) ---
+			var screen_pos = piece_to_delete.get_global_transform_with_canvas().origin
+			
+			if not center_sums.has(current_id):
+				center_sums[current_id] = Vector2.ZERO
+				piece_counts[current_id] = 0
+				
+			center_sums[current_id] += screen_pos
+			piece_counts[current_id] += 1
+			# -------------------------------------------------------
+			
+			# Animación de desaparición de la gema
 			var tween = create_tween()
 			tween.tween_property(piece_to_delete, "scale", Vector2.ZERO, 0.2)
-			tween.tween_callback(piece_to_delete.queue_free) 
+			tween.tween_callback(piece_to_delete.queue_free)
 	
+	for current_id in center_sums:
+		var average_pos = center_sums[current_id] / piece_counts[current_id]
+		
+		SignalBus.vfx_magic_dust_requested.emit(average_pos, int(current_id), is_enemy_turn)
+	# -----------------------------------------------------
+		
 	await get_tree().create_timer(0.3).timeout
-	
 	refill_columns() 
 	
 	await get_tree().create_timer(0.3).timeout 
 	print("Destruction complete.")
-	# Note: is_processing is also handled in refill_columns
 	is_processing = false
 
 ## Returns the Piece node at specific grid coordinates.
@@ -354,7 +360,6 @@ func _get_piece_at(target_x: int, target_y: int) -> Piece:
 			if child.grid_x == target_x and child.grid_y == target_y:
 				return child
 	return null
-
 
 ## Handles Gravity and Recursion.
 ## 1. Moves existing pieces down to fill empty slots (nulls).
@@ -377,10 +382,10 @@ func refill_columns():
 		var pieces_needed = height - column_pieces.size()
 		
 		for i in pieces_needed:
-			var type = randi() % 7
+			var type = _get_random_piece_type()
 			var new_piece = piece_scene.instantiate()
 			add_child(new_piece)
-			# --- CAMBIO EN EL SPAWN (Usamos offset_y para la altura de caída) ---
+			
 			var spawn_y_pixel = (y_offset * offset_y) - (offset_y * (pieces_needed - i)) - 50
 			var target_x_pixel = x * offset_x + 35
 			new_piece.position = Vector2(target_x_pixel, spawn_y_pixel)
@@ -392,14 +397,11 @@ func refill_columns():
 			
 		for y in height:
 			var piece = column_pieces[y]
-			
 			grid_data[x][y] = piece.type
-			
 			piece.grid_x = x
 			piece.grid_y = y
 			piece.name = "Piece_" + str(x) + "_" + str(y) 
 			
-			# Usamos offset_x para la horizontal y offset_y para la vertical
 			var target_pos = Vector2(x * offset_x + 35, y * offset_y + 35 + (y_offset * offset_y))
 			
 			if piece.position != target_pos:
@@ -414,85 +416,80 @@ func refill_columns():
 		print("Chain reaction! Destroying again...")
 		destroy_matches(new_matches)
 	else:
-		is_cascading = false # <--- 2. APAGAMOS LA BANDERA
+		# Anti-Deadlock implementation
+		if not is_move_possible():
+			_inject_guaranteed_move()
+		
+		is_cascading = false 
 		is_processing = false
 		
-		# --- CORRECTION: REALISTIC LOG ---
 		if current_moves > 0:
 			print("Board stable. Waiting for input...")
 		else:
 			print("Board stable AND No moves left -> ENDING TURN NOW.")
-			# NOTIFY THAT VISUAL PROCESSING IS COMPLETE
 			SignalBus.turn_ended.emit()
-	
-
 
 ## Handles swipe input for mobile/touch controls.
-## Includes security check for the Outlaw Ability (Locked Pieces).
 func _on_piece_swiped(source_piece: Piece, direction: Vector2):
-	if is_game_over: return 
-	if is_processing: return
-	if current_moves <= 0: return ### NEW: INPUT BLOCK ###
+	if is_game_over or is_enemy_turn or is_processing or is_out_of_lives: return
+	if current_moves <= 0: return 
 	
-	# --- SECURITY FIX (OUTLAW) ---
 	if source_piece.is_locked:
 		print("GridManager: Attempted to drag locked piece.")
 		return
-	# ---------------------------------
 	
 	var target_x = source_piece.grid_x + int(direction.x)
 	var target_y = source_piece.grid_y + int(direction.y)
 	
 	if target_x >= 0 and target_x < width and target_y >= 0 and target_y < height:
-		
 		var target_piece = _get_piece_at(target_x, target_y)
-		# --- FIX: Verificar si el DESTINO también está bloqueado ---
+		
 		if target_piece != null:
 			if target_piece.is_locked: 
 				print("Target is locked! Cannot swap.")
 				return
+			
+			source_piece.set_selected(false)
+			if first_selected:
+				first_selected.set_selected(false)
+			
+			first_selected = null
+			second_selected = null
+			
 			print("Swap by Drag detected: ", source_piece.name, " with ", target_piece.name)
 			swap_pieces(source_piece, target_piece)
 	else:
 		print("Attempt to move off the board")
 
 ## Handles the Game Over state.
-## Locks the input permanently to prevent further interaction.
 func _on_game_over(player_won: bool):
 	print("GridManager: Input Locked due to Game Over.")
 	is_game_over = true
 
 ## Handles the transition from the Player Phase to the Enemy Phase.
-## Locks the grid input so the player cannot interact while the enemy acts.
 func _on_player_ended():
 	print("GridManager: Player turn ended. Locking grid.")
 	is_enemy_turn = true
 
 ## Handles the transition from the Enemy Phase back to the Player Phase.
-## Unlocks the grid input and calls reset_turn() to restore action points.
 func _on_enemy_finished():
 	print("GridManager: Enemy finished. Unlocking grid.")
 	is_enemy_turn = false
-	reset_turn() # Call original reset
+	reset_turn()
 
-# --- SPECIAL ABILITY FUNCTIONS (PHASE 2) ---
+# --- SPECIAL ABILITY FUNCTIONS ---
 
 ## Collects (destroys) pieces of a specific type and returns count.
-## Used by "Cartographer" ability (Steals Scrolls).
 func collect_random_pieces(type_id: int, count: int) -> int:
 	var candidates = []
 	
-	# 1. Find all pieces of that type
 	for x in width:
 		for y in height:
-			# Ensure we don't pick nulls or locked pieces (future phase 4)
 			if grid_data[x][y] == type_id:
 				candidates.append(Vector2(x, y))
 	
-	# 2. Shuffle for randomness
 	candidates.shuffle()
 	
-	# 3. Select up to 'count'
 	var to_destroy = []
 	var collected = 0
 	
@@ -500,21 +497,18 @@ func collect_random_pieces(type_id: int, count: int) -> int:
 		to_destroy.append(candidates[i])
 		collected += 1
 		
-	# 4. Destroy using existing system
 	if to_destroy.size() > 0:
 		destroy_matches(to_destroy)
 		
 	return collected
 
 ## Converts random pieces (not of target type) into the target type.
-## Used by "Navigator" ability (Converts to Scrolls).
 func convert_random_pieces_to(target_type_id: int, count: int):
 	var candidates = []
 	
 	for x in width:
 		for y in height:
 			var current_type = grid_data[x][y]
-			# Only convert pieces that exist and are NOT already the desired type
 			if current_type != null and current_type != target_type_id:
 				candidates.append(Vector2(x, y))
 				
@@ -525,56 +519,214 @@ func convert_random_pieces_to(target_type_id: int, count: int):
 		var x = int(coord.x)
 		var y = int(coord.y)
 		
-		# 1. Change Logic
 		grid_data[x][y] = target_type_id
 		
-		# 2. Change Visuals
 		var piece_node = _get_piece_at(x, y)
 		if piece_node:
-			# Use setup function to refresh sprite/color
 			piece_node.setup(x, y, target_type_id)
 			
-			# Visual feedback (optional: small jump)
 			var tween = create_tween()
 			tween.tween_property(piece_node, "scale", Vector2(1.2, 1.2), 0.2)
 			tween.tween_property(piece_node, "scale", Vector2(1.0, 1.0), 0.2)
 	
 	print("GridManager: ", min(count, candidates.size()), " pieces converted to type ", target_type_id)
-	
-	# 3. Important: Check if new matches formed due to conversion
-	# (Optional: Uncomment if you want them to explode automatically)
-	# var new_matches = find_matches()
-	# if new_matches.size() > 0:
-	# 	destroy_matches(new_matches)
-	
 
-# --- FEEDBACK VISUAL PARA TURNOS EXTRA ---
+## Displays dynamic floating text feedback (e.g., Free Moves, Extra Turns).
 func _show_floating_text(message: String, text_color: Color):
 	var label = Label.new()
 	label.text = message
 	
-	# Estilo del texto
 	label.add_theme_font_size_override("font_size", 48)
 	label.add_theme_color_override("font_color", text_color)
 	label.add_theme_color_override("font_outline_color", Color.BLACK)
 	label.add_theme_constant_override("outline_size", 8)
 	
-	# Lo centramos matemáticamente con respecto a tu Grid
 	var board_center_x = (width * offset_x) / 2.0
 	var board_center_y = (height * offset_y) / 2.0
-	# Le restamos un poco a X para que quede bien en el medio
 	label.position = Vector2(board_center_x - 120, board_center_y - 100) 
-	label.z_index = 100 # Para que aparezca por encima de todas las gemas
+	label.z_index = 100 
 	
 	add_child(label)
 	
-	# Animación de flotar y desaparecer
 	var tween = create_tween()
 	tween.set_parallel(true)
-	# Sube 100 píxeles hacia arriba
 	tween.tween_property(label, "position:y", -100.0, 1.2).as_relative()
-	# Se vuelve transparente
 	tween.tween_property(label, "modulate:a", 0.0, 1.2).set_trans(Tween.TRANS_SINE)
 	
-	# Cuando termina la animación, borramos el nodo para no consumir memoria
 	tween.tween_callback(label.queue_free).set_delay(1.2)
+
+## Scans the board to verify if at least one valid move is possible.
+func is_move_possible() -> bool:
+	for y in height:
+		for x in width:
+			if x < width - 1:
+				if _simulate_swap_and_check(Vector2(x, y), Vector2(x + 1, y)):
+					return true
+			if y < height - 1:
+				if _simulate_swap_and_check(Vector2(x, y), Vector2(x, y + 1)):
+					return true
+					
+	return false
+
+## Simulates a data swap and checks if it results in a match.
+func _simulate_swap_and_check(pos1: Vector2, pos2: Vector2) -> bool:
+	var x1 = int(pos1.x)
+	var y1 = int(pos1.y)
+	var x2 = int(pos2.x)
+	var y2 = int(pos2.y)
+
+	var type1 = grid_data[x1][y1]
+	var type2 = grid_data[x2][y2]
+	if type1 == null or type2 == null: return false
+	
+	var p1 = _get_piece_at(x1, y1)
+	var p2 = _get_piece_at(x2, y2)
+	if (p1 and p1.is_locked) or (p2 and p2.is_locked): return false
+
+	grid_data[x1][y1] = type2
+	grid_data[x2][y2] = type1
+	
+	var has_match = find_matches().size() > 0
+	
+	grid_data[x1][y1] = type1
+	grid_data[x2][y2] = type2
+
+	return has_match
+
+## La Mano Invisible: Altera una pieza en silencio para evitar el Deadlock
+func _inject_guaranteed_move():
+	var types = [0, 1, 2, 3, 4, 5, 6]
+	var locked_pieces = [] # <-- Guardamos las piezas bloqueadas por si las necesitamos
+	
+	# INTENTO 1: Alteración Sutil (El plan original)
+	for y in range(height):
+		for x in range(width):
+			var original_type = grid_data[x][y]
+			if original_type == null: continue
+			
+			var piece = _get_piece_at(x, y)
+			
+			# Si la pieza está bloqueada, la guardamos para el Plan B y la saltamos
+			if piece and piece.is_locked:
+				locked_pieces.append(piece)
+				continue
+			
+			if piece == null: continue
+			
+			types.shuffle() 
+			
+			for t in types:
+				if t == original_type: continue
+				
+				# 1. Simulamos cambiar esta pieza
+				grid_data[x][y] = t
+				
+				# 2. Verificamos que NO explote sola
+				if find_matches().size() == 0:
+					# 3. Verificamos si soluciona el tablero
+					if is_move_possible():
+						piece.setup(x, y, t)
+						
+						
+						var original_scale = piece.sprite.scale 
+						
+						var tween = create_tween()
+						
+						tween.tween_property(piece.sprite, "scale", original_scale * 1.2, 0.15)
+						
+						tween.tween_property(piece.sprite, "scale", original_scale, 0.15)
+						# --------------
+						
+						print("Mano Invisible (Plan A): Pieza en ", x, ",", y, " alterada a tipo ", t)
+						return # Solucionado
+						
+				# Restauramos si no sirvió
+				grid_data[x][y] = original_type
+	
+	# --- INTENTO 2: EL PLAN B (Liberar espacio a la fuerza) ---
+	# Si llegamos acá, significa que la Mano Invisible no pudo arreglarlo cambiando colores
+	# porque hay demasiadas piezas bloqueadas estorbando.
+	
+	if locked_pieces.size() > 0:
+		print("CRÍTICO: Deadlock irresoluble. Ejecutando Plan B: Romper cadenas.")
+		
+		# Mezclamos las piezas bloqueadas para romper algunas al azar
+		locked_pieces.shuffle()
+		
+		# Rompemos hasta 3 cadenas para abrir espacio (o menos si hay menos)
+		var chains_to_break = min(3, locked_pieces.size())
+		
+		for i in range(chains_to_break):
+			var p = locked_pieces[i]
+			p.set_locked(false)
+			
+			# Efecto visual para que el jugador vea que se rompieron las cadenas
+			var tween = create_tween()
+			tween.tween_property(p, "scale", Vector2(1.2, 1.2), 0.2).set_trans(Tween.TRANS_BOUNCE)
+			tween.tween_property(p, "scale", Vector2(1.0, 1.0), 0.2)
+			
+		# Una vez que liberamos espacio, volvemos a llamar a la función para que 
+		# el Plan A pueda encontrar una solución ahora que hay más libertad.
+		_inject_guaranteed_move()
+
+## AI SCANNER: Searches for and returns the first valid move it finds on the grid.
+## Returns an array with the two Vector2 positions to swap, or empty if there is a deadlock.
+func get_ai_valid_move() -> Array:
+	var possible_moves = []
+	
+	for y in height:
+		for x in width:
+			if x < width - 1:
+				if _simulate_swap_and_check(Vector2(x, y), Vector2(x + 1, y)):
+					possible_moves.append([Vector2(x, y), Vector2(x + 1, y)])
+			
+			
+			if y < height - 1:
+				if _simulate_swap_and_check(Vector2(x, y), Vector2(x, y + 1)):
+					possible_moves.append([Vector2(x, y), Vector2(x, y + 1)])
+					
+	if possible_moves.size() > 0:
+		
+		possible_moves.shuffle()
+		return possible_moves[0]
+		
+	return [] 
+
+## AI HAND: Physically executes the movement on the board simulating a human.
+func execute_ai_move(pos1: Vector2, pos2: Vector2):
+	is_processing = true 
+	
+	var p1 = _get_piece_at(int(pos1.x), int(pos1.y))
+	var p2 = _get_piece_at(int(pos2.x), int(pos2.y))
+	
+	if p1 and p2:
+		
+		p1.modulate = Color(1.2, 1.2, 1.2)
+		p1.scale = Vector2(1.1, 1.1)
+		print("IA: Seleccionó la pieza en ", pos1)
+		
+		await get_tree().create_timer(0.6).timeout
+		
+		
+		p1.modulate = Color.WHITE
+		p1.scale = Vector2(1.0, 1.0)
+		print("IA: Intercambiando con ", pos2)
+		
+		swap_pieces(p1, p2)
+	else:
+		is_processing = false 
+
+## Generates a piece type based on probabilities (Weight System).
+## High probability (3/17): Gems (0, 1, 2), Bombs (3), Steering Wheels (4).
+# Low probability (1/17): Gold (5), XP (6).
+func _get_random_piece_type() -> int:
+	var spawn_pool = [
+		0, 0, 0, # Red 
+		1, 1, 1, # Blue 
+		2, 2, 2, # Green 
+		3, 3, 3, # Bomb 
+		4, 4, 4, # Helm 
+		5,       # Gold 
+		6        # XP 
+	]
+	return spawn_pool[randi() % spawn_pool.size()]

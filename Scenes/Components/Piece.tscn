@@ -1,10 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn28ypx8uv4ug"]
+[gd_scene load_steps=11 format=3 uid="uid://bn28ypx8uv4ug"]
 
 [ext_resource type="Script" uid="uid://ncwgikm5blgy" path="res://Scripts/Grid/Piece.gd" id="1_p63ev"]
 [ext_resource type="Texture2D" uid="uid://m2qvkjhk3rj3" path="res://icon.svg" id="1_xvafx"]
+[ext_resource type="Texture2D" uid="uid://o1iylg2ayywc" path="res://Assets/Final/UI/frame_icons_push/frame_icons_push_1.webp" id="3_o65qu"]
+[ext_resource type="Texture2D" uid="uid://cvenrljwy26a6" path="res://Assets/Final/UI/frame_icons_push/frame_icons_push_2.webp" id="4_b4bxk"]
+[ext_resource type="Texture2D" uid="uid://cpsenbepme2tv" path="res://Assets/Final/UI/frame_icons_push/frame_icons_push_3.webp" id="5_2rp3p"]
+[ext_resource type="Texture2D" uid="uid://bhptg5bshhyec" path="res://Assets/Final/UI/frame_icons_push/frame_icons_push_4.webp" id="6_nom4g"]
+[ext_resource type="Texture2D" uid="uid://dpvfd3tecjls5" path="res://Assets/Final/UI/frame_icons_push/frame_icons_push_5.webp" id="7_enkcj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p63ev"]
 size = Vector2(64, 64)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o65qu"]
+blend_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xy8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_o65qu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b4bxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2rp3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nom4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_enkcj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="Piece" type="Node2D"]
 script = ExtResource("1_p63ev")
@@ -17,5 +48,13 @@ texture = ExtResource("1_xvafx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_p63ev")
+
+[node name="SelectionVFX" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_o65qu")
+position = Vector2(-1, 1)
+scale = Vector2(0.24, 0.24)
+sprite_frames = SubResource("SpriteFrames_4xy8y")
+frame = 4
+frame_progress = 1.0
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
